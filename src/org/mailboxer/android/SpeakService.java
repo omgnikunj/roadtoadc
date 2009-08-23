@@ -1,43 +1,34 @@
 package org.mailboxer.android;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.net.Uri;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Contacts.People;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
-import com.google.tts.ConfigurationManager;
 import com.google.tts.TTS;
 
 public class SpeakService extends Service {
+	private String caller;
+
+	private boolean repeat;
+	private int repeatSeconds;
+
 	private TTS.InitListener ttsInitListener = new TTS.InitListener() {
 
 		public void onInit(int arg0) {}
 	};
 	private TTS talker;
 
-	private boolean repeat;
-	private int repeatSeconds;
-
-	private String caller;
-
-	private final String PATH = "/sdcard/.saymyname";
-	private final String FILE = "repeatPref.txt";
-
 	private TelephonyManager telephonyManager;
+	private AudioManager audio;
+	private SharedPreferences preferences;
 
 	private SpeakThread thread = new SpeakThread();
 
@@ -49,61 +40,16 @@ public class SpeakService extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
+		// read preferences
+		readPreferences();
+
+
 		// Test-Speak?
 		Bundle extras = intent.getExtras();
 
 		if(extras != null) {
+			adjustSpeakVolume();
 			doSpeak(extras.getString("say"));
-		}
-
-		// first start
-		File datei = new File(PATH + "/" + FILE);
-		if(!datei.exists()) {
-			try {
-				new File(PATH).mkdirs();
-				datei.createNewFile();
-
-				FileWriter writer = null;
-				BufferedWriter buffWriter = null;
-
-				try {
-					writer = new FileWriter(PATH + "/" + FILE);
-					buffWriter = new BufferedWriter(writer);
-
-					buffWriter.write("0");
-
-					buffWriter.close();
-					writer.close();
-				} catch (IOException e) {}
-
-				repeatSeconds = 0;
-				repeat = false;
-			} catch (IOException e) {}
-		}
-
-		// normal start
-		FileReader reader = null;
-		BufferedReader buffReader = null;
-
-		try {
-			reader = new FileReader(PATH + "/" + FILE);
-			buffReader = new BufferedReader(reader);
-
-			String s = buffReader.readLine();
-
-			repeatSeconds = Integer.parseInt(s);
-
-			if(repeatSeconds > 0) {
-				repeat = true;
-			}
-		} catch (IOException e) {
-		} finally {
-			try {
-				reader.close();
-			} catch (IOException e) {}
-			try {
-				buffReader.close();
-			} catch (IOException e) {}
 		}
 
 		super.onStart(intent, startId);
@@ -111,20 +57,16 @@ public class SpeakService extends Service {
 
 	@Override
 	public void onCreate() {
-		if(isInstalled(this)) {
-			startService(new Intent(this, SpeakService.class));
-		} else {
-			if(checkTtsRequirements()) {
-				startService(new Intent(this, SpeakService.class));
-			} else {
-				// EPIC FAIL!
-			}
-		}
+		preferences = getSharedPreferences("saymyname", MODE_WORLD_WRITEABLE);
 
+
+		// listen for phoneState change
 		PhoneStateListener phoneListener = new PhoneStateListener() {
 
 			@Override
 			public void onCallStateChanged(int state, String incomingNumber) {
+				readPreferences();
+
 				if(state == TelephonyManager.CALL_STATE_RINGING) {
 					startSpeaking(getCallerID(incomingNumber));
 				}
@@ -141,6 +83,21 @@ public class SpeakService extends Service {
 		super.onCreate();
 	}
 
+
+	private void readPreferences() {
+		if(preferences.getString("repeatSeconds", null) != null) {
+			repeatSeconds = Integer.parseInt(preferences.getString("repeatSeconds", null));
+
+			if(repeatSeconds > 0) {
+				repeat = true;
+			} else {
+				repeat = false;
+			}
+		}
+	}
+
+
+	// from:
 	// http://www.kluit.com/blog/index.php?/archives/10-Android-Example-A-contact-list-+-using-the-Phone.html
 	// http://androidcommunity.com/forums/f3/cant-retrieve-the-data-from-contacts-7230/
 	private String getCallerID(String incomingNumber) {
@@ -166,13 +123,19 @@ public class SpeakService extends Service {
 		return result;
 	}
 
+
 	private void startSpeaking(String caller) {
 		this.caller = caller;
 
+		adjustSpeakVolume();
+
+		// should i repeat the caller?
 		if(repeat) {
+			// yes
 			thread.run();
 		} else {
-			doSpeak(this.caller);
+			// no - speak only once
+			thread.run();
 		}
 	}
 
@@ -181,53 +144,29 @@ public class SpeakService extends Service {
 	}
 
 
-	public static boolean isInstalled(Context ctx){
-		try {
-			ctx.createPackageContext("com.google.tts", 0);
-		} catch (NameNotFoundException e) {
-			return false;
+	private void adjustSpeakVolume() {
+		audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+		int speakVolume = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
+
+		// turn volume up (to maximum - 2)
+		for(int i = audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC); i > speakVolume++; i--) {
+			audio.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_RAISE, 0);
 		}
-		return true;
 	}
 
-	private boolean checkTtsRequirements() {
-		if (!isInstalled(this)) {
-			Uri marketUri = Uri.parse("market://search?q=pname:com.google.tts");
-			Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
-			startActivity(marketIntent);
-			return false;
-		}
 
-		if (!ConfigurationManager.allFilesExist()) {
-			int flags = Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY;
-			Context myContext;
-
-			try {
-				myContext = createPackageContext("com.google.tts", flags);
-				Class<?> appClass = myContext.getClassLoader().loadClass("com.google.tts.ConfigurationManager");
-				Intent intent = new Intent(myContext, appClass);
-				startActivity(intent);
-			} catch (NameNotFoundException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			return false;
-		}
-		return true;
-	}
-
-	class SpeakThread extends Thread {
+	private class SpeakThread extends Thread {
 
 		@Override
 		public void run() {
+			// start speaking
 			do {
-				doSpeak(caller);		
+				doSpeak(caller);
 
 				try {
 					sleep(repeatSeconds * 1000);
 				} catch (InterruptedException e) {}
-			} while(telephonyManager.getCallState() == TelephonyManager.CALL_STATE_RINGING);
+			} while(telephonyManager.getCallState() == TelephonyManager.CALL_STATE_RINGING && repeat);
 		}
 	}
 }
