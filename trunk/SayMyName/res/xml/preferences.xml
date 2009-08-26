@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Internal tweaks"
+		android:key="internal">
+		<PreferenceScreen android:key="test"
+			android:summary="Check if everything is ok" android:title="Test SayMyName"
+			android:order="1" />
+		<EditTextPreference android:title="Repeat caller"
+			android:dialogTitle="Repeat caller" android:defaultValue="0"
+			android:key="repeatSeconds" android:dialogMessage="Set how often the caller should be repeated"
+			android:summary="Set repeating the name" android:order="2"
+			android:persistent="true" android:numeric="integer" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="External tweaks">
+		<PreferenceScreen android:key="tts"
+			android:summary="Change language and speechrate" android:title="TTS Preferences" />
+		<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+			android:key="ringdroid" android:summary="Ringtone starts too fast? Edit it!"
+			android:title="Ringdroid" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="About">
+		<PreferenceScreen android:key="blog" android:summary="More information"
+			android:title="Blog" />
+		<PreferenceScreen android:key="problem"
+			android:summary="Send me a mail :)" android:title="Having problems?" />
+	</PreferenceCategory>
+</PreferenceScreen>
