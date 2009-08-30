@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.AudioManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Contacts;
 import android.provider.Contacts.People;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
@@ -19,6 +21,9 @@ public class SpeakService extends Service {
 
 	private boolean repeat;
 	private int repeatSeconds;
+
+	private boolean speakSilent;
+	private int wantedVolume;
 
 	private TTS.InitListener ttsInitListener = new TTS.InitListener() {
 
@@ -59,7 +64,6 @@ public class SpeakService extends Service {
 	public void onCreate() {
 		preferences = getSharedPreferences("saymyname", MODE_WORLD_WRITEABLE);
 
-
 		// listen for phoneState change
 		PhoneStateListener phoneListener = new PhoneStateListener() {
 
@@ -68,7 +72,12 @@ public class SpeakService extends Service {
 				readPreferences();
 
 				if(state == TelephonyManager.CALL_STATE_RINGING) {
-					startSpeaking(getCallerID(incomingNumber));
+					String callerID = getCallerID(incomingNumber);
+					if(callerID != null) {
+						startSpeaking(callerID);
+					} else {
+						startSpeaking("Unknown");
+					}
 				}
 
 				super.onCallStateChanged(state, incomingNumber);
@@ -78,13 +87,22 @@ public class SpeakService extends Service {
 		telephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
 		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
 
-		talker = new TTS(this, ttsInitListener, true);
+		talker = new TTS(this, ttsInitListener, false);
 
 		super.onCreate();
 	}
 
 
 	private void readPreferences() {
+		// very confusing :P
+		if(preferences.getBoolean("silent", false)) {
+			speakSilent = false;
+		} else {
+			speakSilent = true;
+		}
+
+		wantedVolume = Integer.parseInt(preferences.getString("volume", "12"));
+
 		if(preferences.getString("repeatSeconds", null) != null) {
 			repeatSeconds = Integer.parseInt(preferences.getString("repeatSeconds", null));
 
@@ -97,30 +115,22 @@ public class SpeakService extends Service {
 	}
 
 
-	// from:
-	// http://www.kluit.com/blog/index.php?/archives/10-Android-Example-A-contact-list-+-using-the-Phone.html
-	// http://androidcommunity.com/forums/f3/cant-retrieve-the-data-from-contacts-7230/
 	private String getCallerID(String incomingNumber) {
 		String[] projection = new String[] {
 				People.NAME,
 				People.NUMBER,
 		};
 
-		Cursor c = getContentResolver().query(People.CONTENT_URI, projection, null, null, null);
+		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
+		Cursor cur = getContentResolver().query(contactUri, projection, null, null, null);
 
-		String result = null;
-
-		if (c.moveToFirst()) {
+		if (cur.moveToFirst()) {
 			do {
-				if(c.getString(1) != null) {
-					if(c.getString(1).equals(incomingNumber)) {
-						result = c.getString(0);
-					}
-				}
-			} while (c.moveToNext());
+				return cur.getString(0);
+			} while (cur.moveToNext());
 		}
 
-		return result;
+		return null;
 	}
 
 
@@ -147,13 +157,34 @@ public class SpeakService extends Service {
 	private void adjustSpeakVolume() {
 		audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 		int speakVolume = audio.getStreamVolume(AudioManager.STREAM_MUSIC);
+		int currentVolume = audio.getStreamVolume(AudioManager.STREAM_RING);
 
-		// turn volume up (to maximum - 2)
-		for(int i = audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC); i > speakVolume++; i--) {
-			audio.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_RAISE, 0);
+		// silent?
+		if(currentVolume == 0 && speakSilent == false) {
+			for(int i = speakVolume; i > currentVolume; i--) {
+				audio.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_LOWER, 0);
+			}
+		} else {
+			if(wantedVolume > speakVolume) {
+				for(int i = speakVolume; i < wantedVolume; i++) {
+					audio.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_RAISE, 0);
+				}
+			} else {
+				for(int i = speakVolume; i > wantedVolume; i--) {
+					audio.adjustStreamVolume(AudioManager.STREAM_MUSIC, AudioManager.ADJUST_LOWER, 0);
+				}				
+			}
 		}
 	}
 
+
+	@Override
+	public void onDestroy() {
+		talker.shutdown();
+		thread.stop();
+
+		super.onDestroy();
+	}
 
 	private class SpeakThread extends Thread {
 

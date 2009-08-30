@@ -1,7 +1,5 @@
 package org.mailboxer.saymyname;
 
-import org.mailboxer.saymyname.R;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -35,7 +33,6 @@ public class SayMyName extends PreferenceActivity {
 		onActivityResult(ttsCheckReqCode, 0, null);
 		startService(new Intent(SayMyName.this, SpeakService.class));
 
-
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
 
@@ -50,7 +47,7 @@ public class SayMyName extends PreferenceActivity {
 				speakIntent.putExtra("say", "I hope you enjoy my app");
 				startService(speakIntent);
 
-				Toast.makeText(SayMyName.this, "Didn´t hear? Press again and make sure phone isn´t silent.", Toast.LENGTH_LONG).show();
+				Toast.makeText(SayMyName.this, "Didn´t hear? Make sure phone isn´t silent and press again.", Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -96,6 +93,18 @@ public class SayMyName extends PreferenceActivity {
 
 					Toast.makeText(SayMyName.this, "Ringdroid allows you to edit your ringtone and other music-files.", Toast.LENGTH_LONG).show();
 				}
+
+				return false;
+			}
+		});
+
+		Preference prefTrouble = screen.findPreference("trouble");
+		prefTrouble.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+
+			public boolean onPreferenceClick(Preference preference) {
+				// view troubleshooting-page
+				Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/roadtoadc/wiki/Troubleshooting"));
+				startActivity(sendIntent);
 
 				return false;
 			}

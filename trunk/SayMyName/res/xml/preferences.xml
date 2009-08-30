@@ -4,15 +4,22 @@
 	<PreferenceCategory android:title="Internal tweaks"
 		android:key="internal">
 		<PreferenceScreen android:key="test"
-			android:summary="Check if everything is ok" android:title="Test SayMyName"
-			android:order="1" />
+			android:summary="Check if everything is ok" android:title="Test SayMyName" />
 		<EditTextPreference android:title="Repeat caller"
-			android:dialogTitle="Repeat caller" android:defaultValue="0"
-			android:key="repeatSeconds" android:dialogMessage="Set how often the caller should be repeated"
-			android:summary="Set repeating the name" android:order="2"
-			android:persistent="true" android:numeric="integer" />
+			android:dialogTitle="Repeat caller" android:key="repeatSeconds"
+			android:dialogMessage="Set how often the caller should be repeated"
+			android:summary="Set repeating the name" android:persistent="true"
+			android:numeric="integer" android:defaultValue="3" />
 	</PreferenceCategory>
 
+	<PreferenceCategory android:title="Volume Settings">
+		<CheckBoxPreference android:key="silent"
+			android:title="Respect silent" android:summary="Speak when phone is silent?"
+			android:order="1" android:defaultValue="false" />
+		<org.mailboxer.saymyname.SeekBarPreference
+			android:key="volume" android:title="Speakvolume" android:summary="Set speakvolume"
+			android:order="2" />
+	</PreferenceCategory>
 	<PreferenceCategory android:title="External tweaks">
 		<PreferenceScreen android:key="tts"
 			android:summary="Change language and speechrate" android:title="TTS Preferences" />
@@ -22,9 +29,12 @@
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="About">
-		<PreferenceScreen android:key="blog" android:summary="More information"
-			android:title="Blog" />
+		<PreferenceScreen android:key="trouble"
+			android:summary="Howto fix some problems" android:title="Troubleshooting" />
 		<PreferenceScreen android:key="problem"
 			android:summary="Send me a mail :)" android:title="Having problems?" />
+		<PreferenceScreen android:key="blog" android:summary="More information"
+			android:title="Blog" />
 	</PreferenceCategory>
+
 </PreferenceScreen>

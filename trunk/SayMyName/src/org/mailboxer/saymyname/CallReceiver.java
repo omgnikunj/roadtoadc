@@ -15,17 +15,12 @@ public class CallReceiver extends BroadcastReceiver {
 		this.context = context;
 		boolean installed;
 
-
 		try {
 			context.createPackageContext("com.google.tts", 0);
 
 			installed = true;
 		} catch (NameNotFoundException e) {
-			Intent startIntent = new Intent(context, SayMyName.class);
-			startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			context.startActivity(startIntent);
-
-			Toast.makeText(context, "You have to install TTS (Text-to-Speech-Library) to use this app.", Toast.LENGTH_LONG).show();
+			Toast.makeText(context, "Please start SayMyName!", Toast.LENGTH_SHORT).show();
 
 			installed = false;
 		}
