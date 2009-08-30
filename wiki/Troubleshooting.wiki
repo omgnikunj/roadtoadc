@@ -1,0 +1,15 @@
+#summary Troubleshooting
+#labels Featured
+
+= Introduction =
+
+How to fix some of your problems.
+
+
+= Details =
+
+Some people experience problems with SayMyName. Here i will try to help you fix this problems.
+
+Most problems are a not working [http://code.google.com/p/eyes-free/ TTS]. So maybe this will help you: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
+
+I hope you enjoy SayMyName!
