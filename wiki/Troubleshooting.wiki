@@ -8,8 +8,11 @@ How to fix some of your problems.
 
 = Details =
 
-Some people experience problems with SayMyName. Here i will try to help you fix this problems.
+Most problems are because of not working [http://code.google.com/p/eyes-free/ TTS].
+Before doing a lot of work trying to fix that, start TTS Preferences (linked in my app) and see if there is something like "wait while downloading voice-data".
+If you installed [http://code.google.com/p/eyes-free/ TTS] first time, it downloads voice data (only 2MB).
+Then try my app again (using the test in SayMyName).
 
-Most problems are a not working [http://code.google.com/p/eyes-free/ TTS]. So maybe this will help you: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
+If these steps didn´t help you, contact me or read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
 I hope you enjoy SayMyName!
