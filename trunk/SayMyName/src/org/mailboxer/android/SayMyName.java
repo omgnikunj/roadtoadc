@@ -1,4 +1,6 @@
-package org.mailboxer.saymyname;
+package org.mailboxer.android;
+
+import org.mailboxer.android.R;
 
 import android.app.Activity;
 import android.content.ComponentName;

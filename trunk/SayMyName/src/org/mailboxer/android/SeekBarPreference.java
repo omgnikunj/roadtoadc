@@ -1,4 +1,4 @@
-package org.mailboxer.saymyname;
+package org.mailboxer.android;
 
 import android.app.AlertDialog.Builder;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package org.mailboxer.saymyname;
+package org.mailboxer.android;
 
 import android.app.Service;
 import android.content.Context;

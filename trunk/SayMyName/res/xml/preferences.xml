@@ -16,7 +16,7 @@
 		<CheckBoxPreference android:key="silent"
 			android:title="Respect silent" android:summary="Speak when phone is silent?"
 			android:order="1" android:defaultValue="false" />
-		<org.mailboxer.saymyname.SeekBarPreference
+		<org.mailboxer.android.SeekBarPreference
 			android:key="volume" android:title="Speakvolume" android:summary="Set speakvolume"
 			android:order="2" />
 	</PreferenceCategory>
