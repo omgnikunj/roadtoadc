@@ -11,11 +11,9 @@ Four points to fix your problems.
 Most problems are because of not working [http://code.google.com/p/eyes-free/ TTS].
 
 
- * Before doing a lot of work trying to fix that, start TTS Preferences (linked in my app) and see if there is something like "wait while downloading voice-data". If you installed [http://code.google.com/p/eyes-free/ TTS] first time, it downloads voice data (only 2MB).
+ * If you installed [http://code.google.com/p/eyes-free/ TTS] first time, there will be maybe some problems. Wait a few minutes and then try the test in my app. If it doesn´t work, please try it again after a reboot.
 
- * Maybe you used another app using TTS. In version 2.0 of SayMyName, there is a bug. You have to restart SayMyName completely (e.g. with rebooting your phone or killing SayMyName using a task-manager (only for advanced-users!)). This will be fixed in the next update.
-
- * TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
+ * Test doesn´t work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
  * If point 3 is too long for you, please contact me and describe your problem!
 
