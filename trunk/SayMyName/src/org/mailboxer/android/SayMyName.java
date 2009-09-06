@@ -1,7 +1,5 @@
 package org.mailboxer.android;
 
-import org.mailboxer.android.R;
-
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -18,7 +16,6 @@ import android.preference.Preference.OnPreferenceClickListener;
 import android.widget.Toast;
 
 import com.google.tts.ConfigurationManager;
-import com.google.tts.TTS;
 
 public class SayMyName extends PreferenceActivity {
 	public static Activity activity;
@@ -33,16 +30,14 @@ public class SayMyName extends PreferenceActivity {
 
 		// check for TTS installed and start
 		onActivityResult(ttsCheckReqCode, 0, null);
-		startService(new Intent(SayMyName.this, SpeakService.class));
+
 
 		setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
 
 		PreferenceScreen screen = getPreferenceScreen();
 
-		Preference prefTest = screen.findPreference("test");
-		prefTest.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("test").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// start test-speak
 				Intent speakIntent = new Intent(SayMyName.this, SpeakService.class);
@@ -55,9 +50,7 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		Preference prefTTS = screen.findPreference("tts");
-		prefTTS.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("tts").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// start TTS-preferences
 				Intent intentTTS = new Intent();
@@ -66,8 +59,7 @@ public class SayMyName extends PreferenceActivity {
 				try {
 					startActivity(intentTTS);
 				} catch(Exception e) {
-					Intent intentMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=library pub:\"Charles Chen\""));
-					startActivity(intentMarket);
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=library pub:\"Charles Chen\"")));
 
 					Toast.makeText(SayMyName.this, "You have to install TTS (Text-to-Speech-Library) to use this app.", Toast.LENGTH_LONG).show();
 				}
@@ -76,9 +68,7 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		Preference prefRingdroid = screen.findPreference("ringdroid");
-		prefRingdroid.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("ringdroid").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// start Ringdroid
 				Intent intentRingdroid = new Intent("android.intent.action.GET_CONTENT");
@@ -90,8 +80,7 @@ public class SayMyName extends PreferenceActivity {
 
 					startActivity(intentRingdroid);
 				} catch (NameNotFoundException e) {
-					Intent intentMarket = new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=Ringdroid pub:\"Ringdroid Team\""));
-					startActivity(intentMarket);
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=Ringdroid pub:\"Ringdroid Team\"")));
 
 					Toast.makeText(SayMyName.this, "Ringdroid allows you to edit your ringtone and other music-files.", Toast.LENGTH_LONG).show();
 				}
@@ -100,21 +89,16 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		Preference prefTrouble = screen.findPreference("trouble");
-		prefTrouble.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("trouble").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// view troubleshooting-page
-				Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/roadtoadc/wiki/Troubleshooting"));
-				startActivity(sendIntent);
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/roadtoadc/wiki/Troubleshooting")));
 
 				return false;
 			}
 		});
 
-		Preference prefHelp = screen.findPreference("problem");
-		prefHelp.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("problem").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// send mail
 				Intent sendIntent = new Intent(Intent.ACTION_SEND);
@@ -129,17 +113,35 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		Preference prefBlog = screen.findPreference("blog");
-		prefBlog.setOnPreferenceClickListener(new OnPreferenceClickListener() {
-
+		screen.findPreference("blog").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// view blog
-				Intent sendIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://roadtoadc.blogspot.com/"));
-				startActivity(sendIntent);
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://roadtoadc.blogspot.com/")));
 
 				return false;
 			}
 		});
+	}
+
+	@Override
+	public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		startService(new Intent(this, SpeakService.class));
+
+		return super.onPreferenceTreeClick(preferenceScreen, preference);
+	}
+
+	@Override
+	protected void onStop() {
+		startService(new Intent(this, SpeakService.class));
+
+		super.onStop();
+	}
+
+	@Override
+	protected void onDestroy() {
+		startService(new Intent(this, SpeakService.class));
+
+		super.onDestroy();
 	}
 
 
@@ -159,8 +161,17 @@ public class SayMyName extends PreferenceActivity {
 		}
 	}
 
+	public static boolean isInstalled(Context ctx){
+		try {
+			ctx.createPackageContext("com.google.tts", 0);
+		} catch (NameNotFoundException e) {
+			return false;
+		}
+		return true;
+	} 
+
 	private boolean checkTtsRequirements(Activity activity, int resultCode) {
-		if (!TTS.isInstalled(activity)) {
+		if (!isInstalled(activity)) {
 			Uri marketUri = Uri.parse("market://search?q=pname:com.google.tts");
 			Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
 			activity.startActivityForResult(marketIntent, resultCode);
@@ -169,21 +180,19 @@ public class SayMyName extends PreferenceActivity {
 
 			return false;
 		}
+
 		if (!ConfigurationManager.allFilesExist()) {
-			int flags = Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY;
-			Context myContext;
 			try {
-				myContext = activity.createPackageContext("com.google.tts", flags);
+				Context myContext = activity.createPackageContext("com.google.tts", Context.CONTEXT_INCLUDE_CODE | Context.CONTEXT_IGNORE_SECURITY);
 				Class<?> appClass = myContext.getClassLoader().loadClass("com.google.tts.ConfigurationManager");
-				Intent intent = new Intent(myContext, appClass);
-				activity.startActivityForResult(intent, resultCode);
+
+				activity.startActivityForResult(new Intent(myContext, appClass), resultCode);
 			} catch (NameNotFoundException e) {
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			} catch (ClassNotFoundException e) {}
+
 			return false;
 		}
+
 		return true;
 	}
 }

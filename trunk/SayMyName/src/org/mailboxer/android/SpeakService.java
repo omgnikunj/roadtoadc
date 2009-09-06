@@ -1,8 +1,10 @@
 package org.mailboxer.android;
 
 import android.app.Service;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.AudioManager;
@@ -26,16 +28,23 @@ public class SpeakService extends Service {
 	private int wantedVolume;
 
 	private TTS.InitListener ttsInitListener = new TTS.InitListener() {
-
 		public void onInit(int arg0) {}
 	};
 	private TTS talker;
+
+	private ServiceConnection connection = new ServiceConnection() {
+		public void onServiceConnected(ComponentName name, IBinder service) {}
+
+		public void onServiceDisconnected(ComponentName name) {
+			startTTS();
+		}
+	};
 
 	private TelephonyManager telephonyManager;
 	private AudioManager audio;
 	private SharedPreferences preferences;
 
-	private SpeakThread thread = new SpeakThread();
+	private SpeakThread thread;
 
 
 	@Override
@@ -45,7 +54,6 @@ public class SpeakService extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
-		// read preferences
 		readPreferences();
 
 
@@ -53,9 +61,13 @@ public class SpeakService extends Service {
 		Bundle extras = intent.getExtras();
 
 		if(extras != null) {
-			adjustSpeakVolume();
-			doSpeak(extras.getString("say"));
+			if(extras.getString("say") != null) {
+				adjustSpeakVolume();
+
+				doSpeak(extras.getString("say"));
+			}
 		}
+
 
 		super.onStart(intent, startId);
 	}
@@ -64,34 +76,54 @@ public class SpeakService extends Service {
 	public void onCreate() {
 		preferences = getSharedPreferences("saymyname", MODE_WORLD_WRITEABLE);
 
+		readPreferences();
+
+
 		// listen for phoneState change
 		PhoneStateListener phoneListener = new PhoneStateListener() {
 
 			@Override
 			public void onCallStateChanged(int state, String incomingNumber) {
-				readPreferences();
-
 				if(state == TelephonyManager.CALL_STATE_RINGING) {
+					adjustSpeakVolume();
+
 					String callerID = getCallerID(incomingNumber);
 					if(callerID != null) {
-						startSpeaking(callerID);
+						caller = callerID;
+						thread.run();
 					} else {
-						startSpeaking("Unknown");
+						caller = "Unknown";
+						thread.run();
 					}
+				} else {
+					thread.stop();
+					caller = null;
 				}
 
 				super.onCallStateChanged(state, incomingNumber);
 			}
 		};
 
-		telephonyManager = (TelephonyManager)getSystemService(TELEPHONY_SERVICE);
+		telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
 
-		talker = new TTS(this, ttsInitListener, false);
+
+		thread = new SpeakThread();
+
+		startTTS();
+
 
 		super.onCreate();
 	}
 
+	private void startTTS() {
+		talker = new TTS(SpeakService.this, ttsInitListener, false);
+
+		Intent serviceIntent = new Intent("android.intent.action.USE_TTS");
+		serviceIntent.addCategory("android.intent.category.TTS");
+
+		bindService(serviceIntent, connection, BIND_AUTO_CREATE);
+	}
 
 	private void readPreferences() {
 		// very confusing :P
@@ -116,13 +148,8 @@ public class SpeakService extends Service {
 
 
 	private String getCallerID(String incomingNumber) {
-		String[] projection = new String[] {
-				People.NAME,
-				People.NUMBER,
-		};
-
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
-		Cursor cur = getContentResolver().query(contactUri, projection, null, null, null);
+		Cursor cur = getContentResolver().query(contactUri, new String[] {People.NAME, People.NUMBER}, null, null, null);
 
 		if (cur.moveToFirst()) {
 			do {
@@ -133,21 +160,6 @@ public class SpeakService extends Service {
 		return null;
 	}
 
-
-	private void startSpeaking(String caller) {
-		this.caller = caller;
-
-		adjustSpeakVolume();
-
-		// should i repeat the caller?
-		if(repeat) {
-			// yes
-			thread.run();
-		} else {
-			// no - speak only once
-			thread.run();
-		}
-	}
 
 	private void doSpeak(String text) {
 		talker.speak(text, 0, null);
@@ -177,17 +189,15 @@ public class SpeakService extends Service {
 		}
 	}
 
-
 	@Override
 	public void onDestroy() {
-		talker.shutdown();
 		thread.stop();
+		unbindService(connection);
 
 		super.onDestroy();
 	}
 
 	private class SpeakThread extends Thread {
-
 		@Override
 		public void run() {
 			// start speaking
