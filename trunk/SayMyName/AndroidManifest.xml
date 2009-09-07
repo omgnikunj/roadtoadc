@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionCode="7" android:versionName="2.1" package="org.mailboxer.android">
+	android:versionCode="8" android:versionName="2.2" package="org.mailboxer.android">
 
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -23,6 +23,19 @@
 		</receiver>
 
 		<service android:name=".SpeakService" />
+
+		<activity android:name="org.mailboxer.locale.SettingActivity"
+			android:label="@string/app_name" android:icon="@drawable/icon_32">
+			<intent-filter>
+				<action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+			</intent-filter>
+		</activity>
+
+		<receiver android:name="org.mailboxer.locale.Receiver">
+			<intent-filter>
+				<action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+			</intent-filter>
+		</receiver>
 	</application>
 
 	<uses-sdk android:minSdkVersion="3" />

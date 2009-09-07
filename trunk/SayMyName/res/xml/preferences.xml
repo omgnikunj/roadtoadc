@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<PreferenceCategory android:title="Internal tweaks"
-		android:key="internal">
+	<PreferenceCategory android:title="Internal tweaks">
 		<PreferenceScreen android:key="test"
 			android:summary="Check if everything is ok" android:title="Test SayMyName" />
 		<EditTextPreference android:title="Repeat caller"
@@ -21,11 +20,12 @@
 			android:order="2" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="External tweaks">
+		<PreferenceScreen android:key="locale"
+			android:summary="Control SayMyName with Locale" android:title="Locale" />
 		<PreferenceScreen android:key="tts"
 			android:summary="Change language and speechrate" android:title="TTS Preferences" />
-		<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-			android:key="ringdroid" android:summary="Ringtone starts too fast? Edit it!"
-			android:title="Ringdroid" />
+		<PreferenceScreen android:key="ringdroid"
+			android:summary="Ringtone starts too fast? Edit it!" android:title="Ringdroid" />
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="About">
@@ -36,5 +36,4 @@
 		<PreferenceScreen android:key="blog" android:summary="More information"
 			android:title="Blog" />
 	</PreferenceCategory>
-
 </PreferenceScreen>

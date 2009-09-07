@@ -27,10 +27,9 @@ public class SeekBarPreference extends DialogPreference{
 		layout.setMinimumWidth(400);
 		layout.setPadding(20, 20, 20, 20);
 
-		AudioManager audio = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
 
 		volumeLevel = new SeekBar(context);
-		volumeLevel.setMax(audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC));
+		volumeLevel.setMax(((AudioManager) context.getSystemService(Context.AUDIO_SERVICE)).getStreamMaxVolume(AudioManager.STREAM_MUSIC));
 		volumeLevel.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 		volumeLevel.setProgress(Integer.parseInt(getPersistedString("12")));
 

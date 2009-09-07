@@ -50,6 +50,24 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
+		screen.findPreference("locale").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			public boolean onPreferenceClick(Preference preference) {
+				// start TTS-preferences
+				Intent intentTTS = new Intent();
+				intentTTS.setComponent(new ComponentName("edu.mit.locale", "edu.mit.locale.ui.activities.Locale"));
+
+				try {
+					startActivity(intentTTS);
+				} catch(Exception e) {
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:edu.mit.locale")));
+
+					Toast.makeText(SayMyName.this, "Locale controls your preferences based on your location", Toast.LENGTH_LONG).show();
+				}
+
+				return false;
+			}
+		});
+
 		screen.findPreference("tts").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				// start TTS-preferences

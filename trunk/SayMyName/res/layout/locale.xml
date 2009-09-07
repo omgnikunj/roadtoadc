@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/com.yourcompany.yoursetting"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="wrap_content">
+	<!--
+		Optional how to instructions. For examples, see the Contact condition
+		or the Defaults screen.
+	-->
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:gravity="center"
+		android:layout_marginTop="5px"
+		android:text="Change how SayMyName behaves at this place / time. To make it silent use speakvolume!"
+		android:textSize="15sp" />
+	<!--
+		Optional display of status. For examples, see Time condition, Display
+		setting, or Volume setting
+	-->
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:padding="5px"
+		android:gravity="center" android:textSize="17sp" android:textColor="@android:color/black" />
+	<!--
+		The setting controls are placed within a double-bordered white frame.
+	-->
+	<LinearLayout android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:background="@drawable/locale_border"
+		android:orientation="vertical" android:layout_weight="1"
+		android:layout_margin="5px" android:padding="20px">
+		<!-- Your UI controls go here -->
+
+
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical">
+			<TextView android:text="Speakvolume" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:textColor="@android:color/black"
+				android:textSize="18sp" />
+			<SeekBar android:id="@+id/volumeSeek" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:layout_marginRight="10sp"
+				android:layout_marginLeft="10sp" />
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:text="Respect silent"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textColor="@android:color/black" android:textSize="18sp" />
+
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_weight="1" />
+
+				<CheckBox android:id="@+id/silentCheck"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" />
+			</LinearLayout>
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_weight="1" />
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:text="Repeat caller"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textColor="@android:color/black" android:textSize="18sp" />
+
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_weight="1" />
+
+				<EditText android:text="0" android:id="@+id/repeatEdit"
+					android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="number"/>
+			</LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+
+
+
+	<!--
+		Any status, such as characters remaining, is displayed at the bottom
+	-->
+	<TextView android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:layout_marginBottom="5px"
+		android:layout_gravity="center" android:textSize="15sp" />
+</LinearLayout>
