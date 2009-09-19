@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -37,18 +38,31 @@ public class SayMyName extends PreferenceActivity {
 
 		PreferenceScreen screen = getPreferenceScreen();
 
-		screen.findPreference("test").setOnPreferenceClickListener(new OnPreferenceClickListener() {
-			public boolean onPreferenceClick(Preference preference) {
-				// start test-speak
-				Intent speakIntent = new Intent(SayMyName.this, SpeakService.class);
-				speakIntent.putExtra("say", "I hope you enjoy my app");
-				startService(speakIntent);
+		CheckBoxPreference startPref = (CheckBoxPreference) screen.findPreference("start");
+		startPref.setSummaryOff(R.string.saymyname_summary_on);
+		startPref.setSummaryOn(R.string.saymyname_summary_on);
 
-				Toast.makeText(SayMyName.this, "Didn´t hear? Make sure phone isn´t silent and press again.", Toast.LENGTH_LONG).show();
+		startPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			public boolean onPreferenceClick(Preference preference) {
+				if(getPreferenceManager().getSharedPreferences().getBoolean("start", false)) {
+					// start test-speak
+					Intent speakIntent = new Intent(SayMyName.this, SpeakService.class);
+					speakIntent.putExtra("say", R.string.test_speak);
+					startService(speakIntent);
+
+					Toast.makeText(SayMyName.this, R.string.error_toast_install, Toast.LENGTH_LONG).show();
+				} else {
+					startService(new Intent(SayMyName.this, SpeakService.class));
+					stopService(new Intent(SayMyName.this, SpeakService.class));
+				}
 
 				return false;
 			}
 		});
+
+		CheckBoxPreference silentPref = (CheckBoxPreference) screen.findPreference("silent");
+		silentPref.setSummaryOn(R.string.silent_on);
+		silentPref.setSummaryOff(R.string.silent_off);
 
 		screen.findPreference("locale").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
@@ -61,7 +75,7 @@ public class SayMyName extends PreferenceActivity {
 				} catch(Exception e) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:edu.mit.locale")));
 
-					Toast.makeText(SayMyName.this, "Locale controls your preferences based on your location", Toast.LENGTH_LONG).show();
+					Toast.makeText(SayMyName.this, R.string.locale_toast, Toast.LENGTH_LONG).show();
 				}
 
 				return false;
@@ -79,7 +93,7 @@ public class SayMyName extends PreferenceActivity {
 				} catch(Exception e) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=library pub:\"Charles Chen\"")));
 
-					Toast.makeText(SayMyName.this, "You have to install TTS (Text-to-Speech-Library) to use this app.", Toast.LENGTH_LONG).show();
+					Toast.makeText(SayMyName.this, R.string.tts_toast,Toast.LENGTH_LONG).show();
 				}
 
 				return false;
@@ -100,7 +114,7 @@ public class SayMyName extends PreferenceActivity {
 				} catch (NameNotFoundException e) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=Ringdroid pub:\"Ringdroid Team\"")));
 
-					Toast.makeText(SayMyName.this, "Ringdroid allows you to edit your ringtone and other music-files.", Toast.LENGTH_LONG).show();
+					Toast.makeText(SayMyName.this, R.string.ringdroid_toast, Toast.LENGTH_LONG).show();
 				}
 
 				return false;
@@ -125,7 +139,7 @@ public class SayMyName extends PreferenceActivity {
 				sendIntent.setType("message/rfc822");
 				startActivity(sendIntent);
 
-				Toast.makeText(SayMyName.this, "Thanks for your feedback!", Toast.LENGTH_LONG).show();
+				Toast.makeText(SayMyName.this, R.string.feedback_toast, Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -162,6 +176,12 @@ public class SayMyName extends PreferenceActivity {
 		super.onDestroy();
 	}
 
+	@Override
+	protected void onResume() {
+		// refresh UI here
+		super.onResume();
+	}
+
 
 	// check for TTS
 	// i know it´s not perfect, maybe i change that later
@@ -194,7 +214,7 @@ public class SayMyName extends PreferenceActivity {
 			Intent marketIntent = new Intent(Intent.ACTION_VIEW, marketUri);
 			activity.startActivityForResult(marketIntent, resultCode);
 
-			Toast.makeText(SayMyName.this, "You have to install TTS (Text-to-Speech-Library) to use this app.", Toast.LENGTH_LONG).show();
+			Toast.makeText(SayMyName.this, R.string.tts_toast, Toast.LENGTH_LONG).show();
 
 			return false;
 		}

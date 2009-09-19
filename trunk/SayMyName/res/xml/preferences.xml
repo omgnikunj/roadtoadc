@@ -2,38 +2,51 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="Internal tweaks">
-		<PreferenceScreen android:key="test"
-			android:summary="Check if everything is ok" android:title="Test SayMyName" />
-		<EditTextPreference android:title="Repeat caller"
-			android:dialogTitle="Repeat caller" android:key="repeatSeconds"
-			android:dialogMessage="Set how often the caller should be repeated"
-			android:summary="Set repeating the name" android:persistent="true"
-			android:numeric="integer" android:defaultValue="3" />
+		<CheckBoxPreference android:key="start"
+			android:title="@string/app_name" android:defaultValue="false" />
+		<PreferenceScreen android:title="@string/caller_title"
+			android:summary="@string/caller_summary">
+			<PreferenceCategory android:title="@string/caller_title">
+				<EditTextPreference android:key="repeatSeconds"
+					android:persistent="true" android:numeric="integer"
+					android:defaultValue="3" android:summary="@string/timeout_summary"
+					android:dialogTitle="@string/timeout_title" android:title="@string/timeout_title"
+					android:dialogMessage="@string/timeout_dialog" />
+				<EditTextPreference android:key="repeatTimes"
+					android:summary="@string/times_summary" android:persistent="true"
+					android:numeric="integer" android:dialogTitle="@string/times_title"
+					android:title="@string/times_title" android:defaultValue="4"
+					android:dialogMessage="@string/times_dialog" />
+			</PreferenceCategory>
+		</PreferenceScreen>
+		<CheckBoxPreference android:key="cut"
+			android:title="@string/cut_title" android:summary="@string/cut_summary"
+			android:defaultValue="true" />
 	</PreferenceCategory>
 
-	<PreferenceCategory android:title="Volume Settings">
+	<PreferenceCategory android:title="@string/volume_title">
 		<CheckBoxPreference android:key="silent"
-			android:title="Respect silent" android:summary="Speak when phone is silent?"
-			android:order="1" android:defaultValue="false" />
+			android:title="@string/silent_title" android:order="1"
+			android:defaultValue="true" />
 		<org.mailboxer.android.SeekBarPreference
-			android:key="volume" android:title="Speakvolume" android:summary="Set speakvolume"
-			android:order="2" />
+			android:key="volume" android:title="@string/seek_title"
+			android:summary="@string/seek_summary" android:order="2" />
 	</PreferenceCategory>
-	<PreferenceCategory android:title="External tweaks">
-		<PreferenceScreen android:key="locale"
-			android:summary="Control SayMyName with Locale" android:title="Locale" />
-		<PreferenceScreen android:key="tts"
-			android:summary="Change language and speechrate" android:title="TTS Preferences" />
-		<PreferenceScreen android:key="ringdroid"
-			android:summary="Ringtone starts too fast? Edit it!" android:title="Ringdroid" />
+	<PreferenceCategory android:title="@string/external_title">
+		<Preference android:key="locale" android:summary="@string/locale_summary"
+			android:title="@string/locale_title" />
+		<Preference android:key="tts" android:summary="@string/tts_summary"
+			android:title="@string/tts_title" />
+		<Preference android:key="ringdroid" android:summary="@string/ringdroid_summary"
+			android:title="@string/ringdroid_title" />
 	</PreferenceCategory>
 
-	<PreferenceCategory android:title="About">
-		<PreferenceScreen android:key="trouble"
-			android:summary="Howto fix some problems" android:title="Troubleshooting" />
-		<PreferenceScreen android:key="problem"
-			android:summary="Send me a mail :)" android:title="Having problems?" />
-		<PreferenceScreen android:key="blog" android:summary="More information"
-			android:title="Blog" />
+	<PreferenceCategory android:title="@string/about_title">
+		<Preference android:key="trouble" android:summary="@string/trouble_summary"
+			android:title="@string/trouble_title" />
+		<Preference android:key="problem" android:summary="@string/problem_summary"
+			android:title="@string/problem_title" />
+		<Preference android:key="blog" android:summary="@string/blog_summary"
+			android:title="@string/blog_title" />
 	</PreferenceCategory>
 </PreferenceScreen>

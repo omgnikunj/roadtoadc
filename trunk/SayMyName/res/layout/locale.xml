@@ -9,8 +9,7 @@
 	-->
 	<TextView android:layout_width="fill_parent"
 		android:layout_height="wrap_content" android:gravity="center"
-		android:layout_marginTop="5px"
-		android:text="Change how SayMyName behaves at this place / time. To make it silent use speakvolume!"
+		android:layout_marginTop="5px" android:text="@string/locale_plugin_text"
 		android:textSize="15sp" />
 	<!--
 		Optional display of status. For examples, see Time condition, Display
@@ -29,19 +28,32 @@
 		<!-- Your UI controls go here -->
 
 
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+			<TextView android:text="@string/locale_plugin_enable"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@android:color/black" android:textSize="18sp" />
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_weight="1" />
+
+			<CheckBox android:id="@+id/enableCheck"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		</LinearLayout>
+
 
 		<LinearLayout android:layout_width="fill_parent"
 			android:layout_height="wrap_content" android:orientation="vertical">
-			<TextView android:text="Speakvolume" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" android:textColor="@android:color/black"
-				android:textSize="18sp" />
+			<TextView android:text="@string/seek_title"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@android:color/black" android:textSize="18sp" />
 			<SeekBar android:id="@+id/volumeSeek" android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:layout_marginRight="10sp"
 				android:layout_marginLeft="10sp" />
 
 			<LinearLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
-				<TextView android:text="Respect silent"
+				<TextView android:text="@string/silent_title"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:textColor="@android:color/black" android:textSize="18sp" />
 
@@ -52,25 +64,45 @@
 					android:layout_width="wrap_content" android:layout_height="wrap_content" />
 			</LinearLayout>
 
+
 			<TextView android:layout_width="wrap_content"
 				android:layout_height="wrap_content" android:layout_weight="1" />
 
+
 			<LinearLayout android:layout_width="fill_parent"
 				android:layout_height="wrap_content" android:orientation="horizontal">
-				<TextView android:text="Repeat caller"
+				<TextView android:text="@string/timeout_title"
 					android:layout_width="wrap_content" android:layout_height="wrap_content"
 					android:textColor="@android:color/black" android:textSize="18sp" />
 
 				<TextView android:layout_width="wrap_content"
 					android:layout_height="wrap_content" android:layout_weight="1" />
 
-				<EditText android:text="0" android:id="@+id/repeatEdit"
-					android:layout_width="wrap_content" android:layout_height="wrap_content" android:inputType="number"/>
+				<EditText android:text="0" android:id="@+id/repeatTimeoutEdit"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:inputType="number" />
+			</LinearLayout>
+
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_weight="1" />
+
+
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:orientation="horizontal">
+				<TextView android:text="@string/times_title"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:textColor="@android:color/black" android:textSize="18sp" />
+
+				<TextView android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:layout_weight="1" />
+
+				<EditText android:text="0" android:id="@+id/repeatTimesEdit"
+					android:layout_width="wrap_content" android:layout_height="wrap_content"
+					android:inputType="number" />
 			</LinearLayout>
 		</LinearLayout>
 	</LinearLayout>
-
-
 
 	<!--
 		Any status, such as characters remaining, is displayed at the bottom

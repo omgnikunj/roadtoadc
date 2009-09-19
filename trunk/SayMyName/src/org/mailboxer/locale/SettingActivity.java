@@ -45,15 +45,18 @@ public class SettingActivity extends Activity {
 		// if savedInstanceState == null, then we are entering the Activity directly from Locale and we need to check whether the
 		// Intent has data or is clean (e.g. whether we editing an old setting or creating a new one)
 		if (savedInstanceState == null) {
+			boolean start = getIntent().getBooleanExtra("org.mailboxer.android.extra.START", false);
 			int volume = getIntent().getIntExtra("org.mailboxer.android.extra.VOLUME", 7);
 			boolean silent = getIntent().getBooleanExtra("org.mailboxer.android.extra.SILENT", true);
-			String repeat = getIntent().getStringExtra("org.mailboxer.android.extra.REPEAT");
+			String repeatTimeout = getIntent().getStringExtra("org.mailboxer.android.extra.TIMEOUT");
+			String repeatTimes = getIntent().getStringExtra("org.mailboxer.android.extra.TIMES");
 
 			((SeekBar) findViewById(R.id.volumeSeek)).setMax(((AudioManager) getSystemService(Context.AUDIO_SERVICE)).getStreamMaxVolume(AudioManager.STREAM_MUSIC));
 
-			if (repeat != null) {
-				// we need to restore the message to ourselves
-				((EditText) findViewById(R.id.repeatEdit)).setText(repeat);
+			if (repeatTimeout != null) {
+				((CheckBox) findViewById(R.id.enableCheck)).setChecked(start);
+				((EditText) findViewById(R.id.repeatTimeoutEdit)).setText(repeatTimeout);
+				((EditText) findViewById(R.id.repeatTimesEdit)).setText(repeatTimes);
 				((SeekBar) findViewById(R.id.volumeSeek)).setProgress(volume);
 				((CheckBox) findViewById(R.id.silentCheck)).setChecked(silent);
 			}
@@ -64,36 +67,39 @@ public class SettingActivity extends Activity {
 		super.onCreate(savedInstanceState);
 	}
 
-	// Called when the {@code Activity} is being terminated. This method determines the state of the {@code Activity} and what
-	// sort of result should be returned to <i>Locale</i>.
 	@Override
 	public void finish() {
 		if (isCancelled) {
 			setResult(RESULT_CANCELED);
 		} else {
+			boolean start = ((CheckBox) findViewById(R.id.enableCheck)).isChecked();
 			int volume = ((SeekBar) findViewById(R.id.volumeSeek)).getProgress();
 			boolean silent = ((CheckBox) findViewById(R.id.silentCheck)).isChecked();
-			String repeat = ((EditText) findViewById(R.id.repeatEdit)).getText().toString();
+			String repeatTimeout = ((EditText) findViewById(R.id.repeatTimeoutEdit)).getText().toString();
+			String repeatTimes = ((EditText) findViewById(R.id.repeatTimesEdit)).getText().toString();
 
 			// This is the store-and-forward Intent to ourselves.
 			final Intent returnIntent = new Intent();
 
 			// this extra is the data to ourselves: either for the Activity or the BroadcastReceiver
+			returnIntent.putExtra("org.mailboxer.android.extra.START", start);
 			returnIntent.putExtra("org.mailboxer.android.extra.VOLUME", volume);
 			returnIntent.putExtra("org.mailboxer.android.extra.SILENT", silent);
-			returnIntent.putExtra("org.mailboxer.android.extra.REPEAT", repeat);
+			returnIntent.putExtra("org.mailboxer.android.extra.TIMEOUT", repeatTimeout);
+			returnIntent.putExtra("org.mailboxer.android.extra.TIMES", repeatTimes);
 
 
-			String blurb = "Level: " + volume + "; ";
-			if(silent) {
-				blurb += "Respect silent";
+			String blurb;
+			if(start) {
+				blurb = "Enabled; ";
 			} else {
-				blurb += "Dont respect silent";
+				blurb = "Disabled; ";
 			}
+
+			blurb += "Level: " + volume + "; ";
 
 			// this is the blurb shown in the Locale UI
 			if (blurb.length() > com.twofortyfouram.Intent.MAXIMUM_BLURB_LENGTH) {
-
 				returnIntent.putExtra(com.twofortyfouram.Intent.EXTRA_STRING_BLURB, blurb.substring(0, com.twofortyfouram.Intent.MAXIMUM_BLURB_LENGTH));
 			} else {
 				returnIntent.putExtra(com.twofortyfouram.Intent.EXTRA_STRING_BLURB, blurb);
@@ -131,7 +137,6 @@ public class SettingActivity extends Activity {
 		case R.id.menu_help: {
 			final Intent helpIntent = new Intent(com.twofortyfouram.Intent.ACTION_HELP);
 
-			// TODO: put your help URL here
 			helpIntent.putExtra("com.twofortyfouram.locale.intent.extra.HELP_URL", "http://code.google.com/p/roadtoadc/wiki/LocalePluginHelp"); //$NON-NLS-1$ //$NON-NLS-2$
 
 			// insert the breadcrumbs. Note: the title was set in onCreate

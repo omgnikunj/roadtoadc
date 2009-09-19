@@ -11,7 +11,7 @@ import android.widget.SeekBar;
 
 // from:
 // http://groups.google.com/group/android-developers/browse_thread/thread/e49931fb0e203f64
-public class SeekBarPreference extends DialogPreference{
+public class SeekBarPreference extends DialogPreference {
 	private Context context;
 	private SeekBar volumeLevel;
 

@@ -1,10 +1,10 @@
 package org.mailboxer.android;
 
+import java.util.Locale;
+
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.media.AudioManager;
@@ -19,26 +19,21 @@ import android.telephony.TelephonyManager;
 import com.google.tts.TTS;
 
 public class SpeakService extends Service {
-	private String caller;
-
+	private boolean start;
 	private boolean repeat;
 	private int repeatSeconds;
-
+	private int repeatTimes;
+	private boolean cut;
 	private boolean speakSilent;
 	private int wantedVolume;
 
-	private TTS.InitListener ttsInitListener = new TTS.InitListener() {
-		public void onInit(int arg0) {}
-	};
+	private boolean onPhone;
+
+	private String caller;
+	private String test;
+
+	private TTSListener ttsInitListener = new TTSListener();
 	private TTS talker;
-
-	private ServiceConnection connection = new ServiceConnection() {
-		public void onServiceConnected(ComponentName name, IBinder service) {}
-
-		public void onServiceDisconnected(ComponentName name) {
-			startTTS();
-		}
-	};
 
 	private TelephonyManager telephonyManager;
 	private AudioManager audio;
@@ -54,18 +49,21 @@ public class SpeakService extends Service {
 
 	@Override
 	public void onStart(Intent intent, int startId) {
-		readPreferences();
-
-
 		// Test-Speak?
 		Bundle extras = intent.getExtras();
 
 		if(extras != null) {
 			if(extras.getString("say") != null) {
-				adjustSpeakVolume();
-
-				doSpeak(extras.getString("say"));
+				test = extras.getString("say"); 
 			}
+		}
+
+
+		readPreferences();
+		if(!start && thread != null) {
+			shutdown();
+
+			return;
 		}
 
 
@@ -75,63 +73,28 @@ public class SpeakService extends Service {
 	@Override
 	public void onCreate() {
 		preferences = getSharedPreferences("saymyname", MODE_WORLD_WRITEABLE);
-
 		readPreferences();
 
+		if(!start) {
+			stopSelf();
 
-		// listen for phoneState change
-		PhoneStateListener phoneListener = new PhoneStateListener() {
-
-			@Override
-			public void onCallStateChanged(int state, String incomingNumber) {
-				if(state == TelephonyManager.CALL_STATE_RINGING) {
-					adjustSpeakVolume();
-
-					String callerID = getCallerID(incomingNumber);
-					if(callerID != null) {
-						caller = callerID;
-						thread.run();
-					} else {
-						caller = "Unknown";
-						thread.run();
-					}
-				} else {
-					thread.stop();
-					caller = null;
-				}
-
-				super.onCallStateChanged(state, incomingNumber);
-			}
-		};
-
-		telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
-
+			return;
+		}
 
 		thread = new SpeakThread();
+		thread.start();
 
-		startTTS();
+		talker = new TTS(SpeakService.this, ttsInitListener, false);
+		talker.setLanguage(Locale.getDefault().getLanguage());
 
 
 		super.onCreate();
 	}
 
-	private void startTTS() {
-		talker = new TTS(SpeakService.this, ttsInitListener, false);
-
-		Intent serviceIntent = new Intent("android.intent.action.USE_TTS");
-		serviceIntent.addCategory("android.intent.category.TTS");
-
-		bindService(serviceIntent, connection, BIND_AUTO_CREATE);
-	}
-
 	private void readPreferences() {
-		// very confusing :P
-		if(preferences.getBoolean("silent", false)) {
-			speakSilent = false;
-		} else {
-			speakSilent = true;
-		}
+		start = preferences.getBoolean("start", false);
+
+		speakSilent = !preferences.getBoolean("silent", true);
 
 		wantedVolume = Integer.parseInt(preferences.getString("volume", "12"));
 
@@ -142,8 +105,28 @@ public class SpeakService extends Service {
 				repeat = true;
 			} else {
 				repeat = false;
+
+				if(repeatSeconds < 0) {
+					repeatSeconds = 0;
+				}
 			}
 		}
+
+		if(preferences.getString("repeatTimes", null) != null) {
+			repeatTimes = Integer.parseInt(preferences.getString("repeatTimes", null));
+
+			if(repeatTimes > 0) {
+				repeat = true;
+			} else {
+				repeat = false;
+
+				if(repeatTimes < 0) {
+					repeatTimes = 0;
+				}
+			}
+		}
+
+		cut = preferences.getBoolean("cut", false);
 	}
 
 
@@ -153,7 +136,11 @@ public class SpeakService extends Service {
 
 		if (cur.moveToFirst()) {
 			do {
-				return cur.getString(0);
+				if(cut) {
+					return cur.getString(0).split(" ")[0];
+				} else {
+					return cur.getString(0);
+				}
 			} while (cur.moveToNext());
 		}
 
@@ -162,7 +149,9 @@ public class SpeakService extends Service {
 
 
 	private void doSpeak(String text) {
-		talker.speak(text, 0, null);
+		if(talker != null) {
+			talker.speak(text, 0, null);
+		}
 	}
 
 
@@ -189,25 +178,96 @@ public class SpeakService extends Service {
 		}
 	}
 
+	private void shutdown() {
+		if(thread != null) {
+			thread.stop();
+
+			thread = null;
+		}
+
+		if(talker != null) {
+			talker.shutdown();
+
+			talker = null;
+		}
+
+		telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_NONE);
+
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.putBoolean("start", false);
+		editor.commit();
+
+
+		stopSelf();
+	}
+
 	@Override
 	public void onDestroy() {
-		thread.stop();
-		unbindService(connection);
+		if(thread != null) {
+			shutdown();
+		}
 
 		super.onDestroy();
 	}
 
+
 	private class SpeakThread extends Thread {
 		@Override
 		public void run() {
+			// listen for phoneState change
+			telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+			telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+		}
+
+		private void speakLoop() {
 			// start speaking
+			int loops = 1;
+
 			do {
+				loops++;
 				doSpeak(caller);
 
 				try {
 					sleep(repeatSeconds * 1000);
 				} catch (InterruptedException e) {}
-			} while(telephonyManager.getCallState() == TelephonyManager.CALL_STATE_RINGING && repeat);
+			} while(repeat && loops <= repeatTimes && telephonyManager.getCallState() == TelephonyManager.CALL_STATE_RINGING);
+		}
+	}
+
+	PhoneStateListener phoneListener = new PhoneStateListener() {
+		@Override
+		public void onCallStateChanged(int state, String incomingNumber) {
+			if(state == TelephonyManager.CALL_STATE_RINGING && !onPhone) {
+				adjustSpeakVolume();
+
+				String callerID = getCallerID(incomingNumber);
+				if(callerID != null) {
+					caller = callerID;
+					thread.speakLoop();
+				} else {
+					caller = "Unknown";
+					thread.speakLoop();
+				}
+			} else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
+				onPhone = true;
+			} else {
+				thread.stop();
+				caller = null;
+				onPhone = false;
+			}
+
+			super.onCallStateChanged(state, incomingNumber);
+		}
+	};
+
+	private class TTSListener implements TTS.InitListener {
+		public void onInit(int arg0) {
+			if(test != null) {
+				adjustSpeakVolume();
+
+				doSpeak(test);
+				test = null;
+			}
 		}
 	}
 }
