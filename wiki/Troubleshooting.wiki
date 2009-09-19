@@ -8,10 +8,10 @@ Four points to fix your problems.
 
 = Details =
 
-Most problems are because of not working [http://code.google.com/p/eyes-free/ TTS].
+Most problems will disappear after restarting your phone!
 
-
- * If you installed [http://code.google.com/p/eyes-free/ TTS] first time, there will be maybe some problems. Wait a few minutes and then try the test in my app. If it doesn´t work, please try it again after a reboot.
+If not:
+ * If you installed [http://code.google.com/p/eyes-free/ TTS] first time, it downloads some voice-datas (only 2MB). Wait for this and try again / restart your phone.
 
  * Test doesn´t work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
