@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="test_speak">Ich hoffe dir gefällt mein Programm</string>
+	<string name="unknown_caller">Unbekannt</string>
 
 	<string name="locale_plugin_text">Bestimme wie sich SayMyName an diesem Ort / zu
 		dieser Zeit verhalten soll.</string>

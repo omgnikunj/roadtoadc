@@ -136,7 +136,7 @@ public class SpeakService extends Service {
 
 		if (cur.moveToFirst()) {
 			do {
-				if(cut) {
+				if(cut && cur.getString(0) != null) {
 					return cur.getString(0).split(" ")[0];
 				} else {
 					return cur.getString(0);
@@ -237,7 +237,7 @@ public class SpeakService extends Service {
 	PhoneStateListener phoneListener = new PhoneStateListener() {
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
-			if(state == TelephonyManager.CALL_STATE_RINGING && !onPhone) {
+			if(state == TelephonyManager.CALL_STATE_RINGING && onPhone == false) {
 				adjustSpeakVolume();
 
 				String callerID = getCallerID(incomingNumber);
@@ -245,7 +245,7 @@ public class SpeakService extends Service {
 					caller = callerID;
 					thread.speakLoop();
 				} else {
-					caller = "Unknown";
+					caller = getResources().getString(R.string.unknown_caller);
 					thread.speakLoop();
 				}
 			} else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {

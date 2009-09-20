@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="test_speak">I hope you enjoy my app</string>
+	<string name="unknown_caller">Unknown</string>
 
 	<string name="locale_plugin_text">Change how SayMyName behaves at this place / time.
 	</string>

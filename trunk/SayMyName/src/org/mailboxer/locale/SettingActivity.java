@@ -91,9 +91,9 @@ public class SettingActivity extends Activity {
 
 			String blurb;
 			if(start) {
-				blurb = "Enabled; ";
+				blurb = getResources().getString(R.string.locale_plugin_enabled) + "; ";
 			} else {
-				blurb = "Disabled; ";
+				blurb = getResources().getString(R.string.locale_plugin_disabled) + "; ";
 			}
 
 			blurb += "Level: " + volume + "; ";

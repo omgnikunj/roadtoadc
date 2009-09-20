@@ -206,7 +206,7 @@ public class SayMyName extends PreferenceActivity {
 			return false;
 		}
 		return true;
-	} 
+	}
 
 	private boolean checkTtsRequirements(Activity activity, int resultCode) {
 		if (!isInstalled(activity)) {
