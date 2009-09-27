@@ -26,6 +26,7 @@ public class SpeakService extends Service {
 	private boolean cut;
 	private boolean speakSilent;
 	private int wantedVolume;
+	private String format;
 
 	private boolean onPhone;
 
@@ -54,7 +55,7 @@ public class SpeakService extends Service {
 
 		if(extras != null) {
 			if(extras.getString("say") != null) {
-				test = extras.getString("say"); 
+				test = extras.getString("say");
 			}
 		}
 
@@ -127,10 +128,22 @@ public class SpeakService extends Service {
 		}
 
 		cut = preferences.getBoolean("cut", false);
+
+		format = preferences.getString("format", "");
+		format.trim();
+		format = " " + format;
 	}
 
 
 	private String getCallerID(String incomingNumber) {
+		if(incomingNumber == null) {
+			return null;
+		}
+
+		if(incomingNumber.equals("")) {
+			return null;
+		}
+
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
 		Cursor cur = getContentResolver().query(contactUri, new String[] {People.NAME, People.NUMBER}, null, null, null);
 
@@ -148,10 +161,27 @@ public class SpeakService extends Service {
 	}
 
 
-	private void doSpeak(String text) {
+	private void prepareSpeak(String text) {
 		if(talker != null) {
-			talker.speak(text, 0, null);
+			if(format.indexOf("%") > 0) {
+				String[] formatSplit = format.split("%");
+				String sayThis = formatSplit[0] + text;
+
+				for(int i = 1; i < formatSplit.length; i++) {
+					sayThis += formatSplit[i];
+				}
+
+				doSpeak(sayThis);
+			} else if(format.indexOf("%") == 0) {
+				doSpeak(text + format.substring(1));
+			} else {
+				doSpeak(text);
+			}
 		}
+	}
+
+	private void doSpeak(String text) {
+		talker.speak(text, 0, null);
 	}
 
 
@@ -214,9 +244,18 @@ public class SpeakService extends Service {
 	private class SpeakThread extends Thread {
 		@Override
 		public void run() {
+			speakLoop();
+
+			super.run();
+		}
+
+		@Override
+		public synchronized void start() {
 			// listen for phoneState change
 			telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
 			telephonyManager.listen(phoneListener, PhoneStateListener.LISTEN_CALL_STATE);
+
+			super.start();
 		}
 
 		private void speakLoop() {
@@ -225,7 +264,7 @@ public class SpeakService extends Service {
 
 			do {
 				loops++;
-				doSpeak(caller);
+				prepareSpeak(caller);
 
 				try {
 					sleep(repeatSeconds * 1000);
@@ -243,10 +282,10 @@ public class SpeakService extends Service {
 				String callerID = getCallerID(incomingNumber);
 				if(callerID != null) {
 					caller = callerID;
-					thread.speakLoop();
+					thread.run();
 				} else {
 					caller = getResources().getString(R.string.unknown_caller);
-					thread.speakLoop();
+					thread.run();
 				}
 			} else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
 				onPhone = true;

@@ -58,6 +58,12 @@
 	<string name="problem_summary">Send me a mail :)</string>
 	<string name="blog_title">Blog</string>
 	<string name="blog_summary">More information</string>
+	<string name="talking_title">Talking options</string>
+	<string name="talking_summary">Change how the name is read</string>
+	<string name="format_title">Format string</string>
+	<string name="format_summary">Add some words to the name</string>
+	<string name="format_message">Add some words to the name (insert % for the name,
+		e.g.: % calling)</string>
 
 	<string name="app_name">SayMyName</string>
 	<string name="help">Help</string>

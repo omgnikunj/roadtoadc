@@ -47,7 +47,7 @@ public class SayMyName extends PreferenceActivity {
 				if(getPreferenceManager().getSharedPreferences().getBoolean("start", false)) {
 					// start test-speak
 					Intent speakIntent = new Intent(SayMyName.this, SpeakService.class);
-					speakIntent.putExtra("say", R.string.test_speak);
+					speakIntent.putExtra("say", getResources().getString(R.string.test_speak));
 					startService(speakIntent);
 
 					Toast.makeText(SayMyName.this, R.string.error_toast_install, Toast.LENGTH_LONG).show();

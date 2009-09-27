@@ -19,9 +19,19 @@
 					android:dialogMessage="@string/times_dialog" />
 			</PreferenceCategory>
 		</PreferenceScreen>
-		<CheckBoxPreference android:key="cut"
-			android:title="@string/cut_title" android:summary="@string/cut_summary"
-			android:defaultValue="true" />
+
+		<PreferenceScreen android:title="@string/talking_title"
+			android:summary="@string/talking_summary">
+			<PreferenceCategory android:title="@string/talking_title">
+				<CheckBoxPreference android:key="cut"
+					android:title="@string/cut_title" android:summary="@string/cut_summary"
+					android:defaultValue="true" />
+				<EditTextPreference android:key="format"
+					android:title="@string/format_title" android:summary="@string/format_summary"
+					android:defaultValue="%" android:dialogTitle="@string/format_title"
+					android:dialogMessage="@string/format_message" />
+			</PreferenceCategory>
+		</PreferenceScreen>
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/volume_title">
