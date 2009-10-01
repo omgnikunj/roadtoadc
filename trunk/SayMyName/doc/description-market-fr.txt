@@ -4,8 +4,6 @@ Cette application lit le nom de l'appelant contenu dans vos contact et vous dis 
 
 *Avec un Plug-in pour Locale!*
 
-Please send me your ideas and feedback :)
-
 Merci de a tout ceux qui mon envoyé des commenter et des idées.
 
 Merci de me faire des commentaires :)

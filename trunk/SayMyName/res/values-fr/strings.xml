@@ -11,11 +11,11 @@
 	<string name="locale_plugin_dont_respect">Ne pas respecter le silencieux</string>
 	<string name="locale_plugin_enable">Activer SayMyName</string>
 
-	<string name="error_toast_install">Vous devriez m'entendre parler. Si ce n'est pas le cas, merci de redemarrer votre téléphone et d'essayer de nouveau.</string>
+	<string name="error_toast_install">Vous devriez m'entendre parler. Si ce n'est pas le cas, merci de redémarrer votre téléphone et d'essayer de nouveau.</string>
 	<string name="locale_toast">Locale change votre configuration suivant votre position.</string>
 	<string name="tts_toast">Vous devez installer TTS (Text-to-Speech-Library) pour utiliser cette application.</string>
 	<string name="ringdroid_toast">Ringdroid vous permez d'éditer votre sonnerie ou d'autre fichier de musique.</string>
-	<string name="feedback_toast">Merci pour vos retours d'information!</string>
+	<string name="feedback_toast">Merci pour vos commentaires!</string>
 	<string name="start_toast">Merci de démarrer SayMyName.</string>
 
 	<string name="saymyname_summary_off">SayMyName arrêté</string>
@@ -28,7 +28,7 @@
 	<string name="timeout_title">Intervalle de répétition</string>
 	<string name="timeout_dialog">Paramétrer l'intervalle de répétition du nom (0 =
 		Ne pas répéter le nom)</string>
-	<string name="times_title">Nombre de répetition</string>
+	<string name="times_title">Nombre de répétition</string>
 	<string name="times_summary">Paramétrer le nombre de répétition</string>
 	<string name="times_dialog">Paramétrer le nombre de répétition (0
 		= Ne pas répéter le nom)</string>
@@ -47,7 +47,7 @@
 	<string name="ringdroid_summary">La sonnerie commence trop tôt? Modifier là!</string>
 	<string name="about_title">A propos</string>
 	<string name="trouble_title">Anomalie</string>
-	<string name="trouble_summary">Comment réparer certain problème</string>
+	<string name="trouble_summary">Comment réparer certains problèmes</string>
 	<string name="problem_title">Vous avez des problèmes?</string>
 	<string name="problem_summary">Envoyer un courrier électronique :)</string>
 	<string name="blog_title">Blog</string>
