@@ -290,7 +290,9 @@ public class SpeakService extends Service {
 			} else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
 				onPhone = true;
 			} else {
+				talker.stop();
 				thread.stop();
+				talker.stop();
 				caller = null;
 				onPhone = false;
 			}
