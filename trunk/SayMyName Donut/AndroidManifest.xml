@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionCode="16" android:versionName="2.6" package="org.mailboxer.saymyname">
+	android:versionCode="17" android:versionName="1.0" package="org.mailboxer.saymyname">
 
 	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 	<uses-permission android:name="android.permission.READ_CONTACTS" />
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 	<application android:icon="@drawable/icon" android:label="SayMyName">
 		<activity android:name=".SayMyName" android:label="SayMyName">
