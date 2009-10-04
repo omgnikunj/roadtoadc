@@ -8,7 +8,7 @@
 	<string name="locale_plugin_enabled">Enabled</string>
 	<string name="locale_plugin_disabled">Disabled</string>
 	<string name="locale_plugin_respect">Respect silent</string>
-	<string name="locale_plugin_dont_respect">Don\´t respect silent</string>
+	<string name="locale_plugin_dont_respect">Don\'t respect silent</string>
 	<string name="locale_plugin_enable">Enable SayMyName</string>
 
 	<string name="error_toast_install">You should hear me talking. If not, please restart
@@ -24,20 +24,20 @@
 
 	<string name="saymyname_summary_off">SayMyName stopped</string>
 	<string name="saymyname_summary_on">SayMyName started</string>
-	<string name="silent_on">Don\´t speak when phone is silent</string>
+	<string name="silent_on">Don\'t speak when phone is silent</string>
 	<string name="silent_off">Speak when phone is silent</string>
 	<string name="caller_title">Repeat caller</string>
 	<string name="caller_summary">How often should it repeat the name?</string>
 	<string name="timeout_summary">Set the timeout between reading the name</string>
 	<string name="timeout_title">Repeat timeout</string>
 	<string name="timeout_dialog">Set the timeout between reading the name (0 =
-		don\´t
+		don\'t
 		repeat name)</string>
 	<string name="times_title">Repeat times</string>
 	<string name="times_summary">Set how many times the caller should be repeated
 	</string>
 	<string name="times_dialog">Set how many times the caller should be repeated (0
-		= don\´t repeat name)</string>
+		= don\'t repeat name)</string>
 	<string name="cut_title">Cut name</string>
 	<string name="cut_summary">Only read name till first space</string>
 	<string name="volume_title">Volume Settings</string>
