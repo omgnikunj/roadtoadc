@@ -22,7 +22,7 @@
 	<string name="saymyname_summary_on">SayMyName démarré</string>
 	<string name="silent_on">Ne pas parler lorsque le téléphone est en silencieux</string>
 	<string name="silent_off">Parler lorsque le téléphone est en silencieux</string>
-	<string name="caller_title">Répéter l\'appelant</string>
+	<string name="caller_title">Répéter l\\'appelant</string>
 	<string name="caller_summary">Fréquence de répétition du nom?</string>
 	<string name="timeout_summary">Paramétrer l\'intervalle de répétition du nom</string>
 	<string name="timeout_title">Intervalle de répétition</string>
