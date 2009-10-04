@@ -72,4 +72,18 @@
 	<string name="help">Hilfe</string>
 	<string name="save">Speichern</string>
 	<string name="dontsave">Nicht speichern</string>
+
+	<string name="market_description">* NUR FÜR DONUT HANDYS! *
+
+		Du willst wissen wer dich anruft ohne auf dein Handy zu sehen? Diese App
+		sagt es dir!
+
+		Es liest den Namen des Anrufers aus dem Adressbuch aus und liest ihn dir
+		vor.
+
+		*mit Locale Plug-in!*
+
+		Vielen Dank für euer bisheriges Feedback!</string>
+	<string name="market_promo">Du willst wissen wer dich anruft ohne auf dein
+		Handy zu sehen? Diese App hilft!</string>
 </resources>

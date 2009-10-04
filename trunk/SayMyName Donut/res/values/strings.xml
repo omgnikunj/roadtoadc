@@ -69,4 +69,24 @@
 	<string name="help">Help</string>
 	<string name="save">Save</string>
 	<string name="dontsave">Don\'t Save</string>
+
+	<string name="market_description">* ONLY FOR DONUT PHONES! *
+
+		Want to know who´s
+		calling without looking at your phone? This app will
+		tell you!
+
+		It reads
+		the caller ID saved in your adressbook and tells you who´s
+		calling
+
+		*Now
+		with Locale Plug-in!*
+
+		Thanks to all who gave me feedback and sent me
+		ideas!
+
+		*You will get prompted to install TTS*</string>
+	<string name="market_promo">Want to know who´s calling without looking at your
+		phone? This app will tell you</string>
 </resources>
