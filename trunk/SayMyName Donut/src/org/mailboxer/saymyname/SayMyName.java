@@ -1,8 +1,12 @@
 package org.mailboxer.saymyname;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
@@ -26,6 +30,28 @@ public class SayMyName extends PreferenceActivity {
 		getPreferenceManager().setSharedPreferencesName("saymyname");
 		addPreferencesFromResource(R.xml.preferences);
 
+		SharedPreferences preferences = getPreferenceManager().getSharedPreferences();
+		PackageInfo info = null;
+		try {
+			info = getPackageManager().getPackageInfo(this.getPackageName(), 0);
+		} catch (NameNotFoundException e1) {}
+
+		if(!preferences.contains("firstStart")) {
+			displayDialog();
+
+			SharedPreferences.Editor editorPreference = preferences.edit();
+			editorPreference.putBoolean("firstStart", false);
+			editorPreference.putInt("versionCode", info.versionCode);
+			editorPreference.commit();
+		} else {
+			if(info.versionCode > preferences.getInt("versionCode", 0)) {
+				displayDialog();
+
+				SharedPreferences.Editor editorPreference = preferences.edit();
+				editorPreference.putInt("versionCode", info.versionCode);
+				editorPreference.commit();
+			}
+		}
 
 		// check for TTS installed and start
 		Intent checkIntent = new Intent();
@@ -170,6 +196,17 @@ public class SayMyName extends PreferenceActivity {
 	protected void onResume() {
 		// refresh UI here
 		super.onResume();
+	}
+
+	private void displayDialog() {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
+		dialog.setIcon(R.drawable.icon);
+		dialog.setTitle(R.string.dialog_title);  
+		dialog.setMessage(R.string.dialog_message);
+		dialog.setPositiveButton(R.string.dialog_button, new DialogInterface.OnClickListener() {  
+			public void onClick(DialogInterface dialog, int whichButton) {}  
+		});
+		dialog.show();
 	}
 
 	private static final int ttsCheckReqCode = 42;

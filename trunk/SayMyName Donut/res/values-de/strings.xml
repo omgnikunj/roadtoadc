@@ -86,4 +86,8 @@
 		Vielen Dank für euer bisheriges Feedback!</string>
 	<string name="market_promo">Du willst wissen wer dich anruft ohne auf dein
 		Handy zu sehen? Diese App hilft!</string>
+
+	<string name="dialog_title">Ein paar Worte vom Autor...</string>
+	<string name="dialog_message">Danke, dass du SayMyName installiert hast  :) \n \n Bevor du loslegst: \n 1. Du wirst wahrscheinlich aufgefordert werden zusätzliche Sprachdaten zu installieren \n 2. Dann aktiviere die \'SayMyName\' Checkbox \n 3. Ruf dich von einem anderen Handy aus an, es sollte der Name des Anrufers vorgelesen werden \n 4. Genieße und sende mir Feedback :) \n \n Tom</string>
+	<string name="dialog_button">Okay...</string>
 </resources>

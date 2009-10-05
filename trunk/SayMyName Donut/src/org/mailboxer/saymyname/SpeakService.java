@@ -97,7 +97,6 @@ public class SpeakService extends Service {
 			}
 		}
 
-
 		super.onCreate();
 	}
 

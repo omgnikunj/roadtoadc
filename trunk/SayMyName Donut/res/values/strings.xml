@@ -89,4 +89,8 @@
 		*You will get prompted to install TTS*</string>
 	<string name="market_promo">Want to know who´s calling without looking at your
 		phone? This app will tell you</string>
+		
+	<string name="dialog_title">Some words from the author...</string>
+	<string name="dialog_message">Thanks for installing SayMyName :) \n \n Before you get started: \n 1. Maybe you will get prompted to install additional speech-data from the market \n 2. Then check the \'SayMyName\' box \n 3. Call yourself from another phone, it should say the name \n 4. Enjoy and send me feedback :) \n \n Tom</string>
+	<string name="dialog_button">Okay...</string>
 </resources>
