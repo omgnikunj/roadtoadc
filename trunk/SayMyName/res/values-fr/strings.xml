@@ -75,6 +75,6 @@
 		votre téléphone?</string>
 
 	<string name="dialog_title">Some words from the author...</string>
-	<string name="dialog_message">Thanks for installing SayMyName :) \n \n * VERY IMPORTANT: * \n There's also a Donut version available on the market! \n \n Before you get started: \n 1. Maybe you will get prompted to install TTS from the market \n 2. Then check the \'SayMyName\' box \n 3. Call yourself from another phone, if it doesn´t say the name, please try again after restarting your phone \n 4. Enjoy and send me feedback :) \n \n Tom</string>
+	<string name="dialog_message">Thanks for installing SayMyName :) \n \n \n Before you get started: \n 1. Maybe you will get prompted to install TTS from the market \n 2. Then check the \'SayMyName\' box \n 3. Call yourself from another phone, it should say the name now \n 4. Enjoy and send me feedback :) \n \n Tom</string>
 	<string name="dialog_button">Okay...</string>
 </resources>
