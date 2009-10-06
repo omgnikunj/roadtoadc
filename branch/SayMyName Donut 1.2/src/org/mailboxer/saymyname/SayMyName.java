@@ -150,7 +150,7 @@ public class SayMyName extends PreferenceActivity {
 			public boolean onPreferenceClick(Preference preference) {
 				// send mail
 				Intent sendIntent = new Intent(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName");
+				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName Donut");
 				sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"tomtasche@gmail.com"});
 				sendIntent.setType("message/rfc822");
 				startActivity(sendIntent);
