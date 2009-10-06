@@ -17,7 +17,6 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.widget.Toast;
 
 public class SpeakService extends Service {
 	private boolean start;
@@ -93,7 +92,7 @@ public class SpeakService extends Service {
 				// set another language
 				talker.setLanguage(Locale.US);
 			} else {
-				Toast.makeText(this, getResources().getString(R.string.start_toast), Toast.LENGTH_LONG).show();
+				// WTF?! I think it´s a bug :/
 			}
 		}
 
