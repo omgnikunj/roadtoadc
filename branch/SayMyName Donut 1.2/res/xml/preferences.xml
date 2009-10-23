@@ -38,9 +38,14 @@
 		<CheckBoxPreference android:key="silent"
 			android:title="@string/silent_title" android:order="1"
 			android:defaultValue="true" />
+		<CheckBoxPreference android:key="discreet"
+			android:title="@string/discreet_title" android:order="2"
+			android:defaultValue="false" 
+			android:summaryOn="@string/discreet_summary_on"
+			android:summaryOff="@string/discreet_summary_off"/>
 		<org.mailboxer.saymyname.SeekBarPreference
 			android:key="volume" android:title="@string/seek_title"
-			android:summary="@string/seek_summary" android:order="2" />
+			android:summary="@string/seek_summary" android:order="3" />
 	</PreferenceCategory>
 	<PreferenceCategory android:title="@string/external_title">
 		<Preference android:key="locale" android:summary="@string/locale_summary"

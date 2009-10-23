@@ -42,6 +42,9 @@
 	<string name="cut_summary">Only read name till first space</string>
 	<string name="volume_title">Volume Settings</string>
 	<string name="silent_title">Respect silent</string>
+	<string name="discreet_title">Discreet mode</string>
+	<string name="discreet_summary_on">Speak only in earphones</string>
+	<string name="discreet_summary_off">Speak even when phone speaker is on</string>
 	<string name="seek_title">Speakvolume</string>
 	<string name="seek_summary">Set speakvolume</string>
 	<string name="external_title">External tweaks</string>

@@ -26,6 +26,9 @@
 	<string name="saymyname_summary_on">SayMyName gestartet</string>
 	<string name="silent_on">Nicht sprechen wenn lautlos</string>
 	<string name="silent_off">Sprechen wenn lautlos</string>
+	<string name="discreet_title">Diskret Modus</string>
+	<string name="discreet_summary_on">Nur bei angeschlossenen Kopfhörern sprechen</string>
+	<string name="discreet_summary_off">Auch ohne angeschlossenen Kopfhörern sprechen</string>
 	<string name="caller_title">Anrufer wiederholen</string>
 	<string name="caller_summary">Wie oft soll der Name wiederholt werden?</string>
 	<string name="timeout_summary">Pause zwischen Wiederholungen festlegen</string>

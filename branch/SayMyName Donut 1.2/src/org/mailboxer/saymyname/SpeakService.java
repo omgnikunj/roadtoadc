@@ -25,6 +25,7 @@ public class SpeakService extends Service {
 	private int repeatTimes;
 	private boolean cut;
 	private boolean speakSilent;
+	private boolean discreet;
 	private int wantedVolume;
 	private String format;
 
@@ -103,6 +104,8 @@ public class SpeakService extends Service {
 		start = preferences.getBoolean("start", false);
 
 		speakSilent = !preferences.getBoolean("silent", true);
+
+		discreet = preferences.getBoolean("discreet", false);
 
 		wantedVolume = Integer.parseInt(preferences.getString("volume", "12"));
 
@@ -283,7 +286,14 @@ public class SpeakService extends Service {
 	PhoneStateListener phoneListener = new PhoneStateListener() {
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
-			if(state == TelephonyManager.CALL_STATE_RINGING && onPhone == false) {
+
+			boolean speak = true;
+			if(discreet) {
+				audio = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+				speak = (audio.getRouting(AudioManager.MODE_RINGTONE) != AudioManager.ROUTE_SPEAKER);
+			}
+			if(speak && state == TelephonyManager.CALL_STATE_RINGING
+					&& onPhone == false) {
 				adjustSpeakVolume();
 
 				String callerID = getCallerID(incomingNumber);
@@ -294,11 +304,15 @@ public class SpeakService extends Service {
 					caller = getResources().getString(R.string.unknown_caller);
 					thread.run();
 				}
-			} else if(state == TelephonyManager.CALL_STATE_OFFHOOK) {
+			} else if(speak && state == TelephonyManager.CALL_STATE_OFFHOOK) {
 				onPhone = true;
-			} else {
-				talker.stop();
 				thread.stop();
+				talker.speak("", TextToSpeech.QUEUE_FLUSH, null);
+				talker.stop();
+				caller = null;
+			} else {
+				thread.stop();
+				talker.speak("", TextToSpeech.QUEUE_FLUSH, null);
 				talker.stop();
 				caller = null;
 				onPhone = false;
@@ -309,7 +323,6 @@ public class SpeakService extends Service {
 	};
 
 	private class TTSInitListener implements OnInitListener {
-		@Override
 		public void onInit(int status) {
 			if(test != null) {
 				adjustSpeakVolume();

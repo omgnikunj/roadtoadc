@@ -14,7 +14,7 @@
 	<string name="locale_toast">Locale change votre configuration suivant votre position.</string>
 	<string name="tts_toast">Vous devez installer TTS (Text-to-Speech-Library) pour utiliser cette application.</string>
 	<string name="ringdroid_toast">Ringdroid vous permez d\'éditer votre sonnerie ou d\'autre fichier de musique.</string>
-	<string name="feedback_toast">Merci pour vos commentaires!</string>
+	<string name="feedback_toast">Merci pour vos commentaires&#160;!</string>
 	<string name="start_toast">Merci de démarrer SayMyName.</string>
 
 	<string name="saymyname_summary_off">SayMyName arrêté</string>
@@ -22,7 +22,7 @@
 	<string name="silent_on">Ne pas parler lorsque le téléphone est en silencieux</string>
 	<string name="silent_off">Parler lorsque le téléphone est en silencieux</string>
 	<string name="caller_title">Répéter l\'appelant</string>
-	<string name="caller_summary">Fréquence de répétition du nom?</string>
+	<string name="caller_summary">Fréquence de répétition du nom&#160;?</string>
 	<string name="timeout_summary">Paramétrer l\'intervalle de répétition du nom</string>
 	<string name="timeout_title">Intervalle de répétition</string>
 	<string name="timeout_dialog">Paramétrer l\'intervalle de répétition du nom (0 = Ne pas répéter le nom)</string>
@@ -33,6 +33,9 @@
 	<string name="cut_summary">Lire seulement jusqu\'au premier espace</string>
 	<string name="volume_title">Paramétrage du volume</string>
 	<string name="silent_title">Respecter le silencieux</string>
+	<string name="discreet_title">Mode discret</string>
+	<string name="discreet_summary_on">Ne parler que dans les écouteurs</string>
+	<string name="discreet_summary_off">Parler même lorsque le haut-parleur est actif</string>
 	<string name="seek_title">Volume de la voix</string>
 	<string name="seek_summary">Paramétrer le volume de la voix</string>
 	<string name="external_title">Paramétres externes</string>
@@ -41,11 +44,11 @@
 	<string name="tts_title">Paramétrage de TTS</string>
 	<string name="tts_summary">Changer de langue et vitesse de prononciation</string>
 	<string name="ringdroid_title">Ringdroid</string>
-	<string name="ringdroid_summary">La sonnerie commence trop tôt? Modifier là!</string>
+	<string name="ringdroid_summary">La sonnerie commence trop tôt&#160;? Modifier là&#160;!</string>
 	<string name="about_title">A propos</string>
 	<string name="trouble_title">Anomalie</string>
 	<string name="trouble_summary">Comment réparer certains problèmes</string>
-	<string name="problem_title">Vous avez des problèmes?</string>
+	<string name="problem_title">Vous avez des problèmes&#160;?</string>
 	<string name="problem_summary">Envoyer un courrier électronique :)</string>
 	<string name="blog_title">Blog</string>
 	<string name="blog_summary">Plus d\'informations</string>
@@ -62,17 +65,17 @@
 
 	<string name="market_description">*Seulement pour les téléphones Donut*
 
-		Vous voulez savoir qui vous appelle sans regarder votre téléphone? Cette
-		application vous le diras.
+		Vous voulez savoir qui vous appelle sans regarder votre téléphone&#160;? Cette
+		application vous le dira.
 
 		Cette application lit le nom de l'appelant contenu dans vos contact et vous
-		dis qui appelle.
+		dit qui appelle.
 
-		*Avec un Plug-in pour Locale!*
+		*Avec un Plug-in pour Locale&#160;!*
 
 		Merci de me faire des commentaires :)</string>
 	<string name="market_promo">Vous voulez savoir qui vous appelle sans regarder
-		votre téléphone?</string>
+		votre téléphone&#160;?</string>
 
 	<string name="dialog_title">Quelques mots de l\'auteur...</string>
 	<string name="dialog_message">Merci d\'avoir installé SayMyName :) \n \n Avant de commencer: \n 1. Il vous sera peut-être demandé d\'installer des données vocales depuis le market \n 2. Ensuite cocher la case \'SayMyName\' \n 3. Appeler depuis un autre téléphone, il devrait dire le nom de l\'appelant maintenant \n 4. Savourer et commenter :) \n \n Tom</string>
