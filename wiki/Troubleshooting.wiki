@@ -1,24 +1,22 @@
 #summary Troubleshooting
 #labels Featured
 
-= Introduction =
+= "Can´t  hear it clearly, because the ringtone is too loud" =
+Download [http://roadtoadc.googlecode.com/files/Silent.mp3 Silent-Ringtone] and set it as Ringtone.
 
-Four points to fix your problems.
+= "It doesn´t speak" =
 
-
-= Details =
-
-Most problems will disappear after restarting your phone!
+*Most problems will disappear after restarting your phone!*
 
 If not:
  * If you installed [http://code.google.com/p/eyes-free/ TTS] first time, it downloads some voice-datas (only 2MB). Wait for this and try again / restart your phone.
 
  * Test doesn´t work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
- * If point 3 is too long for you, please contact me and describe your problem!
+ * Or contact me and describe your problem!
 
 
-Thanks a lot for every feedback!
+Thanks a lot for every feedback I get!
 I hope you enjoy SayMyName!
 
 Tom
