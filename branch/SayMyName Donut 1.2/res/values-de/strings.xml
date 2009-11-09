@@ -1,96 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="test_speak">Ich hoffe dir gefällt mein Programm</string>
-	<string name="unknown_caller">Unbekannt</string>
+	<string name="app_name">SayMyName Donut</string>
+	
+	<string name="caller_unknown">unbekannt</string>
+	
+	<string name="locale_text">Kontrolliere wie sich SayMyName an diesem Ort / zu dieser Zeit verhalten soll</string>
+	<string name="locale_enabled">aktiviert</string>
+	<string name="locale_disabled">deaktiviert</string>
+	<string name="locale_saycaller_enable">Aktiviere SayCaller</string>
+	<string name="locale_saysms_enable">Aktiviere SaySMS</string>
 
-	<string name="locale_plugin_text">Bestimme wie sich SayMyName an diesem Ort / zu
-		dieser Zeit verhalten soll.</string>
-	<string name="locale_plugin_enabled">Aktiviert</string>
-	<string name="locale_plugin_disabled">Deaktviert</string>
-	<string name="locale_plugin_respect">Respektiere lautlos</string>
-	<string name="locale_plugin_dont_respect">Lautlos nicht respektieren</string>
-	<string name="locale_plugin_enable">Aktiviere SayMyName</string>
-
-	<string name="error_toast_install">Du solltest mich sprechen hören. Wenn nicht, starte
-		dein Handy neu und probier es noch einmal.</string>
-	<string name="locale_toast">Locale kontrolliert deine Einstellungen abhängig
-		davon wo du gerade bist.</string>
-	<string name="tts_toast">Du musst TTS (Text-to-Speech-Library) installieren
-		um dieses Programm zu verwenden.</string>
-	<string name="ringdroid_toast">Ringdroid erlaubt es dir deine Klingeltöne zu
-		bearbeiten.</string>
-	<string name="feedback_toast">Danke für deine Rückmeldung!</string>
-	<string name="start_toast">Bitte starte SayMyName.</string>
-
-	<string name="saymyname_summary_off">SayMyName gestoppt</string>
-	<string name="saymyname_summary_on">SayMyName gestartet</string>
-	<string name="silent_on">Nicht sprechen wenn lautlos</string>
-	<string name="silent_off">Sprechen wenn lautlos</string>
-	<string name="discreet_title">Diskret Modus</string>
-	<string name="discreet_summary_on">Nur bei angeschlossenen Kopfhörern sprechen</string>
-	<string name="discreet_summary_off">Auch ohne angeschlossenen Kopfhörern sprechen</string>
-	<string name="caller_title">Anrufer wiederholen</string>
-	<string name="caller_summary">Wie oft soll der Name wiederholt werden?</string>
-	<string name="timeout_summary">Pause zwischen Wiederholungen festlegen</string>
-	<string name="timeout_title">Wiederholungspause</string>
-	<string name="timeout_dialog">Pause zwischen Wiederholungen festlegen (0 = nicht
-		wiederholen)</string>
-	<string name="times_title">Wiederholungsanzahl</string>
-	<string name="times_summary">Festlegen wie oft der Name wiederholt werden soll
-	</string>
-	<string name="times_dialog">Festlegen wie oft der Name wiederholt werden soll
-		(0
-		= nicht wiederholen)</string>
-	<string name="cut_title">Name kürzen</string>
-	<string name="cut_summary">Den Namen nur bis zum ersten Leerzeichen lesen
-	</string>
-	<string name="volume_title">Lautstärke Einstellungen</string>
-	<string name="silent_title">Respektiere lautlos</string>
-	<string name="seek_title">Sprechlautstärke</string>
-	<string name="seek_summary">Sprechlautstärke festlegen</string>
-	<string name="external_title">Externe Verbesserungen</string>
-	<string name="locale_title">Locale</string>
-	<string name="locale_summary">SayMyName mit Locale steuern</string>
-	<string name="tts_title">TTS Einstellungen</string>
-	<string name="tts_summary">Sprache und Sprechrate verändern</string>
-	<string name="ringdroid_title">Ringdroid</string>
-	<string name="ringdroid_summary">Klingelton startet zu schnell? Bearbeite ihn!
-	</string>
-	<string name="about_title">Über</string>
-	<string name="trouble_title">Problehmbehandlung</string>
-	<string name="trouble_summary">Einige Probleme lösen</string>
-	<string name="problem_title">Funktioniert etwas nicht?</string>
-	<string name="problem_summary">Kontaktiere mich per Mail :)</string>
-	<string name="blog_title">Blog</string>
-	<string name="blog_summary">Mehr Informationen</string>
-	<string name="talking_title">Sprech Optionen</string>
-	<string name="talking_summary">Verändere wie der Name vorgelesen werden soll
-	</string>
-	<string name="format_title">Format string</string>
-	<string name="format_summary">Füge Wörter zum Namen hinzu</string>
-	<string name="format_message">Füge Wörter zum Namen hinzu (füge % für den Namen
-		ein, z.B.: % ruft an)</string>
-
-	<string name="app_name">SayMyName</string>
-	<string name="help">Hilfe</string>
-	<string name="save">Speichern</string>
-	<string name="dontsave">Nicht speichern</string>
-
-	<string name="market_description">* NUR FÜR DONUT HANDYS! *
-
-		Du willst wissen wer dich anruft ohne auf dein Handy zu sehen? Diese App
-		sagt es dir!
-
-		Es liest den Namen des Anrufers aus dem Adressbuch aus und liest ihn dir
-		vor.
-
-		*mit Locale Plug-in!*
-
-		Vielen Dank für euer bisheriges Feedback!</string>
-	<string name="market_promo">Du willst wissen wer dich anruft ohne auf dein
-		Handy zu sehen? Diese App hilft!</string>
-
-	<string name="dialog_title">Ein paar Worte vom Autor...</string>
-	<string name="dialog_message">Danke, dass du SayMyName installiert hast  :) \n \n Bevor du loslegst: \n 1. Du wirst wahrscheinlich aufgefordert werden zusätzliche Sprachdaten zu installieren \n 2. Dann aktiviere die \'SayMyName\' Checkbox \n 3. Ruf dich von einem anderen Handy aus an, es sollte der Name des Anrufers vorgelesen werden \n 4. Genieße und sende mir Feedback :) \n \n Tom</string>
-	<string name="dialog_button">Okay...</string>
+	<string name="locale_help">Hilfe</string>
+	<string name="locale_save">Speichern</string>
+	<string name="locale_dontsave">Verwerfen</string>
+	
+	
+	<string name="preference_cutName_title">Name kürzen</string>
+	<string name="preference_cutName_summaryOn">Den ganzen Namen lesen</string>
+	<string name="preference_cutName_summaryOff">Den Namen bis zum ersten Abstand lesen</string>
+	
+	<string name="preference_discreetMode_title">Diskret Modus</string>
+	<string name="preference_discreetMode_summaryOn">Nur in Kopfhörern sprechen</string>
+	<string name="preference_discreetMode_summaryOff">Auch ohne Kopfhörern sprechen</string>
+	
+	<string name="preference_saycaller_title">SayCaller</string>
+	<string name="preference_saycaller_summaryOn">Ich lese Anrufer vor</string>
+	<string name="preference_saycaller_summaryOff">Ich lese keine Anrufer vor</string>
+	
+	<string name="preference_saycaller_settings_title">SayCaller Einstellungen</string>
+	<string name="preference_saycaller_settings_summary">Personalisiere alles!</string>
+	
+	<string name="preference_callerRepeatSeconds_title">Wiederholungspause</string>
+	<string name="preference_callerRepeatSeconds_summary">Setze eine Pause zwischen Wiederholungen</string>
+	
+	<string name="preference_callerRepeatTimes_title">Wiederhole den Namen</string>
+	<string name="preference_callerRepeatTimes_summary">Wie oft soll der Name wiederholt werden?</string>
+	
+	<string name="preference_callerFormat_title">Formatstring</string>
+	<string name="preference_callerFormat_summary">Personalisiere die Ankündigung</string>
+	<string name="preference_callerFormat_dialog">% für den Namen, &amp; für Nummerntyp / e.g.: % Tom ruft an von &amp;</string>
+	
+	<string name="preference_saysms_title">SaySMS</string>
+	<string name="preference_saysms_summary">Aktiviere SaySMS</string>
+	
+	<string name="preference_saysms_settings_title">SaySMS Einstellungen</string>
+	<string name="preference_saysms_settings_summary">Personalisiere alles!</string>
+	
+	<string name="preference_smsReadDelay_title">Lesepause</string>
+	<string name="preference_smsReadDelay_summary">Setze die Pause zwischen den Vorlesungen</string>
+	
+	<string name="preference_smsFormat_title">Formatstring</string>
+	<string name="preference_smsFormat_summary">Personalisiere die Ankündigung</string>
+	<string name="preference_smsFormat_dialog">% für den Namen, &amp; für Nummerntyp / e.g.: % Tom schreibt von &amp;</string>
+	
+	<string name="preference_smsRead_title">Lies SMS vor</string>
+	<string name="preference_smsRead_summaryOn">Lies die ganze SMS vor</string>
+	<string name="preference_smsRead_summaryOff">Lies nur den Namen vor</string>
+	
+	<string name="preference_smsReadDiscreet_title">Lies SMS diskret</string>
+	<string name="preference_smsReadDiscreet_summaryOn">Lies die SMS nur wenn diskret</string>
+	<string name="preference_smsReadDiscreet_summaryOff">Lies SMS immer vor</string>
+	
+	<string name="preference_external_title">Andere Verbesserungen</string>
+	
+	<string name="preference_ringtone_title">Rufton</string>
+	<string name="preference_ringtone_summary">Setze deinen Rufton auf lautlos, sodass du mich klar hören kannst</string>
+	
+	<string name="preference_tts_title">TTS</string>
+	
+	<string name="preference_ringdroid_title">Ringdroid</string>
+	<string name="preference_ringdroid_summary">Verändere deinen Rufton mit Ringdroid</string>
+	
+	<string name="preference_locale_title">Locale</string>
+	<string name="preference_locale_summary">Benutze Locale um mich zu kontrollieren</string>
+	
+	<string name="preference_contactChooser_title">Kontaktauswahl</string>
+	<string name="preference_contactChooser_summary">Wähle Kontakte aus, die ich nicht vorlesen soll</string>
+	
+	<string name="preference_trouble_title">Problembehandlung</string>
+	<string name="preference_trouble_summary">Hast du Probleme mit meiner App? Dann lies das</string>
+	
+	<string name="preference_problem_title">Kontaktiere mich</string>
+	<string name="preference_problem_summary">Problembehandlung konnte dein Problem nicht lösen? Dann schreib mir :)</string>
+	
+	<string name="preference_blog_title">Blog</string>
+	<string name="preference_blog_summary">Lies meinen Blog für mehr Informationen</string>
 </resources>
