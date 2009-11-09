@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory android:title="Internal tweaks">
+		<CheckBoxPreference android:key="start"
+			android:title="@string/app_name" android:defaultValue="false" />
+		<PreferenceScreen android:title="@string/caller_title"
+			android:summary="@string/caller_summary">
+			<PreferenceCategory android:title="@string/caller_title">
+				<EditTextPreference android:key="repeatSeconds"
+					android:persistent="true" android:numeric="integer"
+					android:defaultValue="3" android:summary="@string/timeout_summary"
+					android:dialogTitle="@string/timeout_title" android:title="@string/timeout_title"
+					android:dialogMessage="@string/timeout_dialog" />
+				<EditTextPreference android:key="repeatTimes"
+					android:summary="@string/times_summary" android:persistent="true"
+					android:numeric="integer" android:dialogTitle="@string/times_title"
+					android:title="@string/times_title" android:defaultValue="4"
+					android:dialogMessage="@string/times_dialog" />
+			</PreferenceCategory>
+		</PreferenceScreen>
+
+		<PreferenceScreen android:title="@string/talking_title"
+			android:summary="@string/talking_summary">
+			<PreferenceCategory android:title="@string/talking_title">
+				<CheckBoxPreference android:key="cut"
+					android:title="@string/cut_title" android:summary="@string/cut_summary"
+					android:defaultValue="true" />
+				<EditTextPreference android:key="format"
+					android:title="@string/format_title" android:summary="@string/format_summary"
+					android:defaultValue="%" android:dialogTitle="@string/format_title"
+					android:dialogMessage="@string/format_message" />
+			</PreferenceCategory>
+		</PreferenceScreen>
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/volume_title">
+		<CheckBoxPreference android:key="silent"
+			android:title="@string/silent_title" android:order="1"
+			android:defaultValue="true" />
+		<org.mailboxer.android.SeekBarPreference
+			android:key="volume" android:title="@string/seek_title"
+			android:summary="@string/seek_summary" android:order="2" />
+	</PreferenceCategory>
+	<PreferenceCategory android:title="@string/external_title">
+		<Preference android:key="ringtone" android:title="@string/preference_ringtone_title"
+			android:summary="@string/preference_ringtone_summary" />
+		<Preference android:key="locale" android:summary="@string/locale_summary"
+			android:title="@string/locale_title" />
+		<Preference android:key="tts" android:summary="@string/tts_summary"
+			android:title="@string/tts_title" />
+		<Preference android:key="ringdroid" android:summary="@string/ringdroid_summary"
+			android:title="@string/ringdroid_title" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/about_title">
+		<Preference android:key="trouble" android:summary="@string/trouble_summary"
+			android:title="@string/trouble_title" />
+		<Preference android:key="problem" android:summary="@string/problem_summary"
+			android:title="@string/problem_title" />
+		<Preference android:key="blog" android:summary="@string/blog_summary"
+			android:title="@string/blog_title" />
+	</PreferenceCategory>
+</PreferenceScreen>

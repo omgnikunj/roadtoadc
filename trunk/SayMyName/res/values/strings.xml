@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="test_speak">I hope you enjoy my app</string>
+	<string name="unknown_caller">Unknown</string>
+
+	<string name="locale_plugin_text">Change how SayMyName behaves at this place / time.</string>
+	<string name="locale_plugin_enabled">Enabled</string>
+	<string name="locale_plugin_disabled">Disabled</string>
+	<string name="locale_plugin_respect">Respect silent</string>
+	<string name="locale_plugin_dont_respect">Don\'t respect silent</string>
+	<string name="locale_plugin_enable">Enable SayMyName</string>
+
+	<string name="error_toast_install">You should hear me talking. If not, please restart your phone and try again.</string>
+	<string name="locale_toast">Locale controls your preferences based on your location.</string>
+	<string name="tts_toast">You have to install TTS (Text-to-Speech-Library) to use this app.</string>
+	<string name="ringdroid_toast">Ringdroid allows you to edit your ringtone and other music-files.</string>
+	<string name="feedback_toast">Thanks for your feedback!</string>
+	<string name="start_toast">Please start SayMyName.</string>
+
+	<string name="saymyname_summary_off">SayMyName stopped</string>
+	<string name="saymyname_summary_on">SayMyName started</string>
+	<string name="silent_on">Don\'t speak when phone is silent</string>
+	<string name="silent_off">Speak when phone is silent</string>
+	<string name="caller_title">Repeat caller</string>
+	<string name="caller_summary">How often should it repeat the name?</string>
+	<string name="timeout_summary">Set the timeout between reading the name</string>
+	<string name="timeout_title">Repeat timeout</string>
+	<string name="timeout_dialog">Set the timeout between reading the name (0 = don\'t repeat name)</string>
+	<string name="times_title">Repeat times</string>
+	<string name="times_summary">Set how many times the caller should be repeated</string>
+	<string name="times_dialog">Set how many times the caller should be repeated (0 = don\'t repeat name)</string>
+	<string name="cut_title">Cut name</string>
+	<string name="cut_summary">Only read name till first space</string>
+	<string name="volume_title">Volume Settings</string>
+	<string name="silent_title">Respect silent</string>
+	<string name="seek_title">Speakvolume</string>
+	<string name="seek_summary">Set speakvolume</string>
+	<string name="external_title">External tweaks</string>
+	<string name="preference_ringtone_title">Ringtone</string>
+	<string name="preference_ringtone_summary">Set the ringtone to silent, so you can hear me clearly</string>
+	<string name="locale_title">Locale</string>
+	<string name="locale_summary">Control SayMyName with Locale</string>
+	<string name="tts_title">TTS Preferences</string>
+	<string name="tts_summary">Change language and speechrate</string>
+	<string name="ringdroid_title">Ringdroid</string>
+	<string name="ringdroid_summary">Ringtone starts too fast? Edit it!</string>
+	<string name="about_title">About</string>
+	<string name="trouble_title">Troubleshooting</string>
+	<string name="trouble_summary">Howto fix some problems</string>
+	<string name="problem_title">Having problems?</string>
+	<string name="problem_summary">Send me a mail :)</string>
+	<string name="blog_title">Blog</string>
+	<string name="blog_summary">More information</string>
+	<string name="talking_title">Talking options</string>
+	<string name="talking_summary">Change how the name is read</string>
+	<string name="format_title">Format string</string>
+	<string name="format_summary">Add some words to the name</string>
+	<string name="format_message">Add some words to the name (insert % for the name,  e.g.: % calling)</string>
+
+	<string name="app_name">SayMyName</string>
+	<string name="help">Help</string>
+	<string name="save">Save</string>
+	<string name="dontsave">Don\'t Save</string>
+
+	<string name="market_description">Want to know who´s calling without looking at your
+		phone? This app will tell you!
+
+		It reads the caller ID saved in your
+		adressbook and tells you who´s
+		calling
+
+		*Donut version available at the
+		market!*
+
+		*Now with Locale Plug-in!*
+
+		Thanks to all who gave me feedback
+		and sent me ideas!
+
+		*You will get prompted to install TTS*</string>
+	<string name="market_promo">Want to know who\'s calling without looking at your
+		phone? This app will tell you</string>
+
+	<string name="dialog_title">Some words from the author...</string>
+	<string name="dialog_message">Thanks for installing SayMyName :) \n \n * VERY IMPORTANT: * \n There's also a Donut version available on the market! \n \n Before you get started: \n 1. Maybe you will get prompted to install TTS from the market \n 2. Then check the \'SayMyName\' box \n 3. Call yourself from another phone, if it doesn´t say the name, please try again after restarting your phone \n 4. Enjoy and send me feedback :) \n \n Tom</string>
+	<string name="dialog_button">Okay...</string>
+</resources>
