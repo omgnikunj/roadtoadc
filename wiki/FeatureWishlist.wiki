@@ -15,4 +15,4 @@ when the incoming call´s number isn´t saved in addressbook, read out the numbe
 record your own voice and play it instead of TTS voice
 
 
-Any other ideas?
+*Any other ideas?*
