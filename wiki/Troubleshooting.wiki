@@ -1,5 +1,6 @@
 #labels Featured
 = "It doesn´t speak" =
+#summary fix often reported issues
 
 *Most problems will disappear after restarting your phone!*
 
