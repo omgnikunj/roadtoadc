@@ -1,0 +1,18 @@
+#summary often requested features
+#labels Featured
+
+= Feature Wishlist =
+== Contact Whitelist ==
+read out sms all the time for certain numbers
+
+== Read Mail ==
+read on incoming mails
+
+== Read number when unknown ==
+when the incoming call´s number isn´t saved in addressbook, read out the number
+
+== Add own voice ==
+record your own voice and play it instead of TTS voice
+
+
+Any other ideas?
