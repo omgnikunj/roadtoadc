@@ -14,6 +14,11 @@ If not:
  * Or contact me and describe your problem!
 
 
+= "every contact is announced as "unknown"" =
+
+It seems like you sync your contacts with Exchange or something similar. At the moment this is not supported. If you want to help follow [http://code.google.com/p/roadtoadc/issues/detail?id=4#c1 this instructions].
+
+
 Thanks a lot for every feedback I get!
 I hope you enjoy SayMyName!
 
