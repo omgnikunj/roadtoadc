@@ -178,7 +178,7 @@ public class SayMyName extends PreferenceActivity {
 				try {
 					startActivity(intentTTS);
 				} catch(Exception e) {
-					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=library pub:\"Charles Chen\"")));
+					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:com.google.tts")));
 
 					Toast.makeText(SayMyName.this, R.string.tts_toast,Toast.LENGTH_LONG).show();
 				}
@@ -223,7 +223,6 @@ public class SayMyName extends PreferenceActivity {
 				Intent sendIntent = new Intent(Intent.ACTION_SEND);
 				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName");
 				sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"tomtasche@gmail.com"});
-				sendIntent.putExtra(Intent.EXTRA_TEXT, getPreferenceManager().getSharedPreferences().getString("bug", "try again"));
 				sendIntent.setType("message/rfc822");
 				startActivity(sendIntent);
 
