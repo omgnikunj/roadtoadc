@@ -22,12 +22,13 @@ public class Caller {
 		this.settings = settings;
 		this.context = context;
 		number = incomingNumber;
-		// UNKNOWN = context.getResources().getString(R.string.caller_unknown);
+		UNKNOWN = context.getResources().getString(R.string.caller_unknown);
 
 		resolveNumber(incomingNumber);
 	}
 
 	private void resolveNumber(String incomingNumber) {
+		// safety first
 		if (incomingNumber == null) {
 			name = UNKNOWN;
 			return;
@@ -38,13 +39,16 @@ public class Caller {
 			return;
 		}
 
+		// number-lookup:
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
 		Cursor cur = context.getContentResolver().query(contactUri, new String[] {People.NAME, People.TYPE, People._ID}, null, null, null);
 
 		if (cur.moveToFirst()) {
 			if (cur.getString(0) != null) {
+				// get contact's name
 				name = cur.getString(0);
 
+				// get number's type:
 				switch (Integer.parseInt(cur.getString(1))) {
 				case People.TYPE_MOBILE:
 					type = "Mobile";
@@ -63,33 +67,41 @@ public class Caller {
 					break;
 
 				default:
+					// maybe a custom type
 					type = "";
 					break;
 				}
 			} else {
+				// couldn't find a contact for that number
 				name = UNKNOWN;
 				type = "";
 				return;
 			}
 		} else {
+			// not really needed, but let's go the safe way
 			name = UNKNOWN;
 			type = "";
 			return;
 		}
 
 		try {
+			// if there's a file in app's private directory don't read!
+			// (doesn't matter what's in the file, is created by ContactChooser.java)
 			context.openFileInput(cur.getString(2));
 
+			// stop the main-service, because there's nothing to do
 			Intent serviceIntent = new Intent(context, QueryBuilder.class);
-			serviceIntent.putExtra(QueryBuilder.SHUTDOWN_CMD, true);
+			serviceIntent.putExtra(QueryBuilder.STOP_CMD, true);
 			context.startService(serviceIntent);
 
+			// not really needed, but let's go the safe way
 			name = "";
 			type = "";
 		} catch (FileNotFoundException e) {}
 	}
 
 	public String buildString(String formatString) {
+		// safety first
 		if (name == null) {
 			return UNKNOWN;
 		}
@@ -98,9 +110,12 @@ public class Caller {
 		}
 
 		if (settings.isCutName()) {
+			// user doesn't want to hear the whole name
 			name = name.split(" ")[0];
 		}
 
+		// look for % and & - and replace them
+		// (at least % has to be available, this is guaranteed by SayMyName.java)
 		String speech = formatString.replaceFirst("%", name);
 		speech = speech.replaceFirst("&", type);
 

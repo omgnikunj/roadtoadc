@@ -14,6 +14,7 @@
 	<string name="locale_save">Save</string>
 	<string name="locale_dontsave">Don\'t Save</string>
 	
+	<string name="tts_check_toast">TTS installed! Everything should work fine :)</string>
 	
 	<string name="preference_cutName_title">Cut name</string>
 	<string name="preference_cutName_summaryOn">Read the whole name</string>
@@ -38,7 +39,7 @@
 	
 	<string name="preference_callerFormat_title">Formatstring</string>
 	<string name="preference_callerFormat_summary">Customize the announcement</string>
-	<string name="preference_callerFormat_dialog">% for name, &amp; for type / e.g.: % Tom calls at &amp;</string>
+	<string name="preference_callerFormat_dialog">% for name, &amp; for type \ne.g.: % Tom calls at &amp;</string>
 	
 	<string name="preference_saysms_title">SaySMS</string>
 	<string name="preference_saysms_summary">Enable SaySMS</string>
@@ -51,11 +52,14 @@
 	
 	<string name="preference_smsFormat_title">Formatstring</string>
 	<string name="preference_smsFormat_summary">Customize the announcement</string>
-	<string name="preference_smsFormat_dialog">% for name, &amp; for type / e.g.: % Tom writes from &amp;</string>
+	<string name="preference_smsFormat_dialog">% for name, &amp; for type \ne.g.: % Tom writes from &amp;</string>
 	
 	<string name="preference_smsRead_title">Read SMS</string>
 	<string name="preference_smsRead_summaryOn">Read the SMS content</string>
 	<string name="preference_smsRead_summaryOff">Don´t read the SMS content</string>
+	
+	<string name="preference_smsRepeatTimes_title">Repeat SMS</string>
+	<string name="preference_smsRepeatTimes_summary">How often should it repeat the SMS?</string>
 	
 	<string name="preference_smsReadDiscreet_title">Read SMS content discreet</string>
 	<string name="preference_smsReadDiscreet_summaryOn">Read SMS content only when discreet</string>
@@ -63,10 +67,12 @@
 	
 	<string name="preference_external_title">External Tweaks</string>
 	
-	<string name="preference_ringtone_title">Ringtone</string>
+	<string name="preference_ringtone_title">Silent Ringtone</string>
 	<string name="preference_ringtone_summary">Set the ringtone to silent, so you can hear me clearly</string>
+	<string name="preference_ringtone_toast_finished">Ringtone is now silent</string>
 	
 	<string name="preference_tts_title">TTS</string>
+	<string name="preference_tts_toast">Navigate to the bottom to Speech synthesis</string>
 	
 	<string name="preference_ringdroid_title">Ringdroid</string>
 	<string name="preference_ringdroid_summary">Customize your ringtone with Ringdroid</string>
@@ -82,7 +88,12 @@
 	
 	<string name="preference_problem_title">Contact me</string>
 	<string name="preference_problem_summary">Troubleshooting didn´t fix your problem? Contact me :)</string>
+	<string name="preference_problem_toast">Please describe your problem. Thanks for your feedback :)</string>
 	
 	<string name="preference_blog_title">Blog</string>
 	<string name="preference_blog_summary">Read my blog for more information</string>
+	
+	<string name="preference_donate_title">Support me :D</string>
+	<string name="preference_donate_summary">If you like what I´m doing, please buy SayMyName Donate</string>
+	<string name="preference_donate_toast">Thanks a lot :) Don´t forget to uninstall this version, after you´ve installed SayMyName Donate</string>
 </resources>

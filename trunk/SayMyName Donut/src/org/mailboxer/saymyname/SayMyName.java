@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,7 +33,7 @@ public class SayMyName extends PreferenceActivity {
 		getPreferenceManager().setSharedPreferencesName("saysomething");
 		addPreferencesFromResource(R.xml.preferences);
 
-		// check for TTS installed and start
+		// check for TTS installed
 		Intent checkIntent = new Intent();
 		checkIntent.setAction(TextToSpeech.Engine.ACTION_CHECK_TTS_DATA);
 		startActivityForResult(checkIntent, ttsCheckReqCode);
@@ -42,6 +42,7 @@ public class SayMyName extends PreferenceActivity {
 			@Override
 			public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
 				if (key.equals("callerFormat") || key.equals("smsFormat")) {
+					// be sure that there's at least % in the formatstring
 					String changedFormat = sharedPreferences.getString(key, null);
 
 					if (changedFormat.length() <= 1) {
@@ -59,6 +60,7 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("ringtone").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
+				// save the silent ringtone on sdcard and put it in the ringtone-database
 				File dir = new File("/sdcard/media/audio/ringtones");
 				File file = new File("/sdcard/media/audio/ringtones/silent.mp3");
 
@@ -100,6 +102,8 @@ public class SayMyName extends PreferenceActivity {
 				Uri newUri = getContentResolver().insert(uri, values);
 				RingtoneManager.setActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE, newUri);
 
+				Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_ringtone_toast_finished), Toast.LENGTH_LONG).show();
+
 				return false;
 			}
 		});
@@ -107,7 +111,7 @@ public class SayMyName extends PreferenceActivity {
 		screen.findPreference("tts").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
-				Toast.makeText(SayMyName.this, "Navigate to the bottom", Toast.LENGTH_LONG).show();
+				Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_tts_toast), Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -115,15 +119,14 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("ringdroid").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
+				// start Ringdroid
 				Intent intentRingdroid = new Intent("android.intent.action.GET_CONTENT");
 				Uri ringtone = RingtoneManager.getActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE);
 				intentRingdroid.setDataAndType(ringtone, "audio/");
 
 				try {
-					createPackageContext("com.ringdroid", 0);
-
 					startActivity(intentRingdroid);
-				} catch (NameNotFoundException e) {
+				} catch (ActivityNotFoundException e) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=Ringdroid pub:\"Ringdroid Team\"")));
 				}
 
@@ -133,13 +136,13 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("locale").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// start TTS-preferences
-				Intent intentTTS = new Intent();
-				intentTTS.setComponent(new ComponentName("edu.mit.locale", "edu.mit.locale.ui.activities.Locale"));
+				// start Locale
+				Intent intentLocale = new Intent();
+				intentLocale.setComponent(new ComponentName("edu.mit.locale", "edu.mit.locale.ui.activities.Locale"));
 
 				try {
-					startActivity(intentTTS);
-				} catch(Exception e) {
+					startActivity(intentLocale);
+				} catch(ActivityNotFoundException e) {
 					startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:edu.mit.locale")));
 				}
 
@@ -149,6 +152,7 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("contactChooser").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
+				// start ContactChooser.java
 				startActivity(new Intent(SayMyName.this, ContactChooser.class));
 
 				return false;
@@ -173,7 +177,7 @@ public class SayMyName extends PreferenceActivity {
 				sendIntent.setType("message/rfc822");
 				startActivity(sendIntent);
 
-				Toast.makeText(SayMyName.this, "Please describe your problem. Thanks for your feedback :)", Toast.LENGTH_LONG).show();
+				Toast.makeText(SayMyName.this, getString(R.string.preference_problem_toast), Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -187,14 +191,27 @@ public class SayMyName extends PreferenceActivity {
 				return false;
 			}
 		});
+
+		screen.findPreference("donate").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			public boolean onPreferenceClick(Preference preference) {
+				// install Donate version
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.donate")));
+
+				Toast.makeText(SayMyName.this, getString(R.string.preference_donate_toast), Toast.LENGTH_LONG).show();
+
+				return false;
+			}
+		});
 	}
 
+	// from:
+	// http://android-developers.blogspot.com/2009/09/introduction-to-text-to-speech-in.html
 	private static final int ttsCheckReqCode = 42;
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == ttsCheckReqCode) {
 			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
 				// success, create the TTS instance
-				Toast.makeText(this, "TTS installed! Everything should work fine :)", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, getString(R.string.tts_check_toast), Toast.LENGTH_SHORT).show();
 			} else {
 				// missing data, install it
 				Intent installIntent = new Intent();

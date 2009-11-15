@@ -59,6 +59,10 @@
 				android:title="@string/preference_smsRead_title" android:summaryOn="@string/preference_smsRead_summaryOn"
 				android:summaryOff="@string/preference_smsRead_summaryOn" />
 
+			<EditTextPreference android:key="smsRepeatTimes"
+				android:defaultValue="1" android:title="@string/preference_smsRepeatTimes_title"
+				android:numeric="integer" android:summary="@string/preference_smsRepeatTimes_summary" />
+
 			<CheckBoxPreference android:key="smsReadDiscreet"
 				android:defaultValue="true" android:title="@string/preference_smsReadDiscreet_title"
 				android:summaryOn="@string/preference_smsReadDiscreet_summaryOn"
@@ -92,5 +96,8 @@
 
 		<Preference android:key="blog" android:title="@string/preference_blog_title"
 			android:summary="@string/preference_blog_summary" />
+
+		<Preference android:key="donate" android:title="@string/preference_donate_title"
+			android:summary="@string/preference_donate_summary" />
 	</PreferenceCategory>
 </PreferenceScreen>

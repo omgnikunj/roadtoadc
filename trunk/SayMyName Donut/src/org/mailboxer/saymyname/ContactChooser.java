@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.provider.Contacts.People;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.SimpleCursorAdapter;
@@ -28,11 +27,6 @@ public class ContactChooser extends ListActivity implements TextWatcher {
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-
-		//		setTitle(R.string.choose_contact_title);
-
-		//		Intent intent = getIntent();
-		//		mRingtoneUri = intent.getData();
 
 		// Inflate our UI from its XML layout description.
 		setContentView(R.layout.choose_contact);
@@ -94,10 +88,7 @@ public class ContactChooser extends ListActivity implements TextWatcher {
 				}
 			});
 
-		} catch (SecurityException e) {
-			// No permission to retrieve contacts?
-			Log.e("Ringdroid", e.toString());
-		}
+		} catch (SecurityException e) {}
 
 		mFilter = (TextView) findViewById(R.id.search_filter);
 		if (mFilter != null) {
@@ -107,20 +98,26 @@ public class ContactChooser extends ListActivity implements TextWatcher {
 
 	private void markContact() {
 		Cursor c = mAdapter.getCursor();
+
 		int dataIndex = c.getColumnIndexOrThrow(People._ID);
 		String contactId = c.getString(dataIndex);
-
-		try {
-			FileOutputStream stream = openFileOutput(contactId, 0);
-			stream.write(0);
-			stream.close();
-		} catch (FileNotFoundException e) {
-		} catch (IOException e) {}
 
 		dataIndex = c.getColumnIndexOrThrow(People.DISPLAY_NAME);
 		String displayName = c.getString(dataIndex);
 
-		Toast.makeText(this, displayName + "selected", Toast.LENGTH_LONG);
+		try {
+			openFileInput(contactId);
+			deleteFile(contactId);
+			Toast.makeText(this, displayName + " unselected. I will announce him!", Toast.LENGTH_LONG).show();
+		} catch (FileNotFoundException e) {
+			try {
+				FileOutputStream stream = openFileOutput(contactId, 0);
+				stream.write(0);
+				stream.close();
+				Toast.makeText(this, displayName + " selected. I won´t announce him!", Toast.LENGTH_LONG).show();
+			} catch (FileNotFoundException e1) {
+			} catch (IOException e1) {}
+		}
 
 		finish();
 		return;
@@ -146,8 +143,6 @@ public class ContactChooser extends ListActivity implements TextWatcher {
 						selection,
 						null,
 		"STARRED DESC, TIMES_CONTACTED DESC, LAST_TIME_CONTACTED DESC");
-
-		Log.i("Ringdroid", cursor.getCount() + " contacts");
 
 		return cursor;
 	}

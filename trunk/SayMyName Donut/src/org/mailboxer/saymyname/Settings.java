@@ -9,6 +9,7 @@ public class Settings {
 
 	private int smsReadDelay;
 	private boolean smsRead;
+	private int smsRepeatTimes;
 	private boolean smsReadDiscreet;
 
 	private boolean startSomething;
@@ -26,6 +27,7 @@ public class Settings {
 
 
 	public Settings(Context context) {
+		// read and save a lot of settings
 		SharedPreferences preferences = context.getSharedPreferences("saysomething", Context.MODE_WORLD_WRITEABLE);
 
 		startSayCaller = preferences.getBoolean("saycaller", false);
@@ -52,6 +54,7 @@ public class Settings {
 
 		smsRead = preferences.getBoolean("smsRead", false);
 		smsReadDelay = Integer.parseInt(preferences.getString("smsReadDelay", "3"));
+		smsRepeatTimes = Integer.parseInt(preferences.getString("smsRepeatTimes", "1"));
 		smsReadDiscreet = preferences.getBoolean("smsReadDiscreet", true);
 	}
 
@@ -105,5 +108,9 @@ public class Settings {
 
 	public boolean isSmsReadDiscreet() {
 		return smsReadDiscreet;
+	}
+
+	public int getSmsRepeatTimes() {
+		return smsRepeatTimes;
 	}
 }

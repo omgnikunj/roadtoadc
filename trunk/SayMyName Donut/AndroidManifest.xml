@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionCode="26" android:versionName="2.0.4" package="org.mailboxer.saymyname">
+	android:versionCode="32" android:versionName="2.1" package="org.mailboxer.saymyname">
 
 	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="android.permission.READ_PHONE_STATE" />

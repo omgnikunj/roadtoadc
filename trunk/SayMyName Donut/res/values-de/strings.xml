@@ -14,6 +14,7 @@
 	<string name="locale_save">Speichern</string>
 	<string name="locale_dontsave">Verwerfen</string>
 	
+	<string name="tts_check_toast">TTS installiert! Alles sollte funktionieren :)</string>
 	
 	<string name="preference_cutName_title">Name kürzen</string>
 	<string name="preference_cutName_summaryOn">Den ganzen Namen lesen</string>
@@ -38,7 +39,7 @@
 	
 	<string name="preference_callerFormat_title">Formatstring</string>
 	<string name="preference_callerFormat_summary">Personalisiere die Ankündigung</string>
-	<string name="preference_callerFormat_dialog">% für den Namen, &amp; für Nummerntyp / e.g.: % Tom ruft an von &amp;</string>
+	<string name="preference_callerFormat_dialog">% für den Namen, &amp; für Nummerntyp \nz.B.: % Tom ruft an von &amp;</string>
 	
 	<string name="preference_saysms_title">SaySMS</string>
 	<string name="preference_saysms_summary">Aktiviere SaySMS</string>
@@ -46,16 +47,19 @@
 	<string name="preference_saysms_settings_title">SaySMS Einstellungen</string>
 	<string name="preference_saysms_settings_summary">Personalisiere alles!</string>
 	
-	<string name="preference_smsReadDelay_title">Lesepause</string>
-	<string name="preference_smsReadDelay_summary">Setze die Pause zwischen den Vorlesungen</string>
+	<string name="preference_smsReadDelay_title">Pause</string>
+	<string name="preference_smsReadDelay_summary">Pause (in Sekunden) zwischen Lesen des Namen und SMS</string>
 	
 	<string name="preference_smsFormat_title">Formatstring</string>
 	<string name="preference_smsFormat_summary">Personalisiere die Ankündigung</string>
-	<string name="preference_smsFormat_dialog">% für den Namen, &amp; für Nummerntyp / e.g.: % Tom schreibt von &amp;</string>
+	<string name="preference_smsFormat_dialog">% für den Namen, &amp; für Nummerntyp \nz.B.: % Tom schreibt von &amp;</string>
 	
 	<string name="preference_smsRead_title">Lies SMS vor</string>
 	<string name="preference_smsRead_summaryOn">Lies die ganze SMS vor</string>
 	<string name="preference_smsRead_summaryOff">Lies nur den Namen vor</string>
+	
+	<string name="preference_smsRepeatTimes_title">Wiederhole die SMS</string>
+	<string name="preference_smsRepeatTimes_summary">Wie oft soll die SMS wiederholt werden?</string>
 	
 	<string name="preference_smsReadDiscreet_title">Lies SMS diskret</string>
 	<string name="preference_smsReadDiscreet_summaryOn">Lies die SMS nur wenn diskret</string>
@@ -63,10 +67,12 @@
 	
 	<string name="preference_external_title">Andere Verbesserungen</string>
 	
-	<string name="preference_ringtone_title">Rufton</string>
+	<string name="preference_ringtone_title">Lautloser Rufton</string>
 	<string name="preference_ringtone_summary">Setze deinen Rufton auf lautlos, sodass du mich klar hören kannst</string>
+	<string name="preference_ringtone_toast_finished">Rufton ist nun lautlos</string>
 	
 	<string name="preference_tts_title">TTS</string>
+	<string name="preference_tts_toast">Scrolle nach unten zu Sprachsynthese</string>
 	
 	<string name="preference_ringdroid_title">Ringdroid</string>
 	<string name="preference_ringdroid_summary">Verändere deinen Rufton mit Ringdroid</string>
@@ -82,7 +88,12 @@
 	
 	<string name="preference_problem_title">Kontaktiere mich</string>
 	<string name="preference_problem_summary">Problembehandlung konnte dein Problem nicht lösen? Dann schreib mir :)</string>
+	<string name="preference_problem_toast">Bitte beschreibe dein Problem. Danke für dein Feedback :)</string>
 	
 	<string name="preference_blog_title">Blog</string>
 	<string name="preference_blog_summary">Lies meinen Blog für mehr Informationen</string>
+	
+	<string name="preference_donate_title">Unterstütze mich :D</string>
+	<string name="preference_donate_summary">Falls dir gefällt was ich mache kaufe SayMyName Donate</string>
+	<string name="preference_donate_toast">Vielen Dank :) Vergiss nicht diese Version zu deinstallieren, nachdem du SayMyName Donate installiert hast</string>
 </resources>
