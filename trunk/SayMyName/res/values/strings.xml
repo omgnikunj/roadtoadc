@@ -10,6 +10,9 @@
 	<string name="locale_plugin_dont_respect">Don\'t respect silent</string>
 	<string name="locale_plugin_enable">Enable SayMyName</string>
 
+	<string name="dialog_update_title">Update available</string>
+	<string name="dialog_update_text">There´s a new version of SayMyName available! \nIt features a better voice, reads sms and more options. \n Do you want to download it now? \n \n If you do so, please uninstall SayMyName afterwards.</string>
+
 	<string name="error_toast_install">You should hear me talking. If not, please restart your phone and try again.</string>
 	<string name="locale_toast">Locale controls your preferences based on your location.</string>
 	<string name="tts_toast">You have to install TTS (Text-to-Speech-Library) to use this app.</string>

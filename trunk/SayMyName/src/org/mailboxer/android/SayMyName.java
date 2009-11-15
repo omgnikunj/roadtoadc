@@ -223,6 +223,7 @@ public class SayMyName extends PreferenceActivity {
 				Intent sendIntent = new Intent(Intent.ACTION_SEND);
 				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName");
 				sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"tomtasche@gmail.com"});
+				sendIntent.putExtra(Intent.EXTRA_TEXT, getPreferenceManager().getSharedPreferences().getString("bug", "try again"));
 				sendIntent.setType("message/rfc822");
 				startActivity(sendIntent);
 
@@ -283,12 +284,12 @@ public class SayMyName extends PreferenceActivity {
 	private void displayUpgrade() {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
 		dialog.setIcon(R.drawable.icon);
-		dialog.setTitle("Update available");  
-		dialog.setMessage("There´s a new version of SayMyName available! \n It features a better voice, reads sms and more options. \n Do you want to download it now? \n \n If you do so, please uninstall SayMyName afterwards.");
+		dialog.setTitle(getString(R.string.dialog_update_title));  
+		dialog.setMessage(getString(R.string.dialog_update_text));
 		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
 			public void onClick(DialogInterface dialog, int whichButton) {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=SayMyName Donut")));
-			}  
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname")));
+			}
 		});
 		dialog.setNegativeButton("No", null);
 		dialog.show();
