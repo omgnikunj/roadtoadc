@@ -1,13 +1,7 @@
-#summary One-sentence summary of this page.
+#summary How to translate SayMyName
 
-= Introduction =
+= Translate me =
 
-Add your content here.
+If you want to help me translate SayMyName into various languages, copy [http://code.google.com/p/roadtoadc/source/browse/trunk/SayMyName%20Donut/res/values/strings.xml this file] and translate it into your desired language. Afterwards send it to me and I´ll implement it as soon as possible :)
 
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+(Google Spreadsheet for easier translating is coming soon)
