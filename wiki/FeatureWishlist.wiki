@@ -20,6 +20,9 @@ add a checkbox for silent ringtone
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
 
+== Change language and speech rate ==
+add a setting for changing lanugage and speech rate (already possible in TTS Settings)
+
 == Improve Bluetooth support ==
 only speak when bluetooth is enabled and (try to) support more bluetooth headsets
 
