@@ -3,10 +3,10 @@
 
 = Feature Wishlist =
 == One click disable SayMyName ==
-disable SayMyName with one click (+ Widget?)
+disable SayMyName with one click (+ Widget?) - *DONE*
 
 == Read number when unknown ==
-when the incoming call´s number isn´t saved in addressbook, read out the number
+when the incoming call´s number isn´t saved in addressbook, read out the number - *DONE* (no Widget at the moment)
 
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
@@ -15,7 +15,7 @@ modify ringtone´s volume in order to hear SayMyName clearly
 after finished speaking X times, start the default ringtone
 
 == Undo silent ringtone ==
-add a checkbox for silent ringtone
+add a checkbox for silent ringtone - *DONE*
 
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
