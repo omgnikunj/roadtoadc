@@ -2,6 +2,14 @@
 #labels Featured
 
 = Feature Wishlist =
+== turn down volume of ringtone ==
+
+== Start ringtone after speaking ==
+
+== Undo silent ringtone ==
+
+== Silence when pressing volume buttons ==
+
 == Contact Whitelist ==
 read out sms all the time for certain numbers
 
