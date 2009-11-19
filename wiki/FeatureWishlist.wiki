@@ -2,13 +2,26 @@
 #labels Featured
 
 = Feature Wishlist =
-== turn down volume of ringtone ==
+== One click disable SayMyName ==
+disable SayMyName with one click (+ Widget?)
+
+== Read number when unknown ==
+when the incoming call´s number isn´t saved in addressbook, read out the number
+
+== Turn down volume of ringtone ==
+modify ringtone´s volume in order to hear SayMyName clearly
 
 == Start ringtone after speaking ==
+after finished speaking X times, start the default ringtone
 
 == Undo silent ringtone ==
+add a checkbox for silent ringtone
 
 == Silence when pressing volume buttons ==
+silence SayMyName on pressed volume button
+
+== Improve Bluetooth support ==
+only speak when bluetooth is enabled and (try to) support more bluetooth headsets
 
 == Contact Whitelist ==
 read out sms all the time for certain numbers
@@ -16,11 +29,11 @@ read out sms all the time for certain numbers
 == Read Mail ==
 read on incoming mails
 
-== Read number when unknown ==
-when the incoming call´s number isn´t saved in addressbook, read out the number
-
 == Add own voice ==
 record your own voice and play it instead of TTS voice
+
+== Google Voice support ==
+
 
 
 *Any other ideas?*
