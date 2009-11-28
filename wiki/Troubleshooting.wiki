@@ -16,7 +16,7 @@ If not:
 
 = "every contact is announced as "unknown"" =
 
-It seems like you sync your contacts with Exchange or something similar. At the moment this is not supported. If you want to help follow [http://code.google.com/p/roadtoadc/issues/detail?id=4#c1 this instructions].
+It seems like you have a Motorola Droid (Android 2.0). Try "SayMyName Eclair" from the Android Market. If you use it already, try "SayMyName Donut". If nothing works, report an issue [http://code.google.com/p/roadtoadc/issues/entry?template=Defect%20report%20from%20user here].
 
 
 Thanks a lot for every feedback I get!
