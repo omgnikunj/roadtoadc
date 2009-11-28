@@ -47,7 +47,7 @@ public final class R {
         public static final int blog_title=0x7f060030;
         public static final int caller_summary=0x7f060015;
         public static final int caller_title=0x7f060014;
-        public static final int caller_unknown=0x7f060040;
+        public static final int caller_unknown=0x7f060045;
         public static final int cut_summary=0x7f06001d;
         public static final int cut_title=0x7f06001c;
         public static final int dialog_button=0x7f06003f;
@@ -74,8 +74,13 @@ public final class R {
         public static final int locale_toast=0x7f06000b;
         public static final int market_description=0x7f06003b;
         public static final int market_promo=0x7f06003c;
+        public static final int preference_donate_summary=0x7f060043;
+        public static final int preference_donate_title=0x7f060042;
+        public static final int preference_donate_toast=0x7f060044;
         public static final int preference_ringtone_summary=0x7f060024;
         public static final int preference_ringtone_title=0x7f060023;
+        public static final int preference_translate_summary=0x7f060041;
+        public static final int preference_translate_title=0x7f060040;
         public static final int problem_summary=0x7f06002f;
         public static final int problem_title=0x7f06002e;
         public static final int ringdroid_summary=0x7f06002a;

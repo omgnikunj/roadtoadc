@@ -84,4 +84,11 @@
 	<string name="dialog_title">Ein paar Worte vom Autor...</string>
 	<string name="dialog_message">Danke, dass du SayMyName installiert hast  :) \n \n * WICHTIG: * \n Eine Donut Version ist am Market erhältlich! \n \n Bevor du loslegst: \n 1. Du wirst wahrscheinlich aufgefordert werden TTS zu installieren \n 2. Dann aktiviere die \'SayMyName\' Checkbox \n 3. Ruf dich von einem anderen Handy aus an, wenn es den Namen nicht vorliest, versuch es noch einmal nach dem dein Handy neu gestartet hast \n 4. Genieße und sende mir Feedback :) \n \n Tom</string>
 	<string name="dialog_button">Okay...</string>
+	
+	<string name="preference_translate_title">Übersetze mich</string>
+	<string name="preference_translate_summary">Dir gefallen die aktuellen Texte nicht? Dann verändere sie hier</string>
+	
+	<string name="preference_donate_title">Unterstütze mich :D</string>
+	<string name="preference_donate_summary">Falls dir gefällt was ich mache kaufe SayMyName Donate</string>
+	<string name="preference_donate_toast">Vielen Dank :)</string>
 </resources>

@@ -3,7 +3,8 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory android:title="Internal tweaks">
 		<CheckBoxPreference android:key="start"
-			android:title="@string/app_name" android:defaultValue="false" />
+			android:title="@string/app_name" android:defaultValue="false"
+			android:summaryOn="@string/saymyname_summary_on" android:summaryOff="@string/saymyname_summary_off" />
 		<PreferenceScreen android:title="@string/caller_title"
 			android:summary="@string/caller_summary">
 			<PreferenceCategory android:title="@string/caller_title">
@@ -37,7 +38,8 @@
 	<PreferenceCategory android:title="@string/volume_title">
 		<CheckBoxPreference android:key="silent"
 			android:title="@string/silent_title" android:order="1"
-			android:defaultValue="true" />
+			android:defaultValue="true" android:summaryOn="@string/silent_on"
+			android:summaryOff="@string/silent_off" />
 		<org.mailboxer.android.SeekBarPreference
 			android:key="volume" android:title="@string/seek_title"
 			android:summary="@string/seek_summary" android:order="2" />
@@ -56,9 +58,11 @@
 	<PreferenceCategory android:title="@string/about_title">
 		<Preference android:key="trouble" android:summary="@string/trouble_summary"
 			android:title="@string/trouble_title" />
-		<Preference android:key="problem" android:summary="@string/problem_summary"
-			android:title="@string/problem_title" />
+		<Preference android:key="translate"
+			android:title="@string/preference_translate_title" android:summary="@string/preference_translate_summary" />
 		<Preference android:key="blog" android:summary="@string/blog_summary"
 			android:title="@string/blog_title" />
+		<Preference android:key="donate" android:title="@string/preference_donate_title"
+			android:summary="@string/preference_donate_summary" />
 	</PreferenceCategory>
 </PreferenceScreen>

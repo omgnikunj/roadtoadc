@@ -21,7 +21,6 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -64,8 +63,10 @@ public class SayMyName extends PreferenceActivity {
 			}
 		}
 
-		if (Integer.parseInt(Build.VERSION.SDK) > 3) {
-			displayUpgrade();
+		if (Integer.parseInt(Build.VERSION.SDK) == 3) {
+			displayUpgradeDonut();
+		} else if (Integer.parseInt(Build.VERSION.SDK) == 4) {
+			displayUpgradeEclair();
 		}
 
 
@@ -78,11 +79,7 @@ public class SayMyName extends PreferenceActivity {
 
 		PreferenceScreen screen = getPreferenceScreen();
 
-		CheckBoxPreference startPref = (CheckBoxPreference) screen.findPreference("start");
-		startPref.setSummaryOff(R.string.saymyname_summary_on);
-		startPref.setSummaryOn(R.string.saymyname_summary_on);
-
-		startPref.setOnPreferenceClickListener(new OnPreferenceClickListener() {
+		screen.findPreference("start").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
 				if(getPreferenceManager().getSharedPreferences().getBoolean("start", false)) {
 					// start test-speak
@@ -99,10 +96,6 @@ public class SayMyName extends PreferenceActivity {
 				return false;
 			}
 		});
-
-		CheckBoxPreference silentPref = (CheckBoxPreference) screen.findPreference("silent");
-		silentPref.setSummaryOn(R.string.silent_on);
-		silentPref.setSummaryOff(R.string.silent_off);
 
 		screen.findPreference("ringtone").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
@@ -217,25 +210,30 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		screen.findPreference("problem").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+		screen.findPreference("blog").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// send mail
-				Intent sendIntent = new Intent(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName");
-				sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"tomtasche@gmail.com"});
-				sendIntent.setType("message/rfc822");
-				startActivity(sendIntent);
-
-				Toast.makeText(SayMyName.this, R.string.feedback_toast, Toast.LENGTH_LONG).show();
+				// view blog
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://roadtoadc.blogspot.com/")));
 
 				return false;
 			}
 		});
 
-		screen.findPreference("blog").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+		screen.findPreference("translate").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// view blog
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://roadtoadc.blogspot.com/")));
+				// view translate-page
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/roadtoadc/wiki/TranslateMe")));
+
+				return false;
+			}
+		});
+
+		screen.findPreference("donate").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+			public boolean onPreferenceClick(Preference preference) {
+				// install Donate version :D
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.donate")));
+
+				Toast.makeText(SayMyName.this, getString(R.string.preference_donate_toast), Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -280,14 +278,28 @@ public class SayMyName extends PreferenceActivity {
 		dialog.show();
 	}
 
-	private void displayUpgrade() {
+	private void displayUpgradeDonut() {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
 		dialog.setIcon(R.drawable.icon);
 		dialog.setTitle(getString(R.string.dialog_update_title));  
 		dialog.setMessage(getString(R.string.dialog_update_text));
 		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
 			public void onClick(DialogInterface dialog, int whichButton) {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname")));
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=SayMyName Donut")));
+			}
+		});
+		dialog.setNegativeButton("No", null);
+		dialog.show();
+	}
+
+	private void displayUpgradeEclair() {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
+		dialog.setIcon(R.drawable.icon);
+		dialog.setTitle(getString(R.string.dialog_update_title));  
+		dialog.setMessage(getString(R.string.dialog_update_text));
+		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
+			public void onClick(DialogInterface dialog, int whichButton) {
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.eclair")));
 			}
 		});
 		dialog.setNegativeButton("No", null);
