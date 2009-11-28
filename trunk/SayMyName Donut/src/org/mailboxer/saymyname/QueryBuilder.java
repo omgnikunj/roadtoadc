@@ -45,7 +45,7 @@ public class QueryBuilder extends Service {
 			shutdown();
 			return;
 		}
-		if(intent.getBooleanExtra(STOP_CMD, false)) {
+		if (intent.getBooleanExtra(STOP_CMD, false)) {
 			// one of the listeners requested to stop the service
 			// (don't shutdown! stopping prevents SayMyName to speak during a running call!)
 			Log.e("SayMyName", "STOP_CMD");
@@ -53,7 +53,7 @@ public class QueryBuilder extends Service {
 			// prevent the looper to go on 
 			shutdown = true;
 
-			if( talker != null) {
+			if (talker != null) {
 				talker.shutdown();
 				talker = null;
 			}
@@ -63,7 +63,7 @@ public class QueryBuilder extends Service {
 			}
 			return;
 		}
-		if(started) {
+		if (started) {
 			if(smsRunning) {
 				// sms is running, but a call is more important - interrupt sms-speech and start call-speech
 				talker.shutdown();
@@ -172,8 +172,6 @@ public class QueryBuilder extends Service {
 	}
 
 	private void shutdown() {
-		Log.e("SAYMYNAME", "SHUTDOWN");
-
 		shutdown = true;
 
 		if(talker != null) {
@@ -191,6 +189,7 @@ public class QueryBuilder extends Service {
 
 	@Override
 	public void onDestroy() {
+		Log.e("SAYMYNAME", "DESTROY");
 		shutdown();
 		super.onDestroy();
 	}
@@ -243,8 +242,6 @@ public class QueryBuilder extends Service {
 
 			loopCounter++;
 		}
-
-
 
 		private void smsLoop() {
 			switch (loopCounter) {

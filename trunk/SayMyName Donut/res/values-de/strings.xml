@@ -14,11 +14,22 @@
 	<string name="locale_save">Speichern</string>
 	<string name="locale_dontsave">Verwerfen</string>
 	
+	<string name="dialog_update_title">Update verfügbar</string>
+	<string name="dialog_update_text">Eine neue Version von SayMyName ist verfügbar! \nSie beinhaltet eine bessere Stimme, liest auch SMS und viele weitere Features. \nWillst du diese Version jetzt herunterladen? \n \nFalls ja, vergiss nicht die alte Version von SayMyName zu deinstallieren.</string>
+	
 	<string name="tts_check_toast">TTS installiert! Alles sollte funktionieren :)</string>
+	
+	<string name="preference_saymyname_title">SayMyName</string>
+	<string name="preference_saymyname_summaryOn">SayMyName aktiviert</string>
+	<string name="preference_saymyname_summaryOff">SayMyName deaktiviert</string>
 	
 	<string name="preference_cutName_title">Name kürzen</string>
 	<string name="preference_cutName_summaryOn">Den ganzen Namen lesen</string>
 	<string name="preference_cutName_summaryOff">Den Namen bis zum ersten Abstand lesen</string>
+	
+	<string name="preference_readNumber_title">Lies Nummer</string>
+	<string name="preference_readNumber_summaryOn">Lies die Nummer vor, wenn sie nicht im Adressbuch gespeichert ist</string>
+	<string name="preference_readNumber_summaryOff">Lies nur "unbekannt" vor, wenn sie nicht im Adressbuch gespeichert ist</string>
 	
 	<string name="preference_discreetMode_title">Diskret Modus</string>
 	<string name="preference_discreetMode_summaryOn">Nur in Kopfhörern sprechen</string>
@@ -67,6 +78,9 @@
 	
 	<string name="preference_external_title">Andere Verbesserungen</string>
 	
+	<string name="preference_translate_title">Übersetze mich</string>
+	<string name="preference_translate_summary">Dir gefallen die aktuellen Texte nicht? Dann verändere sie hier</string>
+	
 	<string name="preference_ringtone_title">Lautloser Rufton</string>
 	<string name="preference_ringtone_summary">Setze deinen Rufton auf lautlos, sodass du mich klar hören kannst</string>
 	<string name="preference_ringtone_toast_finished">Rufton ist nun lautlos</string>
@@ -95,5 +109,5 @@
 	
 	<string name="preference_donate_title">Unterstütze mich :D</string>
 	<string name="preference_donate_summary">Falls dir gefällt was ich mache kaufe SayMyName Donate</string>
-	<string name="preference_donate_toast">Vielen Dank :) Vergiss nicht diese Version zu deinstallieren, nachdem du SayMyName Donate installiert hast</string>
+	<string name="preference_donate_toast">Vielen Dank :)</string>
 </resources>

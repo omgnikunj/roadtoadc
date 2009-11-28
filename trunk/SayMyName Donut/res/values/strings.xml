@@ -14,11 +14,22 @@
 	<string name="locale_save">Save</string>
 	<string name="locale_dontsave">Don\'t Save</string>
 	
+	<string name="dialog_update_title">Update available</string>
+	<string name="dialog_update_text">There´s a new version of SayMyName available! \nIt features a better voice, reads sms and more options. \n Do you want to download it now? \n \n If you do so, please uninstall SayMyName afterwards.</string>
+	
 	<string name="tts_check_toast">TTS installed! Everything should work fine :)</string>
+	
+	<string name="preference_saymyname_title">SayMyName</string>
+	<string name="preference_saymyname_summaryOn">SayMyName enabled</string>
+	<string name="preference_saymyname_summaryOff">SayMyName disabled</string>
 	
 	<string name="preference_cutName_title">Cut name</string>
 	<string name="preference_cutName_summaryOn">Read the whole name</string>
 	<string name="preference_cutName_summaryOff">Read name till first whitespace</string>
+	
+	<string name="preference_readNumber_title">Read number</string>
+	<string name="preference_readNumber_summaryOn">Read the whole number if calling number isn´t saved in addressbook</string>
+	<string name="preference_readNumber_summaryOff">Only read "unknown" if calling number isn´t saved in addressbook</string>
 	
 	<string name="preference_discreetMode_title">Discreet Mode</string>
 	<string name="preference_discreetMode_summaryOn">Speak only in earphones</string>
@@ -67,6 +78,9 @@
 	
 	<string name="preference_external_title">External Tweaks</string>
 	
+	<string name="preference_translate_title">Translate me</string>
+	<string name="preference_translate_summary">Don´t like the actual text? Change them here</string>
+	
 	<string name="preference_ringtone_title">Silent Ringtone</string>
 	<string name="preference_ringtone_summary">Set the ringtone to silent, so you can hear me clearly</string>
 	<string name="preference_ringtone_toast_finished">Ringtone is now silent</string>
@@ -95,5 +109,5 @@
 	
 	<string name="preference_donate_title">Support me :D</string>
 	<string name="preference_donate_summary">If you like what I´m doing, please buy SayMyName Donate</string>
-	<string name="preference_donate_toast">Thanks a lot :) Don´t forget to uninstall this version, after you´ve installed SayMyName Donate</string>
+	<string name="preference_donate_toast">Thanks a lot :)</string>
 </resources>

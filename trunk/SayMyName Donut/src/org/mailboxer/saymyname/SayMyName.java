@@ -7,15 +7,19 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceScreen;
@@ -26,12 +30,17 @@ import android.widget.Toast;
 
 public class SayMyName extends PreferenceActivity {
 	public static Activity activity;
+	private PreferenceScreen screen;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getPreferenceManager().setSharedPreferencesName("saysomething");
 		addPreferencesFromResource(R.xml.preferences);
+
+		if (Integer.parseInt(Build.VERSION.SDK) > 4) {
+			displayUpgrade();
+		}
 
 		// check for TTS installed
 		Intent checkIntent = new Intent();
@@ -56,53 +65,70 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		PreferenceScreen screen = getPreferenceScreen();
+		screen = getPreferenceScreen();
 
 		screen.findPreference("ringtone").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// save the silent ringtone on sdcard and put it in the ringtone-database
-				File dir = new File("/sdcard/media/audio/ringtones");
-				File file = new File("/sdcard/media/audio/ringtones/silent.mp3");
+				SharedPreferences shared = preference.getSharedPreferences();
+				if (shared.getBoolean(preference.getKey(), false)) {
+					if (shared.getString("ringtoneUri", "").equals("")) {
+						// can't find silent ringtone's URI - save the silent ringtone on sdcard and put it in the ringtone-database
+						File dir = new File("/sdcard/media/audio/ringtones");
+						File file = new File("/sdcard/media/audio/ringtones/silent.mp3");
 
-				if(!file.exists()) {
-					dir.mkdirs();
+						if(!file.exists()) {
+							dir.mkdirs();
 
-					try {
-						InputStream input = getResources().openRawResource(R.raw.silent);
-						FileOutputStream output = new FileOutputStream(file);
+							try {
+								InputStream input = getResources().openRawResource(R.raw.silent);
+								FileOutputStream output = new FileOutputStream(file);
 
-						int bytal;
-						do {
-							bytal = input.read();
-							output.write(bytal);
-						} while (bytal != -1);
+								int bytal;
+								do {
+									bytal = input.read();
+									output.write(bytal);
+								} while (bytal != -1);
 
-						input.close();
-						output.close();
-					} catch (FileNotFoundException e) {
-					} catch (IOException e) {}
+								input.close();
+								output.close();
+							} catch (FileNotFoundException e) {
+							} catch (IOException e) {}
+						}
+
+						// from: http://stackoverflow.com/questions/1271777/how-to-set-ringtone-in-android-from-my-activity
+						ContentValues values = new ContentValues();
+						values.put(MediaStore.MediaColumns.DATA, file.getAbsolutePath());
+						values.put(MediaStore.MediaColumns.TITLE, "Silent");
+						values.put(MediaStore.MediaColumns.SIZE, 18432);
+						values.put(MediaStore.MediaColumns.MIME_TYPE, "audio/mp3");
+						values.put(MediaStore.Audio.Media.ARTIST, "TomTasche");
+						values.put(MediaStore.Audio.Media.ALBUM, "SayMyName");
+						values.put(MediaStore.Audio.Media.DURATION, 1071);
+						values.put(MediaStore.Audio.Media.IS_RINGTONE, true);
+						values.put(MediaStore.Audio.Media.IS_NOTIFICATION, true);
+						values.put(MediaStore.Audio.Media.IS_ALARM, false);
+						values.put(MediaStore.Audio.Media.IS_MUSIC, false);
+
+						// Insert it into the database
+						Uri uri = MediaStore.Audio.Media.getContentUriForPath(file.getAbsolutePath());
+						Uri newUri = getContentResolver().insert(uri, values);
+						RingtoneManager.setActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE, newUri);
+
+						SharedPreferences.Editor editor = shared.edit();
+						editor.putString("ringtoneUri", newUri.toString());
+						editor.commit();
+
+						Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_ringtone_toast_finished), Toast.LENGTH_LONG).show();
+					} else {
+						// found silent ringtone's URI - set it as default ringtone
+						RingtoneManager.setActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE, Uri.parse(shared.getString("ringtoneUri", "")));
+
+						Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_ringtone_toast_finished), Toast.LENGTH_LONG).show();
+					}
+				} else {
+					// disable silent ringtone and let the user choose another one
+					startActivityForResult(new Intent(RingtoneManager.ACTION_RINGTONE_PICKER), ringtoneCheckReqCode);
 				}
-
-				// from: http://stackoverflow.com/questions/1271777/how-to-set-ringtone-in-android-from-my-activity
-				ContentValues values = new ContentValues();
-				values.put(MediaStore.MediaColumns.DATA, file.getAbsolutePath());
-				values.put(MediaStore.MediaColumns.TITLE, "Silent");
-				values.put(MediaStore.MediaColumns.SIZE, 18432);
-				values.put(MediaStore.MediaColumns.MIME_TYPE, "audio/mp3");
-				values.put(MediaStore.Audio.Media.ARTIST, "TomTasche");
-				values.put(MediaStore.Audio.Media.ALBUM, "SayMyName");
-				values.put(MediaStore.Audio.Media.DURATION, 1071);
-				values.put(MediaStore.Audio.Media.IS_RINGTONE, true);
-				values.put(MediaStore.Audio.Media.IS_NOTIFICATION, true);
-				values.put(MediaStore.Audio.Media.IS_ALARM, false);
-				values.put(MediaStore.Audio.Media.IS_MUSIC, false);
-
-				// Insert it into the database
-				Uri uri = MediaStore.Audio.Media.getContentUriForPath(file.getAbsolutePath());
-				Uri newUri = getContentResolver().insert(uri, values);
-				RingtoneManager.setActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE, newUri);
-
-				Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_ringtone_toast_finished), Toast.LENGTH_LONG).show();
 
 				return false;
 			}
@@ -110,6 +136,7 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("tts").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
+				// start TTS Settings
 				startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS));
 				Toast.makeText(SayMyName.this, SayMyName.this.getString(R.string.preference_tts_toast), Toast.LENGTH_LONG).show();
 
@@ -168,16 +195,10 @@ public class SayMyName extends PreferenceActivity {
 			}
 		});
 
-		screen.findPreference("problem").setOnPreferenceClickListener(new OnPreferenceClickListener() {
+		screen.findPreference("translate").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// send mail
-				Intent sendIntent = new Intent(Intent.ACTION_SEND);
-				sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Problem with SayMyName Donut");
-				sendIntent.putExtra(Intent.EXTRA_EMAIL, new String[] {"tomtasche@gmail.com"});
-				sendIntent.setType("message/rfc822");
-				startActivity(sendIntent);
-
-				Toast.makeText(SayMyName.this, getString(R.string.preference_problem_toast), Toast.LENGTH_LONG).show();
+				// view translate-page
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/roadtoadc/wiki/TranslateMe")));
 
 				return false;
 			}
@@ -194,7 +215,7 @@ public class SayMyName extends PreferenceActivity {
 
 		screen.findPreference("donate").setOnPreferenceClickListener(new OnPreferenceClickListener() {
 			public boolean onPreferenceClick(Preference preference) {
-				// install Donate version
+				// install Donate version :D
 				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.donate")));
 
 				Toast.makeText(SayMyName.this, getString(R.string.preference_donate_toast), Toast.LENGTH_LONG).show();
@@ -204,9 +225,25 @@ public class SayMyName extends PreferenceActivity {
 		});
 	}
 
+	private void displayUpgrade() {
+		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
+		dialog.setIcon(R.drawable.icon);
+		dialog.setTitle(getString(R.string.dialog_update_title));  
+		dialog.setMessage(getString(R.string.dialog_update_text));
+		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
+			public void onClick(DialogInterface dialog, int whichButton) {
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.eclair")));
+			}
+		});
+		dialog.setNegativeButton("No", null);
+		dialog.show();
+	}
+
 	// from:
 	// http://android-developers.blogspot.com/2009/09/introduction-to-text-to-speech-in.html
+	private static final int ringtoneCheckReqCode = 56;
 	private static final int ttsCheckReqCode = 42;
+
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == ttsCheckReqCode) {
 			if (resultCode == TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
@@ -217,6 +254,13 @@ public class SayMyName extends PreferenceActivity {
 				Intent installIntent = new Intent();
 				installIntent.setAction(TextToSpeech.Engine.ACTION_INSTALL_TTS_DATA);
 				startActivity(installIntent);
+			}
+		} else if (requestCode == ringtoneCheckReqCode) {
+			// get picked ringtone's uri and set it as default ringtone
+			if (data != null) {
+				RingtoneManager.setActualDefaultRingtoneUri(SayMyName.this, RingtoneManager.TYPE_RINGTONE, (Uri) data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI));
+			} else {
+				((CheckBoxPreference) screen.findPreference("ringtone")).setChecked(true);
 			}
 		}
 	}

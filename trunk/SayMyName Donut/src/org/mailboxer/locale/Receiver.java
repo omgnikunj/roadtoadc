@@ -15,8 +15,8 @@ public final class Receiver extends BroadcastReceiver {
 
 			SharedPreferences.Editor editor = context.getSharedPreferences("saysomething", Context.MODE_WORLD_WRITEABLE).edit();
 
-			editor.putBoolean("startSayCaller", startCaller);
-			editor.putBoolean("startSaySMS", startSMS);
+			editor.putBoolean("saycaller", startCaller);
+			editor.putBoolean("saysms", startSMS);
 			editor.commit();
 		}
 	}

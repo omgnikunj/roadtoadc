@@ -10,7 +10,7 @@ import android.provider.Contacts;
 import android.provider.Contacts.People;
 
 public class Caller {
-	public static String UNKNOWN = "unknown";
+	public String UNKNOWN = "unknown";
 
 	private String name;
 	private String number;
@@ -39,7 +39,7 @@ public class Caller {
 			return;
 		}
 
-		// number-lookup:
+		// number-lookup
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
 		Cursor cur = context.getContentResolver().query(contactUri, new String[] {People.NAME, People.TYPE, People._ID}, null, null, null);
 
@@ -73,13 +73,13 @@ public class Caller {
 				}
 			} else {
 				// couldn't find a contact for that number
-				name = UNKNOWN;
+				name = number;
 				type = "";
 				return;
 			}
 		} else {
 			// not really needed, but let's go the safe way
-			name = UNKNOWN;
+			name = number;
 			type = "";
 			return;
 		}
@@ -105,8 +105,29 @@ public class Caller {
 		if (name == null) {
 			return UNKNOWN;
 		}
-		if (name == "") {
+		if (name.equals("")) {
 			return UNKNOWN;
+		}
+
+		// incoming number not in addressbook - read number
+		if (name.equals(number)) {
+			if (name.matches("^[+]\\d+||\\d+")) {
+				// it is a number - read it or "unknown" ?
+				if (settings.isReadNumber()) {
+					// read the number
+					char[] temp = number.toCharArray();
+					name = "";
+					for (int i = 0; i < temp.length; i++) {
+						name += temp[i] + " ";
+					}
+					return name;
+				} else {
+					return UNKNOWN;
+				}
+			} else {
+				// it isn´t a number, maybe anything special that has a name - read it
+				return name;
+			}
 		}
 
 		if (settings.isCutName()) {

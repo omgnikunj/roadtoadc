@@ -22,6 +22,7 @@ public class Settings {
 	private int wantedVolume;
 
 	private boolean cutName;
+	private boolean readNumber;
 
 	private boolean discreetMode;
 
@@ -30,12 +31,11 @@ public class Settings {
 		// read and save a lot of settings
 		SharedPreferences preferences = context.getSharedPreferences("saysomething", Context.MODE_WORLD_WRITEABLE);
 
-		startSayCaller = preferences.getBoolean("saycaller", false);
-		startSaySMS = preferences.getBoolean("saysms", false);
+		startSayCaller = preferences.getBoolean("saycaller", true);
+		startSaySMS = preferences.getBoolean("saysms", true);
+		startSomething = preferences.getBoolean("saysomething", true);
 
-		if (startSayCaller || startSaySMS) {
-			startSomething = true;
-		} else {
+		if (!startSayCaller && !startSaySMS) {
 			startSomething = false;
 		}
 
@@ -49,6 +49,7 @@ public class Settings {
 		wantedVolume = Integer.parseInt(preferences.getString("wantedVolume", "5"));
 
 		cutName = preferences.getBoolean("cutName", true);
+		readNumber = preferences.getBoolean("readNumber", false);
 
 		discreetMode = preferences.getBoolean("discreetMode", false);
 
@@ -112,5 +113,9 @@ public class Settings {
 
 	public int getSmsRepeatTimes() {
 		return smsRepeatTimes;
+	}
+
+	public boolean isReadNumber() {
+		return readNumber;
 	}
 }
