@@ -2,20 +2,11 @@
 #labels Featured
 
 = Feature Wishlist =
-== One click disable SayMyName ==
-disable SayMyName with one click (+ Widget?) - *DONE* (no Widget at the moment)
-
-== Read number when unknown ==
-when the incoming call´s number isn´t saved in addressbook, read out the number - *DONE*
-
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
 
 == Start ringtone after speaking ==
 after finished speaking X times, start the default ringtone
-
-== Undo silent ringtone ==
-add a checkbox for silent ringtone - *DONE*
 
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
@@ -26,17 +17,28 @@ add a setting for changing lanugage and speech rate (already possible in TTS Set
 == Improve Bluetooth support ==
 only speak when bluetooth is enabled and (try to) support more bluetooth headsets
 
+== Only speak on Bluetooth ==
+If there is a connected Bluetooth device, speak. Otherwise don´t
+
+== Specify formatstring on group basis ==
+for family contacts say "my beloved XXX is calling", for coworkers say "XXX is calling from work"
+
 == Contact Whitelist ==
 read out sms all the time for certain numbers
 
 == Read Mail ==
 read on incoming mails
 
+== Mosquito tone announcement ==
+announce caller in morse code at mosquito tone (17KHz)
+
 == Add own voice ==
 record your own voice and play it instead of TTS voice
 
-== Google Voice support ==
+== Let the user choose which audiostream to use ==
+some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
 
+== Google Voice support ==
 
 
 *Any other ideas?*
