@@ -23,9 +23,16 @@
 	<string name="preference_saymyname_summaryOn">SayMyName enabled</string>
 	<string name="preference_saymyname_summaryOff">SayMyName disabled</string>
 	
-	<string name="preference_cutName_title">Cut name</string>
-	<string name="preference_cutName_summaryOn">Read the whole name</string>
-	<string name="preference_cutName_summaryOff">Read name till first whitespace</string>
+	<string name="preference_cutName_title">Cut name (whitespace)</string>
+	<string name="preference_cutName_summaryOn">Read name till first whitespace</string>
+	<string name="preference_cutName_summaryOff">Read the whole name</string>
+	
+	<string name="preference_cutNameAfterSpecialCharacter_title">Cut name (special)</string>
+	<string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
+	<string name="preference_cutNameAfterSpecialCharacter_summaryOff">Read the whole name</string>
+	
+	<string name="preference_specialCharacters_title">Special characters</string>
+	<string name="preference_specialCharacters_summary">After which characters should I cut name? Default :/-(</string>
 	
 	<string name="preference_readNumber_title">Read number</string>
 	<string name="preference_readNumber_summaryOn">Read the whole number if calling number isn´t saved in addressbook</string>

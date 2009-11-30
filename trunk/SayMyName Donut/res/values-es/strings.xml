@@ -17,8 +17,8 @@
 	<string name="tts_check_toast">TTS instalado! Todo debería funcionar bien:)</string>
 	
 	<string name="preference_cutName_title">Cortar nombre</string>
-	<string name="preference_cutName_summaryOn">Leer el nombre completo</string>
-	<string name="preference_cutName_summaryOff">Leer nombre hasta el primer espacio</string>
+	<string name="preference_cutName_summaryOn">Leer nombre hasta el primer espacio</string>
+	<string name="preference_cutName_summaryOff">Leer el nombre completo</string>
 	
 	<string name="preference_discreetMode_title">Modo discreto</string>
 	<string name="preference_discreetMode_summaryOn">Hablar sólo con auriculares</string>
@@ -28,6 +28,13 @@
 	<string name="preference_saycaller_summaryOn">Nombro la persona que llama</string>
 	<string name="preference_saycaller_summaryOff">No nombreo la persona que llama</string>
 	
+	<string name="preference_cutNameAfterSpecialCharacter_title">Cut after special character</string>
+	<string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
+	<string name="preference_cutNameAfterSpecialCharacter_summaryOff">Read the whole name</string>
+	
+	<string name="preference_specialCharacters_title">Special characters</string>
+	<string name="preference_specialCharacters_summary">Edit after which characters cut name, default :/-(</string>
+		
 	<string name="preference_saycaller_settings_title">Ajustes SayCaller</string>
 	<string name="preference_saycaller_settings_summary">Personalízalo!</string>
 	

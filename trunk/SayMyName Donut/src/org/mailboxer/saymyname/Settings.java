@@ -22,6 +22,8 @@ public class Settings {
 	private int wantedVolume;
 
 	private boolean cutName;
+	private boolean cutNameAfterSpecialCharacters;
+	private String specialCharacters = ":/-(";
 	private boolean readNumber;
 
 	private boolean discreetMode;
@@ -49,6 +51,8 @@ public class Settings {
 		wantedVolume = Integer.parseInt(preferences.getString("wantedVolume", "5"));
 
 		cutName = preferences.getBoolean("cutName", true);
+		cutNameAfterSpecialCharacters = preferences.getBoolean("cutNameAfterSpecialCharacters", false);
+		specialCharacters =	preferences.getString("specialCharacters", ":/-(");
 		readNumber = preferences.getBoolean("readNumber", false);
 
 		discreetMode = preferences.getBoolean("discreetMode", false);
@@ -97,6 +101,14 @@ public class Settings {
 
 	public boolean isCutName() {
 		return cutName;
+	}
+	
+	public boolean isCutNameAfterSpecialCharacters(){
+		return cutNameAfterSpecialCharacters;
+	}
+	
+	public String getSpecialCharacters(){
+		return specialCharacters;
 	}
 
 	public boolean isDiscreetMode() {

@@ -11,7 +11,7 @@
 		android:summaryOn="@string/preference_cutName_summaryOn"
 		android:summaryOff="@string/preference_cutName_summaryOff" />
 
-	<CheckBoxPreference android:key="readNumber"
+	<CheckBoxPreference android:key="cutNameAfterSpecialCharacters" android:defaultValue="false" android:summaryOff="@string/preference_cutNameAfterSpecialCharacter_summaryOff" android:summaryOn="@string/preference_cutNameAfterSpecialCharacter_summaryOn" android:title="@string/preference_cutNameAfterSpecialCharacter_title"></CheckBoxPreference><EditTextPreference android:key="specialCharacters" android:defaultValue=":/-(" android:persistent="true" android:title="@string/preference_specialCharacters_title" android:summary="@string/preference_specialCharacters_summary"></EditTextPreference><CheckBoxPreference android:key="readNumber"
 		android:defaultValue="true" android:title="@string/preference_readNumber_title"
 		android:summaryOn="@string/preference_readNumber_summaryOn"
 		android:summaryOff="@string/preference_readNumber_summaryOff" />
@@ -110,4 +110,6 @@
 		<Preference android:key="donate" android:title="@string/preference_donate_title"
 			android:summary="@string/preference_donate_summary" />
 	</PreferenceCategory>
+
+
 </PreferenceScreen>

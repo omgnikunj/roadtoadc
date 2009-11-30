@@ -99,6 +99,25 @@ public class Caller {
 			type = "";
 		} catch (FileNotFoundException e) {}
 	}
+	
+	private String simpleSplit( String source, String specialCharacters ){
+		
+		// Cut string after first special character
+		// Standard split function uses regular expression, which
+		// casue problems while splitting by '\' '-' '.' etc.
+		StringBuilder stringBuilder = new StringBuilder();
+		for ( int i = 0; i < source.length(); i++ ){
+			for ( int j = 0; j < specialCharacters.length(); j++ ){
+				if ( source.charAt(i) == specialCharacters.charAt(j)){
+					return stringBuilder.toString();
+				}
+			}
+			stringBuilder.append( source.charAt(i) );
+		}
+		
+		return stringBuilder.toString();
+		
+	}
 
 	public String buildString(String formatString) {
 		// safety first
@@ -133,6 +152,15 @@ public class Caller {
 		if (settings.isCutName()) {
 			// user doesn't want to hear the whole name
 			name = name.split(" ")[0];
+		}
+		
+		if (settings.isCutNameAfterSpecialCharacters()){
+			
+			// List of characters after which we cut name (e.g. '/' '-', etc)
+			String specialCharacters = settings.getSpecialCharacters();
+			
+			name = simpleSplit( name, specialCharacters );
+			
 		}
 
 		// look for % and & - and replace them

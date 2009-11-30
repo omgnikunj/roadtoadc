@@ -24,8 +24,8 @@
 	<string name="preference_saymyname_summaryOff">SayMyName deaktiviert</string>
 	
 	<string name="preference_cutName_title">Name kürzen</string>
-	<string name="preference_cutName_summaryOn">Den ganzen Namen lesen</string>
-	<string name="preference_cutName_summaryOff">Den Namen bis zum ersten Abstand lesen</string>
+	<string name="preference_cutName_summaryOn">Den Namen bis zum ersten Abstand lesen</string>
+	<string name="preference_cutName_summaryOff">Den ganzen Namen lesen</string>
 	
 	<string name="preference_readNumber_title">Lies Nummer</string>
 	<string name="preference_readNumber_summaryOn">Lies die Nummer vor, wenn sie nicht im Adressbuch gespeichert ist</string>
