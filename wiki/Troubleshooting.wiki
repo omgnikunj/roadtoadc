@@ -16,7 +16,7 @@ If not:
 
 = "every contact is announced as "unknown"" =
 
-It seems like you have a Motorola Droid (Android 2.0). Try "SayMyName Eclair" from the Android Market. If you use it already, try "SayMyName Donut". If nothing works, report an issue [http://code.google.com/p/roadtoadc/issues/entry?template=Defect%20report%20from%20user here].
+It seems like you have a Motorola Droid (Android 2.0). Try "SayMyName Eclair" from the Android Market. If you use it already, try "SayMyName Donut"
 
 If none of these SayMyName versions work, you could try to factory reset your phone (BEWARE! All your data is erased if you do that! Make a backup first!)
 
