@@ -11,13 +11,21 @@ public class Settings {
 	private boolean smsRead;
 	private int smsRepeatTimes;
 	private boolean smsReadDiscreet;
+	
+	private int emailSubjectReadDelay;
+	private boolean emailCutReFwd;
+	private boolean emailReadSubject;
+	private int emailRepeatTimes;
+	private boolean emailReadSubjectDiscreet;
 
 	private boolean startSomething;
 	private boolean startSayCaller;
 	private boolean startSaySMS;
+	private boolean startSayEMail;
 
 	private String callerFormatString;
 	private String smsFormatString;
+	private String emailFormatString;
 
 	private int wantedVolume;
 
@@ -35,9 +43,10 @@ public class Settings {
 
 		startSayCaller = preferences.getBoolean("saycaller", true);
 		startSaySMS = preferences.getBoolean("saysms", true);
+		startSayEMail = preferences.getBoolean("sayemail", true);
 		startSomething = preferences.getBoolean("saysomething", true);
 
-		if (!startSayCaller && !startSaySMS) {
+		if (!startSayCaller && !startSaySMS && !startSayEMail) {
 			startSomething = false;
 		}
 
@@ -47,6 +56,7 @@ public class Settings {
 
 		callerFormatString = preferences.getString("callerFormat", "");
 		smsFormatString = preferences.getString("smsFormat", "");
+		emailFormatString = preferences.getString("emailFormat", "");
 
 		wantedVolume = Integer.parseInt(preferences.getString("wantedVolume", "5"));
 
@@ -61,6 +71,13 @@ public class Settings {
 		smsReadDelay = Integer.parseInt(preferences.getString("smsReadDelay", "3"));
 		smsRepeatTimes = Integer.parseInt(preferences.getString("smsRepeatTimes", "1"));
 		smsReadDiscreet = preferences.getBoolean("smsReadDiscreet", true);
+		
+		emailReadSubject = preferences.getBoolean("emailReadSubject", false);
+		emailSubjectReadDelay = Integer.parseInt(preferences.getString("emailReadDelay", "2"));
+		emailCutReFwd = preferences.getBoolean("smsReadDiscreet", false);		
+		emailRepeatTimes = Integer.parseInt(preferences.getString("emailRepeatTimes", "1"));
+		emailReadSubjectDiscreet = preferences.getBoolean("emailReadSubjectDiscreet", true);
+		
 	}
 
 	public int getCallerRepeatSeconds() {
@@ -82,6 +99,10 @@ public class Settings {
 	public boolean isStartSaySMS() {
 		return startSaySMS;
 	}
+	
+	public boolean isStartSayEMail() {
+		return startSayEMail;
+	}
 
 	public boolean isStartSomething() {
 		return startSomething;
@@ -93,6 +114,10 @@ public class Settings {
 
 	public String getSmsFormatString() {
 		return smsFormatString;
+	}
+	
+	public String getEMailFormatString() {
+		return emailFormatString;
 	}
 
 	public int getWantedVolume() {
@@ -121,6 +146,26 @@ public class Settings {
 
 	public boolean isSmsReadDiscreet() {
 		return smsReadDiscreet;
+	}
+	
+	public boolean isEMailCutReFwd(){
+		return emailCutReFwd;
+	}
+	
+	public boolean isEMailReadSubject(){
+		return emailReadSubject;
+	}
+	
+	public boolean isEMailReadSubjectDiscreet(){
+		return emailReadSubjectDiscreet;
+	}
+	
+	public int getEMailRepeatTimesSubject(){
+		return emailRepeatTimes;
+	}
+	
+	public int getEMailReadSubjectDelay(){
+		return emailSubjectReadDelay;
 	}
 
 	public int getSmsRepeatTimes() {

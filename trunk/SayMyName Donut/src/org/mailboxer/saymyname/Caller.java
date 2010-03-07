@@ -18,6 +18,12 @@ public class Caller {
 	private Context context;
 	private Settings settings;
 
+	/**
+	 * This one used for SMS/CALLS
+	 * @param context
+	 * @param incomingNumber
+	 * @param settings
+	 */
 	public Caller(Context context, String incomingNumber, Settings settings) {
 		this.settings = settings;
 		this.context = context;
@@ -26,9 +32,54 @@ public class Caller {
 
 		resolveNumber(incomingNumber);
 	}
+	
+	/**
+	 * This one used for EMAILS
+	 * @param context
+	 * @param emailAddress
+	 * @param subject Not used, only to differentiate from other constructor. 
+	 * @param settings
+	 */
+	public Caller(Context context, String emailAddress, String subject, Settings settings) {
+		this.settings = settings;
+		this.context = context;
+		
+		UNKNOWN = context.getResources().getString(R.string.caller_unknown);
+
+		resolveEMailAddress(emailAddress);
+	} 
+	
+	private void resolveEMailAddress( String incomingEMailAddress ){
+		
+		if (incomingEMailAddress == null) {
+			name = UNKNOWN;
+			return;
+		}
+
+		if (incomingEMailAddress.equals("")) {
+			name = UNKNOWN;
+			return;
+		}
+		
+		/*
+		 * Email address of sender is in format:
+		 * "Somename Somesurname" <someemail@someserver.com>
+		 */
+		if ( incomingEMailAddress.contains("\"") ){
+			String temp = incomingEMailAddress.replaceFirst("\"", "");
+			int lastIndex = incomingEMailAddress.lastIndexOf("\"");
+			temp = temp.substring(0,lastIndex-1);
+			name = temp;
+			return;
+		}
+		
+		name = incomingEMailAddress;		
+		
+	}
 
 	private void resolveNumber(String incomingNumber) {
 		// safety first
+		
 		if (incomingNumber == null) {
 			name = UNKNOWN;
 			return;
@@ -38,6 +89,7 @@ public class Caller {
 			name = UNKNOWN;
 			return;
 		}
+		
 
 		// number-lookup
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));

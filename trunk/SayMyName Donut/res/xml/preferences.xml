@@ -11,7 +11,21 @@
 		android:summaryOn="@string/preference_cutName_summaryOn"
 		android:summaryOff="@string/preference_cutName_summaryOff" />
 
-	<CheckBoxPreference android:key="cutNameAfterSpecialCharacters" android:defaultValue="false" android:summaryOff="@string/preference_cutNameAfterSpecialCharacter_summaryOff" android:summaryOn="@string/preference_cutNameAfterSpecialCharacter_summaryOn" android:title="@string/preference_cutNameAfterSpecialCharacter_title"></CheckBoxPreference><EditTextPreference android:key="specialCharacters" android:defaultValue=":/-(" android:persistent="true" android:title="@string/preference_specialCharacters_title" android:summary="@string/preference_specialCharacters_summary"></EditTextPreference><CheckBoxPreference android:key="readNumber"
+	<CheckBoxPreference android:key="cutNameAfterSpecialCharacters" 
+		android:defaultValue="false" 
+		android:summaryOff="@string/preference_cutNameAfterSpecialCharacter_summaryOff" 
+		android:summaryOn="@string/preference_cutNameAfterSpecialCharacter_summaryOn" 
+		android:title="@string/preference_cutNameAfterSpecialCharacter_title">
+		</CheckBoxPreference>
+		
+	<EditTextPreference android:key="specialCharacters" 
+		android:defaultValue=":/-(" 
+		android:persistent="true" 
+		android:title="@string/preference_specialCharacters_title" 
+		android:summary="@string/preference_specialCharacters_summary">
+		</EditTextPreference>
+	
+	<CheckBoxPreference android:key="readNumber"
 		android:defaultValue="true" android:title="@string/preference_readNumber_title"
 		android:summaryOn="@string/preference_readNumber_summaryOn"
 		android:summaryOff="@string/preference_readNumber_summaryOff" />
@@ -66,8 +80,9 @@
 				android:dialogMessage="@string/preference_smsFormat_dialog" />
 
 			<CheckBoxPreference android:key="smsRead"
-				android:title="@string/preference_smsRead_title" android:summaryOn="@string/preference_smsRead_summaryOn"
-				android:summaryOff="@string/preference_smsRead_summaryOn" />
+				android:title="@string/preference_smsRead_title" 
+				android:summaryOn="@string/preference_smsRead_summaryOn"
+				android:summaryOff="@string/preference_smsRead_summaryOff" />
 
 			<EditTextPreference android:key="smsRepeatTimes"
 				android:defaultValue="1" android:title="@string/preference_smsRepeatTimes_title"
@@ -78,6 +93,57 @@
 				android:summaryOn="@string/preference_smsReadDiscreet_summaryOn"
 				android:summaryOff="@string/preference_smsReadDiscreet_summaryOff" />
 		</PreferenceScreen>
+	</PreferenceCategory>
+	
+	<PreferenceCategory android:title="@string/preference_sayemail_title">
+		<CheckBoxPreference android:key="sayemail"
+			android:defaultValue="true" android:title="@string/preference_sayemail_title"
+			android:summary="@string/preference_sayemail_summary" />
+
+		<PreferenceScreen android:title="@string/preference_sayemail_settings_title"
+			android:summary="@string/preference_sayemail_settings_summary">
+			
+			<EditTextPreference android:key="emailReadDelay"
+				android:defaultValue="2" android:title="@string/preference_emailReadDelay_title"
+				android:summary="@string/preference_emailReadDelay_summary"
+				android:numeric="integer" android:persistent="true" />
+			
+			<EditTextPreference android:key="emailFormat"
+				android:defaultValue="%" android:title="@string/preference_emailFormat_title"
+				android:summary="@string/preference_emailFormat_summary"
+				android:dialogTitle="@string/preference_emailFormat_title"
+				android:dialogMessage="@string/preference_emailFormat_dialog" />
+
+			<CheckBoxPreference android:key="emailCutReFwd"
+				android:title="@string/preference_emailCutReFwd_title" 
+				android:summaryOn="@string/preference_emailCutReFwd_summaryOn"
+				android:summaryOff="@string/preference_emailCutReFwd_summaryOff" />
+				
+			<CheckBoxPreference android:key="emailReadSubject"
+				android:title="@string/preference_emailReadSubject_title" 
+				android:summaryOn="@string/preference_emailReadSubject_summaryOn"
+				android:summaryOff="@string/preference_emailReadSubject_summaryOff" />
+				
+			<EditTextPreference android:key="emailRepeatTimes"
+				android:defaultValue="1" android:title="@string/preference_emailRepeatTimes_title"
+				android:numeric="integer" android:summary="@string/preference_emailRepeatTimes_summary" />
+
+			<CheckBoxPreference android:key="emailReadSubjectDiscreet"
+				android:defaultValue="true" android:title="@string/preference_emailReadSubjectDiscreet_title"
+				android:summaryOn="@string/preference_emailReadSubjectDiscreet_summaryOn"
+				android:summaryOff="@string/preference_emailReadSubjectDiscreet_summaryOff" />
+			
+		</PreferenceScreen>
+		
+		<org.mailboxer.saymyname.DialogPreference
+          android:key="emailHelp"
+          android:title="@string/preference_emailHelp_title"
+          android:summary="@string/preference_emailHelp_summary"
+          
+          android:dialogTitle="@string/preference_emailHelpDialog_title"
+          android:dialogMessage="@string/preference_emailHelpDialog_text"
+          android:negativeButtonText="@null" />
+          
 	</PreferenceCategory>
 
 	<PreferenceCategory android:title="@string/preference_external_title">

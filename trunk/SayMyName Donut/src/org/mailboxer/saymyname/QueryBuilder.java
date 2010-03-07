@@ -9,10 +9,13 @@ import android.util.Log;
 public class QueryBuilder extends Service {
 	public static final int COMMUNICATION_CALL = 1;
 	public static final int COMMUNICATION_SMS = 2;
+	public static final int COMMUNICATION_EMAIL = 3;
 	public static final String SHUTDOWN_CMD = "shutdown";
 	public static final String STOP_CMD = "stop";
 	public static final String MESSAGE = "message";
 	public static final String NUMBER = "number";
+	public static final String EMAIL = "email";
+	public static final String SUBJECT = "subject";
 	public static final String COMMUNICATION_TYPE = "communication_type";
 
 	private Speaker talker;
@@ -21,6 +24,7 @@ public class QueryBuilder extends Service {
 	private Settings settings;
 	private int communicationType;
 	private String msg;
+	private String subject;
 	private LoopThread thread;
 	private boolean started;
 	private boolean shutdown;
@@ -78,7 +82,7 @@ public class QueryBuilder extends Service {
 		settings = new Settings(this);
 
 		if (!settings.isStartSomething()) {
-			// the user disabled SayCaller and SaySMS - shutdown and do nothing
+			// the user disabled SayCaller, SaySMS and SayEMail - shutdown and do nothing
 			shutdown();
 			return;
 		}
@@ -91,9 +95,6 @@ public class QueryBuilder extends Service {
 			}
 		}
 
-		Log.e("SayMyName", "CALLER CREATE");
-		callerInfo = new Caller(this, intent.getStringExtra(QueryBuilder.NUMBER), settings);
-
 		thread = new LoopThread();
 		talker = new Speaker(this, this);
 
@@ -103,6 +104,8 @@ public class QueryBuilder extends Service {
 		switch (communicationType) {
 		case COMMUNICATION_CALL:
 			if (settings.isStartSayCaller()) {
+				Log.e("SayMyName", "CALLER CREATE");
+				callerInfo = new Caller(this, intent.getStringExtra(QueryBuilder.NUMBER), settings);
 				smsRunning = false;
 				text = callerInfo.buildString(settings.getCallerFormatString());
 			} else {
@@ -114,9 +117,40 @@ public class QueryBuilder extends Service {
 			smsReadCounter = 0;
 
 			if (settings.isStartSaySMS()) {
+				Log.e("SayMyName", "CALLER CREATE");
+				callerInfo = new Caller(this, intent.getStringExtra(QueryBuilder.NUMBER), settings);
 				smsRunning = true;
 				msg = intent.getStringExtra(QueryBuilder.MESSAGE);
 				text = callerInfo.buildString(settings.getSmsFormatString());
+			} else {
+				shutdown();
+			}
+			break;
+		case COMMUNICATION_EMAIL:
+			// Disguise as sms. No need for another counter.
+			smsReadCounter = 0;
+		
+			if (settings.isStartSayEMail()) {
+				
+				Log.e("SayMyName", "CALLER CREATE");
+				
+				thread.initializeForMessageLoop( 
+						settings.isEMailReadSubject(), 
+						settings.getEMailReadSubjectDelay(), 
+						settings.isEMailReadSubjectDiscreet(), 
+						settings.getEMailRepeatTimesSubject() );
+				
+				callerInfo = new Caller(
+						this, 
+						intent.getStringExtra(QueryBuilder.EMAIL), 
+						"<not used, only to call different constructor>", 
+						settings);
+				
+				smsRunning = true;
+				
+				text = callerInfo.buildString(settings.getEMailFormatString());
+				msg = prepareSubject( intent.getStringExtra(QueryBuilder.SUBJECT) );
+				
 			} else {
 				shutdown();
 			}
@@ -145,6 +179,29 @@ public class QueryBuilder extends Service {
 				thread.start();
 			}
 		}
+	}
+	
+	private String prepareSubject( String subject ){
+	
+		String result;
+		if ( subject == null ){
+			result = "";
+		}
+		result = subject;	
+	
+		if ( settings.isEMailCutReFwd()){
+			if ( result.startsWith("Re:")){
+				result = result.replaceFirst("Re:", "");
+			}
+			if ( result.startsWith("Fwd:")){
+				result = result.replaceFirst("Fwd:", "");
+			}
+		}
+		
+		return result;		
+		
+		
+		
 	}
 
 	private void prepareMessage() {
@@ -195,8 +252,24 @@ public class QueryBuilder extends Service {
 	}
 
 	private class LoopThread extends Thread {
+		
+		/*
+		 * Settings for smsLoop
+		 */
+		boolean isMessageRead = false;
+		int messageReadDelay = 1000;
+		boolean isMessageReadDiscreet = true;
+		int messageRepeatTimes = 1;
+		
 		// saves actual loop-step
 		private int loopCounter = 1;
+		
+		public void initializeForMessageLoop(boolean isMessageRead, int messageReadDelay, boolean isMessageReadDiscreet, int messageRepeatTimes){
+			this.isMessageRead = isMessageRead;
+			this.messageReadDelay = messageReadDelay;
+			this.isMessageReadDiscreet = isMessageReadDiscreet;
+			this.messageRepeatTimes = messageRepeatTimes;
+		}
 
 		@Override
 		public synchronized void start() {
@@ -214,6 +287,10 @@ public class QueryBuilder extends Service {
 
 			case COMMUNICATION_SMS:
 				smsLoop();
+				break;
+			
+			case COMMUNICATION_EMAIL:
+				messageLoop();
 				break;
 			}
 
@@ -243,6 +320,12 @@ public class QueryBuilder extends Service {
 			loopCounter++;
 		}
 
+		/**
+		 * Use messageLoop instead, 
+		 * don't forget to call initialiseForMessageLoop first when you use 
+		 * messageLoop
+		 */
+		@Deprecated
 		private void smsLoop() {
 			switch (loopCounter) {
 			case 1:
@@ -281,6 +364,56 @@ public class QueryBuilder extends Service {
 			case 3:
 				try {
 					sleep(settings.getSmsReadDelay() * 1000);
+				} catch (InterruptedException e) {}
+
+				// speak name
+				talker.speak(text);
+
+				loopCounter++;
+
+				shutdown();
+				break;
+			}
+		}
+		
+		private void messageLoop() {
+			switch (loopCounter) {
+			case 1:
+				// speak name
+				talker.speak(text);
+
+				loopCounter++;
+
+				break;
+
+			case 2:
+				smsReadCounter++;
+				if (this.isMessageRead) {
+					// user wants to hear the whole sms
+					try {
+						sleep(this.messageReadDelay * 1000);
+					} catch (InterruptedException e) {}
+
+					if (this.isMessageReadDiscreet) {
+						if (isDiscreet()) {
+							prepareMessage();
+						}
+					} else {
+						// no matter if discreet or not - read sms
+						prepareMessage();
+					}
+				} else {
+					talker.speak("");
+				}
+
+				if (smsReadCounter == this.messageRepeatTimes) {
+					loopCounter++;
+				}
+				break;
+
+			case 3:
+				try {
+					sleep(this.messageReadDelay * 1000);
 				} catch (InterruptedException e) {}
 
 				// speak name

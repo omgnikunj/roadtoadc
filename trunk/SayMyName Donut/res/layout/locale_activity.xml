@@ -53,6 +53,19 @@
 			<CheckBox android:id="@+id/enableSMSCheck"
 				android:layout_width="wrap_content" android:layout_height="wrap_content" />
 		</LinearLayout>
+		
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="horizontal">
+			<TextView android:text="@string/locale_sayemail_enable"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:textColor="@android:color/black" android:textSize="18sp" />
+
+			<TextView android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:layout_weight="1" />
+
+			<CheckBox android:id="@+id/enableEMailCheck"
+				android:layout_width="wrap_content" android:layout_height="wrap_content" />
+		</LinearLayout>
 
 	</LinearLayout>
 

@@ -42,6 +42,7 @@ public class SettingActivity extends Activity {
 		if (savedInstanceState == null) {
 			((CheckBox) findViewById(R.id.enableCallerCheck)).setChecked(getIntent().getBooleanExtra("org.mailboxer.android.extra.START_CALLER", false));
 			((CheckBox) findViewById(R.id.enableSMSCheck)).setChecked(getIntent().getBooleanExtra("org.mailboxer.android.extra.START_SMS", false));
+			((CheckBox) findViewById(R.id.enableEMailCheck)).setChecked(getIntent().getBooleanExtra("org.mailboxer.android.extra.START_EMAIL", false));
 		}
 		// if savedInstanceState != null, there is no need to restore any Activity state directly (e.g. onSaveInstanceState()).
 		// This is handled by the TextView automatically.
@@ -56,6 +57,7 @@ public class SettingActivity extends Activity {
 		} else {
 			boolean startCaller = ((CheckBox) findViewById(R.id.enableCallerCheck)).isChecked();
 			boolean startSMS = ((CheckBox) findViewById(R.id.enableSMSCheck)).isChecked();
+			boolean startEMail = ((CheckBox) findViewById(R.id.enableEMailCheck)).isChecked();
 
 			// This is the store-and-forward Intent to ourselves.
 			final Intent returnIntent = new Intent();
@@ -63,6 +65,7 @@ public class SettingActivity extends Activity {
 			// this extra is the data to ourselves: either for the Activity or the BroadcastReceiver
 			returnIntent.putExtra("org.mailboxer.android.extra.START_CALLER", startCaller);
 			returnIntent.putExtra("org.mailboxer.android.extra.START_SMS", startSMS);
+			returnIntent.putExtra("org.mailboxer.android.extra.START_EMAIL", startEMail);
 
 			String blurb;
 			if(startCaller) {
@@ -75,6 +78,12 @@ public class SettingActivity extends Activity {
 				blurb += getResources().getString(R.string.preference_saysms_title) + " " + getResources().getString(R.string.locale_enabled);
 			} else {
 				blurb += getResources().getString(R.string.preference_saysms_title) + " " + getResources().getString(R.string.locale_disabled);
+			}
+			
+			if(startEMail) {
+				blurb += getResources().getString(R.string.preference_sayemail_title) + " " + getResources().getString(R.string.locale_enabled);
+			} else {
+				blurb += getResources().getString(R.string.preference_sayemail_title) + " " + getResources().getString(R.string.locale_disabled);
 			}
 
 			// this is the blurb shown in the Locale UI

@@ -51,6 +51,13 @@
 				<action android:name="android.intent.action.PHONE_STATE" />
 			</intent-filter>
 		</receiver>
+		
+		<receiver android:name="org.mailboxer.listeners.K9MailReceiver">
+			<intent-filter>
+				<action android:name="com.fsck.k9.intent.action.EMAIL_RECEIVED" />
+				<data android:scheme="email"></data> 
+			</intent-filter>
+		</receiver>
 
 		<service android:name=".QueryBuilder" />
 

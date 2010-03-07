@@ -9,6 +9,7 @@
 	<string name="locale_disabled">disabled</string>
 	<string name="locale_saycaller_enable">Enable SayCaller</string>
 	<string name="locale_saysms_enable">Enable SaySMS</string>
+	<string name="locale_sayemail_enable">Enable SayEMail</string>
 
 	<string name="locale_help">Help</string>
 	<string name="locale_save">Save</string>
@@ -57,7 +58,7 @@
 	
 	<string name="preference_callerFormat_title">Formatstring</string>
 	<string name="preference_callerFormat_summary">Customize the announcement</string>
-	<string name="preference_callerFormat_dialog">% for name, &amp; for type \ne.g.: % Tom calls at &amp;</string>
+	<string name="preference_callerFormat_dialog">% for name, &amp; for type \ne.g.: % calls at &amp;</string>
 	
 	<string name="preference_saysms_title">SaySMS</string>
 	<string name="preference_saysms_summary">Enable SaySMS</string>
@@ -70,7 +71,7 @@
 	
 	<string name="preference_smsFormat_title">Formatstring</string>
 	<string name="preference_smsFormat_summary">Customize the announcement</string>
-	<string name="preference_smsFormat_dialog">% for name, &amp; for type \ne.g.: % Tom writes from &amp;</string>
+	<string name="preference_smsFormat_dialog">% for name, &amp; for type \ne.g.: % writes from &amp;</string>
 	
 	<string name="preference_smsRead_title">Read SMS</string>
 	<string name="preference_smsRead_summaryOn">Read the SMS content</string>
@@ -82,6 +83,59 @@
 	<string name="preference_smsReadDiscreet_title">Read SMS content discreet</string>
 	<string name="preference_smsReadDiscreet_summaryOn">Read SMS content only when discreet</string>
 	<string name="preference_smsReadDiscreet_summaryOff">Also read SMS content when not discreet</string>
+	
+	<string name="preference_sayemail_title">SayEMail (K-9 Mail)</string>
+	<string name="preference_sayemail_summary">Enable SayEMail</string>
+	<string name="preference_sayemail_settings_title">SayEMail Settings</string>
+	<string name="preference_sayemail_settings_summary">Customize It!</string>
+	<string name="preference_emailReadDelay_title">Subject Read Delay</string>
+	<string name="preference_emailReadDelay_summary">Set the timeout between reading sender and subject</string>
+	<string name="preference_emailFormat_title">Formatstring</string>
+	<string name="preference_emailFormat_summary">Customize the announcement</string>
+	<string name="preference_emailFormat_dialog">% for sender</string>
+	<string name="preference_emailCutReFwd_title">Cut Re: and Fwd:</string>
+	<string name="preference_emailCutReFwd_summaryOn">Cut Re:, Fwd: out</string>
+	<string name="preference_emailCutReFwd_summaryOff">Leave Re:, Fwd: alone</string>
+	
+	<string name="preference_emailReadSubject_title">Read email subject</string>
+	<string name="preference_emailReadSubject_summaryOn">Read the email subject</string>
+	<string name="preference_emailReadSubject_summaryOff">Don´t read the email subject</string>
+	
+	<string name="preference_emailRepeatTimes_title">Repeat email Subject</string>
+	<string name="preference_emailRepeatTimes_summary">How often should it repeat the email subject?</string>
+	
+	<string name="preference_emailReadSubjectDiscreet_title">Read subject discreet</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOn">Read email subject only when discreet</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOff">Also read email subject when not discreet</string>
+	
+	<string name="preference_emailHelp_title">Help: how to set up</string>
+	<string name="preference_emailHelp_summary">How to setup K-9 Mail and SayMyName...</string>
+	<string name="preference_emailHelpDialog_title">How to setup K-9 Mail</string>
+	<string name="preference_emailHelpDialog_text">
+Why so much complication?\n\n
+
+
+Basically GMail application doesn't broadcast information about new email, but since last update K-9 Mail-Mail does, and we can catch such broadcast and use TTS to say email sender and subject.
+
+You have two options:
+
+1) Use K-9 Mail as your primary email client:
+    - download, install and configure K-9 Mail
+    - disable notifications in GMail app
+    - SayMyName will work OK
+
+2) Stay with GMail app and use K-9 Mail only as proxy:
+    - download, install and configure K-9 Mail
+    - disable notification in K-9 Mail (it will still broadcast information about new emails)
+    - SayMyName will work OK
+
+If you leave notifications on in both GMail and K-9 Mail nothing bad will happen. You will simply get two notifications for each email.
+
+Note: you will have to give your email password to K-9 Mail for obvious reasons.
+	</string>
+	
+	
+	
 	
 	<string name="preference_external_title">External Tweaks</string>
 	
