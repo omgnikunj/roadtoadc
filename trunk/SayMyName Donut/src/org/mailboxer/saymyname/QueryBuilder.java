@@ -106,6 +106,7 @@ public class QueryBuilder extends Service {
 			if (settings.isStartSayCaller()) {
 				Log.e("SayMyName", "CALLER CREATE");
 				callerInfo = new Caller(this, intent.getStringExtra(QueryBuilder.NUMBER), settings);
+
 				smsRunning = false;
 				text = callerInfo.buildString(settings.getCallerFormatString());
 			} else {
@@ -119,6 +120,7 @@ public class QueryBuilder extends Service {
 			if (settings.isStartSaySMS()) {
 				Log.e("SayMyName", "CALLER CREATE");
 				callerInfo = new Caller(this, intent.getStringExtra(QueryBuilder.NUMBER), settings);
+
 				smsRunning = true;
 				msg = intent.getStringExtra(QueryBuilder.MESSAGE);
 				text = callerInfo.buildString(settings.getSmsFormatString());
@@ -126,31 +128,32 @@ public class QueryBuilder extends Service {
 				shutdown();
 			}
 			break;
+
 		case COMMUNICATION_EMAIL:
 			// Disguise as sms. No need for another counter.
 			smsReadCounter = 0;
-		
+
 			if (settings.isStartSayEMail()) {
-				
+
 				Log.e("SayMyName", "CALLER CREATE");
-				
+
 				thread.initializeForMessageLoop( 
 						settings.isEMailReadSubject(), 
 						settings.getEMailReadSubjectDelay(), 
 						settings.isEMailReadSubjectDiscreet(), 
 						settings.getEMailRepeatTimesSubject() );
-				
+
 				callerInfo = new Caller(
 						this, 
 						intent.getStringExtra(QueryBuilder.EMAIL), 
 						"<not used, only to call different constructor>", 
 						settings);
-				
+
 				smsRunning = true;
-				
+
 				text = callerInfo.buildString(settings.getEMailFormatString());
 				msg = prepareSubject( intent.getStringExtra(QueryBuilder.SUBJECT) );
-				
+
 			} else {
 				shutdown();
 			}
@@ -180,15 +183,15 @@ public class QueryBuilder extends Service {
 			}
 		}
 	}
-	
+
 	private String prepareSubject( String subject ){
-	
+
 		String result;
 		if ( subject == null ){
 			result = "";
 		}
 		result = subject;	
-	
+
 		if ( settings.isEMailCutReFwd()){
 			if ( result.startsWith("Re:")){
 				result = result.replaceFirst("Re:", "");
@@ -197,11 +200,8 @@ public class QueryBuilder extends Service {
 				result = result.replaceFirst("Fwd:", "");
 			}
 		}
-		
-		return result;		
-		
-		
-		
+
+		return result;
 	}
 
 	private void prepareMessage() {
@@ -252,7 +252,7 @@ public class QueryBuilder extends Service {
 	}
 
 	private class LoopThread extends Thread {
-		
+
 		/*
 		 * Settings for smsLoop
 		 */
@@ -260,10 +260,10 @@ public class QueryBuilder extends Service {
 		int messageReadDelay = 1000;
 		boolean isMessageReadDiscreet = true;
 		int messageRepeatTimes = 1;
-		
+
 		// saves actual loop-step
 		private int loopCounter = 1;
-		
+
 		public void initializeForMessageLoop(boolean isMessageRead, int messageReadDelay, boolean isMessageReadDiscreet, int messageRepeatTimes){
 			this.isMessageRead = isMessageRead;
 			this.messageReadDelay = messageReadDelay;
@@ -288,7 +288,7 @@ public class QueryBuilder extends Service {
 			case COMMUNICATION_SMS:
 				smsLoop();
 				break;
-			
+
 			case COMMUNICATION_EMAIL:
 				messageLoop();
 				break;
@@ -375,7 +375,7 @@ public class QueryBuilder extends Service {
 				break;
 			}
 		}
-		
+
 		private void messageLoop() {
 			switch (loopCounter) {
 			case 1:

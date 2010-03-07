@@ -79,7 +79,7 @@ public class SettingActivity extends Activity {
 			} else {
 				blurb += getResources().getString(R.string.preference_saysms_title) + " " + getResources().getString(R.string.locale_disabled);
 			}
-			
+
 			if(startEMail) {
 				blurb += getResources().getString(R.string.preference_sayemail_title) + " " + getResources().getString(R.string.locale_enabled);
 			} else {

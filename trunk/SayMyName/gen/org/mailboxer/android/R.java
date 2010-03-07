@@ -47,7 +47,6 @@ public final class R {
         public static final int blog_title=0x7f060030;
         public static final int caller_summary=0x7f060015;
         public static final int caller_title=0x7f060014;
-        public static final int caller_unknown=0x7f060045;
         public static final int cut_summary=0x7f06001d;
         public static final int cut_title=0x7f06001c;
         public static final int dialog_button=0x7f06003f;

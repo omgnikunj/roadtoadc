@@ -7,17 +7,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.ContentValues;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
@@ -37,10 +34,6 @@ public class SayMyName extends PreferenceActivity {
 		super.onCreate(savedInstanceState);
 		getPreferenceManager().setSharedPreferencesName("saysomething");
 		addPreferencesFromResource(R.xml.preferences);
-
-		if (Integer.parseInt(Build.VERSION.SDK) > 4) {
-			displayUpgrade();
-		}
 
 		// check for TTS installed
 		Intent checkIntent = new Intent();
@@ -223,20 +216,6 @@ public class SayMyName extends PreferenceActivity {
 				return false;
 			}
 		});
-	}
-
-	private void displayUpgrade() {
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
-		dialog.setIcon(R.drawable.icon);
-		dialog.setTitle(getString(R.string.dialog_update_title));  
-		dialog.setMessage(getString(R.string.dialog_update_text));
-		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
-			public void onClick(DialogInterface dialog, int whichButton) {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.eclair")));
-			}
-		});
-		dialog.setNegativeButton("No", null);
-		dialog.show();
 	}
 
 	// from:

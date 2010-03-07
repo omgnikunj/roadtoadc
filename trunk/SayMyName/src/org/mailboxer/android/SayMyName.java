@@ -19,7 +19,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.media.AudioManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
@@ -62,13 +61,6 @@ public class SayMyName extends PreferenceActivity {
 				editorPreference.commit();
 			}
 		}
-
-		if (Integer.parseInt(Build.VERSION.SDK) == 3) {
-			displayUpgradeDonut();
-		} else if (Integer.parseInt(Build.VERSION.SDK) == 4) {
-			displayUpgradeEclair();
-		}
-
 
 		// check for TTS installed and start
 		onActivityResult(ttsCheckReqCode, 0, null);
@@ -275,34 +267,6 @@ public class SayMyName extends PreferenceActivity {
 		dialog.setPositiveButton(R.string.dialog_button, new DialogInterface.OnClickListener() {  
 			public void onClick(DialogInterface dialog, int whichButton) {}  
 		});
-		dialog.show();
-	}
-
-	private void displayUpgradeDonut() {
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
-		dialog.setIcon(R.drawable.icon);
-		dialog.setTitle(getString(R.string.dialog_update_title));  
-		dialog.setMessage(getString(R.string.dialog_update_text));
-		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
-			public void onClick(DialogInterface dialog, int whichButton) {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=SayMyName Donut")));
-			}
-		});
-		dialog.setNegativeButton("No", null);
-		dialog.show();
-	}
-
-	private void displayUpgradeEclair() {
-		AlertDialog.Builder dialog = new AlertDialog.Builder(this);  
-		dialog.setIcon(R.drawable.icon);
-		dialog.setTitle(getString(R.string.dialog_update_title));  
-		dialog.setMessage(getString(R.string.dialog_update_text));
-		dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {  
-			public void onClick(DialogInterface dialog, int whichButton) {
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://market.android.com/search?q=pname:org.mailboxer.saymyname.eclair")));
-			}
-		});
-		dialog.setNegativeButton("No", null);
 		dialog.show();
 	}
 

@@ -32,7 +32,7 @@ public class Caller {
 
 		resolveNumber(incomingNumber);
 	}
-	
+
 	/**
 	 * This one used for EMAILS
 	 * @param context
@@ -43,14 +43,14 @@ public class Caller {
 	public Caller(Context context, String emailAddress, String subject, Settings settings) {
 		this.settings = settings;
 		this.context = context;
-		
+
 		UNKNOWN = context.getResources().getString(R.string.caller_unknown);
 
 		resolveEMailAddress(emailAddress);
 	} 
-	
-	private void resolveEMailAddress( String incomingEMailAddress ){
-		
+
+	private void resolveEMailAddress( String incomingEMailAddress ) {
+
 		if (incomingEMailAddress == null) {
 			name = UNKNOWN;
 			return;
@@ -60,7 +60,7 @@ public class Caller {
 			name = UNKNOWN;
 			return;
 		}
-		
+
 		/*
 		 * Email address of sender is in format:
 		 * "Somename Somesurname" <someemail@someserver.com>
@@ -72,14 +72,13 @@ public class Caller {
 			name = temp;
 			return;
 		}
-		
+
 		name = incomingEMailAddress;		
-		
 	}
 
 	private void resolveNumber(String incomingNumber) {
 		// safety first
-		
+
 		if (incomingNumber == null) {
 			name = UNKNOWN;
 			return;
@@ -89,7 +88,7 @@ public class Caller {
 			name = UNKNOWN;
 			return;
 		}
-		
+
 
 		// number-lookup
 		Uri contactUri = Uri.withAppendedPath(Contacts.Phones.CONTENT_FILTER_URL, Uri.encode(incomingNumber));
@@ -151,9 +150,8 @@ public class Caller {
 			type = "";
 		} catch (FileNotFoundException e) {}
 	}
-	
+
 	private String simpleSplit( String source, String specialCharacters ){
-		
 		// Cut string after first special character
 		// Standard split function uses regular expression, which
 		// casue problems while splitting by '\' '-' '.' etc.
@@ -165,10 +163,8 @@ public class Caller {
 				}
 			}
 			stringBuilder.append( source.charAt(i) );
-		}
-		
-		return stringBuilder.toString();
-		
+		}	
+		return stringBuilder.toString();	
 	}
 
 	public String buildString(String formatString) {
@@ -205,14 +201,12 @@ public class Caller {
 			// user doesn't want to hear the whole name
 			name = name.split(" ")[0];
 		}
-		
+
 		if (settings.isCutNameAfterSpecialCharacters()){
-			
 			// List of characters after which we cut name (e.g. '/' '-', etc)
 			String specialCharacters = settings.getSpecialCharacters();
-			
-			name = simpleSplit( name, specialCharacters );
-			
+
+			name = simpleSplit( name, specialCharacters );	
 		}
 
 		// look for % and & - and replace them

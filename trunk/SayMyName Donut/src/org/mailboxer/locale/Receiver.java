@@ -13,7 +13,7 @@ public final class Receiver extends BroadcastReceiver {
 			boolean startCaller = intent.getBooleanExtra("org.mailboxer.android.extra.START_CALLER", false);
 			boolean startSMS = intent.getBooleanExtra("org.mailboxer.android.extra.START_SMS", false);
 			boolean startEMail = intent.getBooleanExtra("org.mailboxer.android.extra.START_EMAIL", false);
-			
+
 			SharedPreferences.Editor editor = context.getSharedPreferences("saysomething", Context.MODE_WORLD_WRITEABLE).edit();
 
 			editor.putBoolean("saycaller", startCaller);

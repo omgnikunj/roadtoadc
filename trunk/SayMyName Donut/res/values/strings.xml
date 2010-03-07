@@ -25,15 +25,15 @@
 	<string name="preference_saymyname_summaryOff">SayMyName disabled</string>
 	
 	<string name="preference_cutName_title">Cut name (whitespace)</string>
-	<string name="preference_cutName_summaryOn">Read name till first whitespace</string>
-	<string name="preference_cutName_summaryOff">Read the whole name</string>
-	
-	<string name="preference_cutNameAfterSpecialCharacter_title">Cut name (special)</string>
-	<string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
-	<string name="preference_cutNameAfterSpecialCharacter_summaryOff">Read the whole name</string>
-	
-	<string name="preference_specialCharacters_title">Special characters</string>
-	<string name="preference_specialCharacters_summary">After which characters should I cut name? Default :/-(</string>
+    <string name="preference_cutName_summaryOn">Read name till first whitespace</string>
+    <string name="preference_cutName_summaryOff">Read the whole name</string>
+        
+    <string name="preference_cutNameAfterSpecialCharacter_title">Cut name (special)</string>
+    <string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
+    <string name="preference_cutNameAfterSpecialCharacter_summaryOff">Read the whole name</string>
+        
+    <string name="preference_specialCharacters_title">Special characters</string>
+    <string name="preference_specialCharacters_summary">After which characters should I cut name? Default :/-(</string>
 	
 	<string name="preference_readNumber_title">Read number</string>
 	<string name="preference_readNumber_summaryOn">Read the whole number if calling number isn´t saved in addressbook</string>
@@ -99,7 +99,7 @@
 	
 	<string name="preference_emailReadSubject_title">Read email subject</string>
 	<string name="preference_emailReadSubject_summaryOn">Read the email subject</string>
-	<string name="preference_emailReadSubject_summaryOff">Don´t read the email subject</string>
+	<string name="preference_emailReadSubject_summaryOff">DonÂ´t read the email subject</string>
 	
 	<string name="preference_emailRepeatTimes_title">Repeat email Subject</string>
 	<string name="preference_emailRepeatTimes_summary">How often should it repeat the email subject?</string>
@@ -133,9 +133,6 @@ If you leave notifications on in both GMail and K-9 Mail nothing bad will happen
 
 Note: you will have to give your email password to K-9 Mail for obvious reasons.
 	</string>
-	
-	
-	
 	
 	<string name="preference_external_title">External Tweaks</string>
 	

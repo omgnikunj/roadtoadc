@@ -9,6 +9,7 @@
 	<string name="locale_disabled">deaktiviert</string>
 	<string name="locale_saycaller_enable">Aktiviere SayCaller</string>
 	<string name="locale_saysms_enable">Aktiviere SaySMS</string>
+	<string name="locale_sayemail_enable">Aktiviere SayEMail</string>
 
 	<string name="locale_help">Hilfe</string>
 	<string name="locale_save">Speichern</string>
@@ -75,6 +76,56 @@
 	<string name="preference_smsReadDiscreet_title">Lies SMS diskret</string>
 	<string name="preference_smsReadDiscreet_summaryOn">Lies die SMS nur wenn diskret</string>
 	<string name="preference_smsReadDiscreet_summaryOff">Lies SMS immer vor</string>
+	
+	<string name="preference_sayemail_title">SayEMail (K-9 Mail)</string>
+	<string name="preference_sayemail_summary">Aktiviere SayEMail</string>
+	<string name="preference_sayemail_settings_title">SayEMail Einstellungen</string>
+	<string name="preference_sayemail_settings_summary">Personalisiere alles!</string>
+	<string name="preference_emailReadDelay_title">Betreff Lesepause</string>
+	<string name="preference_emailReadDelay_summary">Setze eine Pause zwischen vorlesen des Absenders und Betreff</string>
+	<string name="preference_emailFormat_title">Formatstring</string>
+	<string name="preference_emailFormat_summary">Personalisiere die Ankündigung</string>
+	<string name="preference_emailFormat_dialog">% für den Absender</string>
+	<string name="preference_emailCutReFwd_title">Re: und Fwd: ausschneiden</string>
+	<string name="preference_emailCutReFwd_summaryOn">Schneide Re:, Fwd: aus</string>
+	<string name="preference_emailCutReFwd_summaryOff">Re:, Fwd: nicht ausschneiden</string>
+	
+	<string name="preference_emailReadSubject_title">EMail Betreff vorlesen</string>
+	<string name="preference_emailReadSubject_summaryOn">Lies den EMail Betreff vor</string>
+	<string name="preference_emailReadSubject_summaryOff">EMail Betreff nicht vorlesen</string>
+	
+	<string name="preference_emailRepeatTimes_title">EMail Betreff wiederholen</string>
+	<string name="preference_emailRepeatTimes_summary">Wie oft soll der EMail Betreff wiederholt werden?</string>
+	
+	<string name="preference_emailReadSubjectDiscreet_title">EMail Betreff diskret</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOn">Lies EMail Betreff nur vor wenn diskret</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOff">Lies EMail Betreff auch vor wenn nicht diskret</string>
+	
+	<string name="preference_emailHelp_title">Hilfe: Konfiguration</string>
+	<string name="preference_emailHelp_summary">Wie K-9 Mail und SayMyName konfiguriert werden...</string>
+	<string name="preference_emailHelpDialog_title">K-9 Mail Konfiguration</string>
+	<string name="preference_emailHelpDialog_text">
+Why so much complication?\n\n
+
+
+Basically GMail application doesn't broadcast information about new email, but since last update K-9 Mail-Mail does, and we can catch such broadcast and use TTS to say email sender and subject.
+
+You have two options:
+
+1) Use K-9 Mail as your primary email client:
+    - download, install and configure K-9 Mail
+    - disable notifications in GMail app
+    - SayMyName will work OK
+
+2) Stay with GMail app and use K-9 Mail only as proxy:
+    - download, install and configure K-9 Mail
+    - disable notification in K-9 Mail (it will still broadcast information about new emails)
+    - SayMyName will work OK
+
+If you leave notifications on in both GMail and K-9 Mail nothing bad will happen. You will simply get two notifications for each email.
+
+Note: you will have to give your email password to K-9 Mail for obvious reasons.
+	</string>
 	
 	<string name="preference_external_title">Andere Verbesserungen</string>
 	

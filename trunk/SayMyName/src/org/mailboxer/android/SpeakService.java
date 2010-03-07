@@ -17,6 +17,7 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
 import com.google.tts.TTS;
+import com.google.tts.TTS.InitListener;
 
 public class SpeakService extends Service {
 	private boolean start;
@@ -87,7 +88,6 @@ public class SpeakService extends Service {
 
 		talker = new TTS(SpeakService.this, ttsInitListener, false);
 		talker.setLanguage(Locale.getDefault().getLanguage());
-
 
 		super.onCreate();
 	}
@@ -301,7 +301,9 @@ public class SpeakService extends Service {
 		}
 	};
 
-	private class TTSListener implements TTS.InitListener {
+	private class TTSListener implements InitListener {
+
+		@Override
 		public void onInit(int arg0) {
 			if(test != null) {
 				adjustSpeakVolume();

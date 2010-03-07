@@ -4,103 +4,110 @@
 	
 	<string name="caller_unknown">desconocido</string>
 	
-	<string name="locale_text">Cambiar la forma en que SayMyName se comporta en este lugar / hora.</string>
+	<string name="locale_text">Cambiar como actua SayMyName en este sitio / momento.</string>
 	<string name="locale_enabled">activado</string>
 	<string name="locale_disabled">desactivado</string>
 	<string name="locale_saycaller_enable">Activar SayCaller</string>
 	<string name="locale_saysms_enable">Activar SaySMS</string>
 
 	<string name="locale_help">Ayuda</string>
-	<string name="locale_save">Guardar</string>
-	<string name="locale_dontsave">No guardar</string>
+	<string name="locale_save">Salvar</string>
+	<string name="locale_dontsave">No salvar</string>
 	
-	<string name="tts_check_toast">TTS instalado! Todo debería funcionar bien:)</string>
+	<string name="dialog_update_title">Actualización disponible</string>
+	<string name="dialog_update_text">¡Hay una nueva versión de SayMyName disponible! \nContiene una voz mejor, lee sms y mas opciones. \n ¿Quieres descargarla ahora? \n \n Si quieres, por favor desinstala SayMyName después.</string>
+	
+	<string name="tts_check_toast">¡TTS instalado! Todo debería funcionar correctamente :)</string>
+	
+	<string name="preference_saymyname_title">SayMyName</string>
+	<string name="preference_saymyname_summaryOn">SayMyName activado</string>
+	<string name="preference_saymyname_summaryOff">SayMyName desactivado</string>
 	
 	<string name="preference_cutName_title">Cortar nombre</string>
-	<string name="preference_cutName_summaryOn">Leer nombre hasta el primer espacio</string>
-	<string name="preference_cutName_summaryOff">Leer el nombre completo</string>
+	<string name="preference_cutName_summaryOn">Leer el nombre hasta el primer espacio en blanco</string>
+	<string name="preference_cutName_summaryOff">Leer el nombre entero</string>
+	
+	<string name="preference_readNumber_title">Leer número</string>
+	<string name="preference_readNumber_summaryOn">Leer todo el número si el no está salvado en la agenda</string>
+	<string name="preference_readNumber_summaryOff">Solo leer "unknown" si el no está salvado en la agenda</string>
 	
 	<string name="preference_discreetMode_title">Modo discreto</string>
-	<string name="preference_discreetMode_summaryOn">Hablar sólo con auriculares</string>
-	<string name="preference_discreetMode_summaryOff">Hablar cuando el altavoz este activado</string>
+	<string name="preference_discreetMode_summaryOn">Hablar sólo por auriculares</string>
+	<string name="preference_discreetMode_summaryOff">Hablar incluso cuando el altavoz está encendido</string>
 	
 	<string name="preference_saycaller_title">SayCaller</string>
-	<string name="preference_saycaller_summaryOn">Nombro la persona que llama</string>
-	<string name="preference_saycaller_summaryOff">No nombreo la persona que llama</string>
+	<string name="preference_saycaller_summaryOn">Anuncio el llamador</string>
+	<string name="preference_saycaller_summaryOff">No anuncio el llamador</string>
 	
-	<string name="preference_cutNameAfterSpecialCharacter_title">Cut after special character</string>
-	<string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
-	<string name="preference_cutNameAfterSpecialCharacter_summaryOff">Read the whole name</string>
+	<string name="preference_saycaller_settings_title">Opciones de SayCaller</string>
+	<string name="preference_saycaller_settings_summary">¡Personalízalo!</string>
 	
-	<string name="preference_specialCharacters_title">Special characters</string>
-	<string name="preference_specialCharacters_summary">Edit after which characters cut name, default :/-(</string>
-		
-	<string name="preference_saycaller_settings_title">Ajustes SayCaller</string>
-	<string name="preference_saycaller_settings_summary">Personalízalo!</string>
-	
-	<string name="preference_callerRepeatSeconds_title">Tiempo de repetición</string>
-	<string name="preference_callerRepeatSeconds_summary">Tiempo de espera entre repeticiones</string>
+	<string name="preference_callerRepeatSeconds_title">Tiempo entre repeticiones</string>
+	<string name="preference_callerRepeatSeconds_summary">Establece el tiempo entre lecturas del nombre</string>
 	
 	<string name="preference_callerRepeatTimes_title">Repetir nombre</string>
-	<string name="preference_callerRepeatTimes_summary">Con qué frecuencia se debe repetir el nombre?</string>
+	<string name="preference_callerRepeatTimes_summary">¿Cada cuánto repite el nombre?</string>
 	
-	<string name="preference_callerFormat_title">Formato</string>
-	<string name="preference_callerFormat_summary">Personalizar el anuncio</string>
-	<string name="preference_callerFormat_dialog">% para nombre, &amp; para tipo \nEj.: % Tom llama a &amp;</string>
+	<string name="preference_callerFormat_title">Formato de cadena</string>
+	<string name="preference_callerFormat_summary">Personaliza el anuncio</string>
+	<string name="preference_callerFormat_dialog">% para nombre, &amp;amp; para tipo \ne.g.: % Paco llama a &amp;</string>
 	
 	<string name="preference_saysms_title">SaySMS</string>
 	<string name="preference_saysms_summary">Activar SaySMS</string>
 	
-	<string name="preference_saysms_settings_title">AjustesSaySMS</string>
-	<string name="preference_saysms_settings_summary">Personalízalo!</string>
+	<string name="preference_saysms_settings_title">Opciones de SaySMS</string>
+	<string name="preference_saysms_settings_summary">¡Personalízalo!</string>
 	
-	<string name="preference_smsReadDelay_title">Leer retraso</string>
-	<string name="preference_smsReadDelay_summary">Tiempo de espera entre repeticiones</string>
+	<string name="preference_smsReadDelay_title">Tiempo entre lecturas</string>
+	<string name="preference_smsReadDelay_summary">Establece el tiempo entre lecturas</string>
 	
-	<string name="preference_smsFormat_title">Formato</string>
-	<string name="preference_smsFormat_summary">Personalizar el anuncio</string>
-	<string name="preference_smsFormat_dialog">% para nombre, &amp; para tipo \nEj.: % Tom escribe desde &amp;</string>
+	<string name="preference_smsFormat_title">Formato de cadena</string>
+	<string name="preference_smsFormat_summary">Personaliza el anuncio</string>
+	<string name="preference_smsFormat_dialog">% para nombre, &amp;amp; para tipo \ne.g.: % Paco escribe a &amp;</string>
 	
 	<string name="preference_smsRead_title">Leer SMS</string>
-	<string name="preference_smsRead_summaryOn">Leer contenido de SMS</string>
-	<string name="preference_smsRead_summaryOff">No leer contenido de SMS</string>
+	<string name="preference_smsRead_summaryOn">Leer el contenido del SMS</string>
+	<string name="preference_smsRead_summaryOff">No leer el contenido del SMS</string>
 	
 	<string name="preference_smsRepeatTimes_title">Repetir SMS</string>
-	<string name="preference_smsRepeatTimes_summary">Con que frecuencia se debe repetir el SMS?</string>
+	<string name="preference_smsRepeatTimes_summary">¿Cada cuánto debe repetir el SMS?</string>
 	
-	<string name="preference_smsReadDiscreet_title">Leer el contenido de SMS discreto</string>
-	<string name="preference_smsReadDiscreet_summaryOn">Leer el contenido de SMS sólo cuando discreto</string>
-	<string name="preference_smsReadDiscreet_summaryOff">También leer el contenido de SMS cuando no discreto</string>
+	<string name="preference_smsReadDiscreet_title">Lectura discreta del contenido de SMS</string>
+	<string name="preference_smsReadDiscreet_summaryOn">Leer el contenido de los SMS sólo en modo discreto</string>
+	<string name="preference_smsReadDiscreet_summaryOff">Leer también el contenido de los SMS sin modo discreto</string>
 	
-	<string name="preference_external_title">Ajustes externos</string>
+	<string name="preference_external_title">Opciones externas</string>
 	
-	<string name="preference_ringtone_title">Silenciar tono</string>
-	<string name="preference_ringtone_summary">Ajustar a sin tono, para escucharme más claramente</string>
-	<string name="preference_ringtone_toast_finished">El tono está en silencio</string>
+	<string name="preference_translate_title">Tradúceme</string>
+	<string name="preference_translate_summary">¿No te gustan los textos actuales? Cámbialos aquí</string>
+	
+	<string name="preference_ringtone_title">Silenciar tono de llamada</string>
+	<string name="preference_ringtone_summary">Establece el tono de llamada en silencio, así me puedes escuchar claramente</string>
+	<string name="preference_ringtone_toast_finished">El tono de llamada está ahora en silencio</string>
 	
 	<string name="preference_tts_title">TTS</string>
-	<string name="preference_tts_toast">Despláces hasta el final de síntesis de voz</string>
+	<string name="preference_tts_toast">Navegar al fondo de la síntesis del habla</string>
 	
 	<string name="preference_ringdroid_title">Ringdroid</string>
-	<string name="preference_ringdroid_summary">Personalíza tu tono con Ringdroid</string>
+	<string name="preference_ringdroid_summary">Personaliza tu tono de llamada conRingdroid</string>
 	
 	<string name="preference_locale_title">Locale</string>
 	<string name="preference_locale_summary">Usa Locale para controlarme</string>
 	
-	<string name="preference_contactChooser_title">Selector de contacto</string>
-	<string name="preference_contactChooser_summary">No quieres que lea el nombre de algún contacto? Seleccionalo aquí</string>
+	<string name="preference_contactChooser_title">Elegir contactos</string>
+	<string name="preference_contactChooser_summary">¿No quieres que lea el nombre de un contacto en concreto? Selecciónale aquí</string>
 	
-	<string name="preference_trouble_title">Solución de problemas</string>
-	<string name="preference_trouble_summary">Estás experimentando problemas? Por favor, lee esto</string>
+	<string name="preference_trouble_title">Problemas</string>
+	<string name="preference_trouble_summary">¿Tienes problemas? Por favor lee esto</string>
 	
 	<string name="preference_problem_title">Contáctame</string>
-	<string name="preference_problem_summary">La solución de problemas no te sirvió? Contáctame :)</string>
-	<string name="preference_problem_toast">Por favor, describa su problema. Grácias por sus comentarios :)</string>
+	<string name="preference_problem_summary">¿La ayuda no solucionó tu problema?. Contáctame :)</string>
+	<string name="preference_problem_toast">Por favor, describe tu problema. Gracias por tu reporte :)</string>
 	
 	<string name="preference_blog_title">Blog</string>
 	<string name="preference_blog_summary">Lee mi blog para más información</string>
 	
-	<string name="preference_donate_title">Apoyame :D</string>
+	<string name="preference_donate_title">Apóyame :D</string>
 	<string name="preference_donate_summary">Si te gusta lo que hago, por favor compra SayMyName Donate</string>
-	<string name="preference_donate_toast">Muchas grácias :)</string>
+	<string name="preference_donate_toast">Muchas gracias :)</string>
 </resources>

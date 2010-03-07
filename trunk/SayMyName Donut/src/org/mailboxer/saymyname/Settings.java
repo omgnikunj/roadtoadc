@@ -11,7 +11,7 @@ public class Settings {
 	private boolean smsRead;
 	private int smsRepeatTimes;
 	private boolean smsReadDiscreet;
-	
+
 	private int emailSubjectReadDelay;
 	private boolean emailCutReFwd;
 	private boolean emailReadSubject;
@@ -77,7 +77,6 @@ public class Settings {
 		emailCutReFwd = preferences.getBoolean("smsReadDiscreet", false);		
 		emailRepeatTimes = Integer.parseInt(preferences.getString("emailRepeatTimes", "1"));
 		emailReadSubjectDiscreet = preferences.getBoolean("emailReadSubjectDiscreet", true);
-		
 	}
 
 	public int getCallerRepeatSeconds() {
@@ -127,11 +126,11 @@ public class Settings {
 	public boolean isCutName() {
 		return cutName;
 	}
-	
+
 	public boolean isCutNameAfterSpecialCharacters(){
 		return cutNameAfterSpecialCharacters;
 	}
-	
+
 	public String getSpecialCharacters(){
 		return specialCharacters;
 	}
@@ -147,7 +146,7 @@ public class Settings {
 	public boolean isSmsReadDiscreet() {
 		return smsReadDiscreet;
 	}
-	
+
 	public boolean isEMailCutReFwd(){
 		return emailCutReFwd;
 	}
@@ -167,7 +166,7 @@ public class Settings {
 	public int getEMailReadSubjectDelay(){
 		return emailSubjectReadDelay;
 	}
-
+	
 	public int getSmsRepeatTimes() {
 		return smsRepeatTimes;
 	}
