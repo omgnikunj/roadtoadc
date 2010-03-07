@@ -2,6 +2,6 @@
 
 = Translate me =
 
-If you want to help me translate SayMyName into various languages, copy [http://code.google.com/p/roadtoadc/source/browse/trunk/SayMyName/res/values/strings.xml this file (SayMyName)] or [http://code.google.com/p/roadtoadc/source/browse/trunk/SayMyName%20Donut/res/values/strings.xml this file (SayMyName Donut and Eclair)] and translate it into your desired language. Afterwards send it to me and I´ll implement it as soon as possible :)
+If you want to help me translate SayMyName into various languages visit [http://mailboxer.whatz.eu/SayMyName_Donut/ this site] if you use 'SayMyName' or [http://mailboxer.whatz.eu/SayMyName/ this site] if you use 'SayMyName Donut'.
 
-(Google Spreadsheet for easier translating is coming soon.)
+Thanks in advance! :)
