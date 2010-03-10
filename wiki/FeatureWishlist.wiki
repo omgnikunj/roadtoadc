@@ -1,5 +1,4 @@
 #summary often requested features
-#labels Featured
 
 = Feature Wishlist =
 == Turn down volume of ringtone ==
