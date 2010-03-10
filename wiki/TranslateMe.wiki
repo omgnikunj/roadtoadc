@@ -1,4 +1,5 @@
 #summary How to translate SayMyName
+#labels Featured
 
 = Translate me =
 
