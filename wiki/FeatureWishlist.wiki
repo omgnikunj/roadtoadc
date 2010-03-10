@@ -1,14 +1,14 @@
 #summary often requested features
 
 = Feature Wishlist =
+== Silence when pressing volume buttons ==
+silence SayMyName on pressed volume button
+
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
 
 == Start ringtone after speaking ==
 after finished speaking X times, start the default ringtone
-
-== Silence when pressing volume buttons ==
-silence SayMyName on pressed volume button
 
 == Change language and speech rate ==
 add a setting for changing lanugage and speech rate (already possible in TTS Settings)
@@ -25,12 +25,6 @@ for family contacts say "my beloved XXX is calling", for coworkers say "XXX is c
 == Contact Whitelist ==
 read out sms all the time for certain numbers
 
-== Read Mail ==
-read on incoming mails
-
-== Mosquito tone announcement ==
-announce caller in morse code at mosquito tone (17KHz)
-
 == Add own voice ==
 record your own voice and play it instead of TTS voice
 
@@ -38,6 +32,3 @@ record your own voice and play it instead of TTS voice
 some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
 
 == Google Voice support ==
-
-
-*Any other ideas?*
