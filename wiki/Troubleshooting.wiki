@@ -1,5 +1,9 @@
 #summary fix often reported issues
 #labels Featured
+= "every contact is announced as "unknown"" =
+
+Check the 'Reading Mode 2'-checkbox. This solves the problem for most people.
+
 
 = "It doesn´t speak" =
 
@@ -13,10 +17,6 @@ If not:
  * Test doesn´t work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
  * Or contact me and describe your problem!
 
-
-= "every contact is announced as "unknown"" =
-
-Some people reported that everything is working fine after a factory reset (BEWARE! All your data gets lost if you do that! Make a backup first!)
 
 Thanks a lot for every feedback I get!
 I hope you enjoy SayMyName!

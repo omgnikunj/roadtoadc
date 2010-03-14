@@ -3,6 +3,6 @@
 
 = Translate me =
 
-If you want to help me translate SayMyName into various languages visit [http://mailboxer.whatz.eu/SayMyName_Donut/ this site] if you use 'SayMyName' or [http://mailboxer.whatz.eu/SayMyName/ this site] if you use 'SayMyName Donut'.
+If you want to help me translate SayMyName into various languages visit [http://mailboxer.whatz.eu/SayMyName_Donut/ this site] if you use 'SayMyName Dessert' or [http://mailboxer.whatz.eu/SayMyName/ this site] if you use 'SayMyName'.
 
 Thanks in advance! :)
