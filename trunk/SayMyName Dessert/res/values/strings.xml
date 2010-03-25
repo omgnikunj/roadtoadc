@@ -15,9 +15,6 @@
 	<string name="locale_save">Save</string>
 	<string name="locale_dontsave">Don\'t Save</string>
 
-	<string name="dialog_update_title">Update available</string>
-	<string name="dialog_update_text">There\'s a new version of SayMyName available! \nIt features a better voice, reads sms and more options. \n Do you want to download it now? \n \n If you do so, please uninstall SayMyName afterwards.</string>
-	
 	<string name="tts_check_toast">TTS installed! Everything should work fine :)</string>
 	
 	<string name="preference_saymyname_title">SayMyName</string>
@@ -39,7 +36,7 @@
 	<string name="preference_readNumber_summaryOn">Read the whole number if calling number isn\'t saved in addressbook</string>
 	<string name="preference_readNumber_summaryOff">Only read "unknown" if calling number isn\'t saved in addressbook</string>
 	
-	<string name="preference_useOldMethod_title">Donut Contacts</string>
+	<string name="preference_useOldMethod_title">Reading Mode 2</string>
 	<string name="preference_useOldMethod_summaryOn">If you can\'t hear caller\'s name, deactivate this</string>
 	<string name="preference_useOldMethod_summaryOff">Only change this setting if you can\'t hear caller\'s name</string>
 	
@@ -103,7 +100,7 @@
 	
 	<string name="preference_emailReadSubject_title">Read email subject</string>
 	<string name="preference_emailReadSubject_summaryOn">Read the email subject</string>
-	<string name="preference_emailReadSubject_summaryOff">DonÂ\'t read the email subject</string>
+	<string name="preference_emailReadSubject_summaryOff">Don\'t read the email subject</string>
 	
 	<string name="preference_emailRepeatTimes_title">Repeat email Subject</string>
 	<string name="preference_emailRepeatTimes_summary">How often should it repeat the email subject?</string>
@@ -119,7 +116,7 @@
 Why so much complication?\n\n
 
 
-Basically GMail application doesn\'t broadcast information about new email, but since last update K-9 Mail-Mail does, and we can catch such broadcast and use TTS to say email sender and subject.
+Basically GMail application doesn\'t broadcast information about new email, but since last update K-9 Mail does, and we can catch such broadcast and use TTS to say email sender and subject.
 
 You have two options:
 
@@ -135,8 +132,7 @@ You have two options:
 
 If you leave notifications on in both GMail and K-9 Mail nothing bad will happen. You will simply get two notifications for each email.
 
-Note: you will have to give your email password to K-9 Mail for obvious reasons.
-	</string>
+Note: you will have to give your email password to K-9 Mail for obvious reasons.</string>
 	
 	<string name="preference_external_title">External Tweaks</string>
 	

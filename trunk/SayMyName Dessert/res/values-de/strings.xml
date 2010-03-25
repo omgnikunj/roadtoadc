@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
+	
 	<string name="caller_unknown">unbekannt</string>
 	
 	<string name="locale_text">Kontrolliere wie sich SayMyName an diesem Ort / zu dieser Zeit verhalten soll</string>
@@ -13,21 +15,36 @@
 	<string name="locale_save">Speichern</string>
 	<string name="locale_dontsave">Verwerfen</string>
 	
-	<string name="tts_check_toast">TTS installiert! Alles sollte funktionieren :)</string>
+	<string name="dialog_update_title">update verfügbar</string>
+	
+	
+	<string name="tts_check_toast">TTS installed! Everything should work fine :)</string>
 	
 	<string name="preference_saymyname_title">SayMyName</string>
 	<string name="preference_saymyname_summaryOn">SayMyName aktiviert</string>
 	<string name="preference_saymyname_summaryOff">SayMyName deaktiviert</string>
 	
 	<string name="preference_cutName_title">Name kürzen</string>
-	<string name="preference_cutName_summaryOn">Den Namen bis zum ersten Abstand lesen</string>
-	<string name="preference_cutName_summaryOff">Den ganzen Namen lesen</string>
+    <string name="preference_cutName_summaryOn">Den Namen bis zum ersten Abstand lesen</string>
+    <string name="preference_cutName_summaryOff">Den ganzen Namen lesen</string>
+        
+    
+    <string name="preference_cutNameAfterSpecialCharacter_summaryOn">Read name till first special character</string>
+    
+        
+    <string name="preference_specialCharacters_title">Special characters</string>
+    
 	
-	<string name="preference_readNumber_title">Lies Nummer</string>
+	<string name="preference_readNumber_title">Read number</string>
 	<string name="preference_readNumber_summaryOn">Lies die Nummer vor, wenn sie nicht im Adressbuch gespeichert ist</string>
-	<string name="preference_readNumber_summaryOff">Lies nur "unbekannt" vor, wenn sie nicht im Adressbuch gespeichert ist</string>
+	<string name="preference_readNumber_summaryOff">Lies nur </string>
 	
-	<string name="preference_discreetMode_title">Diskret Modus</string>
+	<string name="preference_useOldMethod_title">Lesemodus 2</string>
+	<string name="preference_useOldMethod_summaryOn">Wenn du den Namen nicht hören kannst, deaktiviere diese Option</string>
+	<string name="preference_useOldMethod_summaryOff">Wenn du den Namen nicht hören kannst, aktiviere diese Option</string>
+	
+	
+	<string name="preference_discreetMode_title">Discreet Mode</string>
 	<string name="preference_discreetMode_summaryOn">Nur in Kopfhörern sprechen</string>
 	<string name="preference_discreetMode_summaryOff">Auch ohne Kopfhörern sprechen</string>
 	
@@ -46,7 +63,7 @@
 	
 	<string name="preference_callerFormat_title">Formatstring</string>
 	<string name="preference_callerFormat_summary">Personalisiere die Ankündigung</string>
-	<string name="preference_callerFormat_dialog">% für den Namen, &amp; für Nummerntyp \nz.B.: % Tom ruft an von &amp;</string>
+	<string name="preference_callerFormat_dialog">% für den Namen, &amp;amp; für Nummerntyp \nz.B.: % Tom ruft an von &amp;amp;</string>
 	
 	<string name="preference_saysms_title">SaySMS</string>
 	<string name="preference_saysms_summary">Aktiviere SaySMS</string>
@@ -59,7 +76,7 @@
 	
 	<string name="preference_smsFormat_title">Formatstring</string>
 	<string name="preference_smsFormat_summary">Personalisiere die Ankündigung</string>
-	<string name="preference_smsFormat_dialog">% für den Namen, &amp; für Nummerntyp \nz.B.: % Tom schreibt von &amp;</string>
+	<string name="preference_smsFormat_dialog">% für den Namen, &amp;amp; für Nummerntyp \nz.B.: % Tom schreibt von &amp;amp;</string>
 	
 	<string name="preference_smsRead_title">Lies SMS vor</string>
 	<string name="preference_smsRead_summaryOn">Lies die ganze SMS vor</string>
@@ -100,7 +117,8 @@
 	<string name="preference_emailHelp_summary">Wie K-9 Mail und SayMyName konfiguriert werden...</string>
 	<string name="preference_emailHelpDialog_title">K-9 Mail Konfiguration</string>
 	
-	<string name="preference_external_title">Andere Verbesserungen</string>
+	
+	<string name="preference_external_title">External Tweaks</string>
 	
 	<string name="preference_translate_title">Übersetze mich</string>
 	<string name="preference_translate_summary">Dir gefallen die aktuellen Texte nicht? Dann verändere sie hier</string>
@@ -134,21 +152,4 @@
 	<string name="preference_donate_title">Unterstütze mich :D</string>
 	<string name="preference_donate_summary">Falls dir gefällt was ich mache kaufe SayMyName Donate</string>
 	<string name="preference_donate_toast">Vielen Dank :)</string>
-
-	<string name="market_description">
-Du willst wissen wer anruft ohne auf dein Display zu sehen? Diese App hilft dir!
-
-Sie liest den Namen des Anrufers aus deinem Addressbuch aus und liest ihn vor (kann an deine Wünsche angepasst werden)
-
-Auch SMS und K-9 Mail kompatibel
-
-*Locale Plug-in!*
-
-Danke an alle die mir Feedback geben :)
-
-Diese App ist OpenSource :D
-	</string>
-	<string name="market_promo">
-Du willst wissen wer anruft ohne auf dein Display zu sehen? Diese App hilft dir!
-	</string>
 </resources>

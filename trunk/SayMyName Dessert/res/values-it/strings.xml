@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
+	
 	<string name="caller_unknown">sconosciuto</string>
 	
 	<string name="locale_text">Modifica il comportamento di SayMyName.</string>
@@ -7,14 +9,12 @@
 	<string name="locale_disabled">disattivato</string>
 	<string name="locale_saycaller_enable">Attiva SayCaller</string>
 	<string name="locale_saysms_enable">Attiva SaySMS</string>
+	
 
 	<string name="locale_help">Help</string>
 	<string name="locale_save">Salva</string>
 	<string name="locale_dontsave">Non salvare</string>
-	
-	<string name="dialog_update_title">Disponibile aggiornamento</string>
-	<string name="dialog_update_text">E´ disponibile una nuova versione di SayMyName! \nQuesta potrebbe migliorare il sistema vocale, la lettura degli sms e altre opzioni. \nDesideri scaricarla?</string>
-	
+
 	<string name="tts_check_toast">TTS installato correttamente! Tutto dovrebbe funzionare correttamente :)</string>
 	
 	<string name="preference_saymyname_title">SayMyName</string>
@@ -22,7 +22,7 @@
 	<string name="preference_saymyname_summaryOff">SayMyName disattivato</string>
 	
 	<string name="preference_cutName_title">Taglia il nome (spazi bianchi)</string>
-    <string name="preference_cutName_summaryOn">Leggi in nome fino al primo spazio bianco</string>
+    <string name="preference_cutName_summaryOn">Leggi il nome fino al primo spazio bianco</string>
     <string name="preference_cutName_summaryOff">Leggi l´intero nome</string>
         
     <string name="preference_cutNameAfterSpecialCharacter_title">Taglia il nome (caratteri speciali)</string>
@@ -36,7 +36,11 @@
 	<string name="preference_readNumber_summaryOn">Leggi l´intero numero se il chiamante non e´ memorizzato in agenda</string>
 	<string name="preference_readNumber_summaryOff">Leggi solo </string>
 	
-	<string name="preference_discreetMode_title">Modalita´ discreta</string>
+	
+	<string name="preference_useOldMethod_summaryOn">If you can\'t hear caller\'s name, deactivate this</string>
+	<string name="preference_useOldMethod_summaryOff">Cambia questa impostazione solo se non senti il nome</string>
+	
+	<string name="preference_discreetMode_title">Modo discreto</string>
 	<string name="preference_discreetMode_summaryOn">Pronuncia solo negli auricolari</string>
 	<string name="preference_discreetMode_summaryOff">Pronuncia anche se l´altoparlante e´ attivo</string>
 	
@@ -51,7 +55,7 @@
 	<string name="preference_callerRepeatSeconds_summary">Imposta il timeout tra piu´ letture</string>
 	
 	<string name="preference_callerRepeatTimes_title">Ripeti l´annuncio</string>
-	<string name="preference_callerRepeatTimes_summary">Quante volte ripetere l´annuncio del chiamante?</string>
+	<string name="preference_callerRepeatTimes_summary">Quante volte ripetere l´annuncio del chiamante?1</string>
 	
 	<string name="preference_callerFormat_title">Formatstring</string>
 	<string name="preference_callerFormat_summary">Personalizza l´annuncio</string>
@@ -80,6 +84,33 @@
 	<string name="preference_smsReadDiscreet_title">Lettura discreta del contenuto del messaggio</string>
 	<string name="preference_smsReadDiscreet_summaryOn">Leggi il contenuto solo in modalita´ discreta</string>
 	<string name="preference_smsReadDiscreet_summaryOff">Leggi il contenuto anche se non in modalita´ discreta</string>
+	
+	
+	<string name="preference_sayemail_summary">Enable SayEMail</string>
+	
+	<string name="preference_sayemail_settings_summary">Customize It!</string>
+	
+	<string name="preference_emailReadDelay_summary">Set the timeout between reading sender and subject</string>
+	
+	<string name="preference_emailFormat_summary">Customize the announcement</string>
+	
+	<string name="preference_emailCutReFwd_title">Cut Re: and Fwd:</string>
+	
+	<string name="preference_emailCutReFwd_summaryOff">Leave Re:, Fwd: alone</string>
+	
+	
+	<string name="preference_emailReadSubject_summaryOn">Read the email subject</string>
+	
+	
+	<string name="preference_emailRepeatTimes_title">Repeat email Subject</string>
+	
+	
+	<string name="preference_emailReadSubjectDiscreet_title">Read subject discreet</string>
+	
+	<string name="preference_emailReadSubjectDiscreet_summaryOff">Also read email subject when not discreet</string>
+	
+	
+	<string name="preference_emailHelp_summary">How to setup K-9 Mail and SayMyName...</string>
 	
 	<string name="preference_external_title">Integrazioni aggiuntive</string>
 	

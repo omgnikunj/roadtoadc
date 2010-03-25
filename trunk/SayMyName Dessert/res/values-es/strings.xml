@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	
+	
 	<string name="caller_unknown">desconocido</string>
 	
 	<string name="locale_text">Cambiar como actua SayMyName en este sitio / momento.</string>
@@ -12,7 +14,7 @@
 	<string name="locale_help">Help</string>
 	<string name="locale_save">Salvar</string>
 	<string name="locale_dontsave">No salvar</string>
-	
+
 	<string name="tts_check_toast">¡TTS instalado! Todo debería funcionar correctamente :)</string>
 	
 	<string name="preference_saymyname_title">SayMyName</string>
@@ -34,7 +36,11 @@
 	<string name="preference_readNumber_summaryOn">Leer todo el número si el no está salvado en la agenda</string>
 	<string name="preference_readNumber_summaryOff">Solo leer </string>
 	
-	<string name="preference_discreetMode_title">Modo discreto</string>
+	
+	<string name="preference_useOldMethod_summaryOn">If you can\'t hear caller\'s name, deactivate this</string>
+	
+	
+	<string name="preference_discreetMode_title">Discreet Mode</string>
 	<string name="preference_discreetMode_summaryOn">Hablar sólo por auriculares</string>
 	<string name="preference_discreetMode_summaryOff">Hablar incluso cuando el altavoz está encendido</string>
 	
@@ -79,6 +85,33 @@
 	<string name="preference_smsReadDiscreet_summaryOn">Leer el contenido de los SMS sólo en modo discreto</string>
 	<string name="preference_smsReadDiscreet_summaryOff">Leer también el contenido de los SMS sin modo discreto</string>
 	
+	
+	<string name="preference_sayemail_summary">Enable SayEMail</string>
+	
+	<string name="preference_sayemail_settings_summary">Customize It!</string>
+	
+	<string name="preference_emailReadDelay_summary">Set the timeout between reading sender and subject</string>
+	
+	<string name="preference_emailFormat_summary">Customize the announcement</string>
+	
+	<string name="preference_emailCutReFwd_title">Cut Re: and Fwd:</string>
+	
+	<string name="preference_emailCutReFwd_summaryOff">Leave Re:, Fwd: alone</string>
+	
+	
+	<string name="preference_emailReadSubject_summaryOn">Read the email subject</string>
+	
+	
+	<string name="preference_emailRepeatTimes_title">Repeat email Subject</string>
+	
+	
+	<string name="preference_emailReadSubjectDiscreet_title">Read subject discreet</string>
+	
+	<string name="preference_emailReadSubjectDiscreet_summaryOff">Also read email subject when not discreet</string>
+	
+	
+	<string name="preference_emailHelp_summary">How to setup K-9 Mail and SayMyName...</string>
+	
 	<string name="preference_external_title">Opciones externas</string>
 	
 	<string name="preference_translate_title">Tradúceme</string>
@@ -113,19 +146,4 @@
 	<string name="preference_donate_title">Apóyame :D</string>
 	<string name="preference_donate_summary">Si te gusta lo que hago, por favor compra SayMyName Donate</string>
 	<string name="preference_donate_toast">Muchas gracias :)</string>
-
-	<string name="market_description">
-¿Quieres saber quién te llama sin mirar el teléfono? Esta aplicación te lo dirá!
-
-Leerá el nombre de tus contactos de la agenda y te dirá quién te está llamando (se puede personalizar)
-
-Also able to read your SMS and K-9 Mail
-
-*Locale Plug-in!*
-
-Esta aplicación es de código abierto :D
-	</string>
-	<string name="market_promo">
-¿Quieres saber quién te llama sin mirar el teléfono? Esta aplicación te lo dirá!
-	</string>
 </resources>

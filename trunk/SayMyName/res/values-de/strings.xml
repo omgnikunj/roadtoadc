@@ -65,21 +65,8 @@
 	<string name="save">Speichern</string>
 	<string name="dontsave">Nicht speichern</string>
 
-	<string name="market_description">Du willst wissen wer dich anruft ohne auf dein
-		Handy zu sehen? Diese App sagt es dir!
-
-		Es liest den Namen des Anrufers aus dem Adressbuch aus und liest ihn dir
-		vor.
-
-		*Donut Version im Market erhältlich!*
-
-		*mit Locale Plug-in!*
-
-		Vielen Dank für euer bisheriges Feedback!
-
-		*Du wirst aufgefordert werden TTS zu installieren*</string>
-	<string name="market_promo">Du willst wissen wer dich anruft ohne auf dein
-		Handy zu sehen? Diese App hilft!</string>
+	<string name="market_description">Du willst wissen wer dich anruft ohne auf dein 		Handy zu sehen? Diese App sagt es dir!  		Es liest den Namen des Anrufers aus dem Adressbuch aus und liest ihn dir 		vor.  		*Donut Version im Market erhältlich!*  		*mit Locale Plug-in!*  		Vielen Dank für euer bisheriges Feedback!  		*Du wirst aufgefordert werden TTS zu installieren*</string>
+	<string name="market_promo">Du willst wissen wer dich anruft ohne auf dein 		Handy zu sehen? Diese App hilft!</string>
 
 	<string name="dialog_title">Ein paar Worte vom Autor...</string>
 	<string name="dialog_message">Danke, dass du SayMyName installiert hast  :) \n \n * WICHTIG: * \n Eine Donut Version ist am Market erhältlich! \n \n Bevor du loslegst: \n 1. Du wirst wahrscheinlich aufgefordert werden TTS zu installieren \n 2. Dann aktiviere die \'SayMyName\' Checkbox \n 3. Ruf dich von einem anderen Handy aus an, wenn es den Namen nicht vorliest, versuch es noch einmal nach dem dein Handy neu gestartet hast \n 4. Genieße und sende mir Feedback :) \n \n Tom</string>

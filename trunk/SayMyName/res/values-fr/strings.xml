@@ -10,10 +10,13 @@
 	<string name="locale_plugin_dont_respect">Ne pas respecter le silencieux</string>
 	<string name="locale_plugin_enable">Activer SayMyName</string>
 
-	<string name="error_toast_install">Vous devriez m\'entendre parler. Si ce n\'est pas le cas, merci de redémarrer votre téléphone et d\'essayer de nouveau.</string>
+	<string name="dialog_update_title">MàJ disponible</string>
+	<string name="dialog_update_text">Une nouvelle version de SayMyName est disponible! \nElle comprend une meilleure voix, la lecture des sms et autres options.\n Voulez vous la télécharger maintenant? \n \n Si c\'est le cas, veuillez desinstaller SayMyName avant tout.</string>
+
+	<string name="error_toast_install">Vous devriez m\'entendre parler. Si ce n\'est pas le cas, redémarrez le téléphone et réessayez.</string>
 	<string name="locale_toast">Locale change votre configuration suivant votre position.</string>
 	<string name="tts_toast">Vous devez installer TTS (Text-to-Speech-Library) pour utiliser cette application.</string>
-	<string name="ringdroid_toast">Ringdroid vous permez d\'éditer votre sonnerie ou d\'autre fichier de musique.</string>
+	<string name="ringdroid_toast">Ringdroid vous permez d\'éditer votre sonnerie ou d\'autres fichiers de musique.</string>
 	<string name="feedback_toast">Merci pour vos commentaires!</string>
 	<string name="start_toast">Merci de démarrer SayMyName.</string>
 
@@ -36,6 +39,8 @@
 	<string name="seek_title">Volume de la voix</string>
 	<string name="seek_summary">Paramétrer le volume de la voix</string>
 	<string name="external_title">Paramétres externes</string>
+	<string name="preference_ringtone_title">Sonnerie</string>
+	<string name="preference_ringtone_summary">Coupe la sonnerie, ainsi vous m\'entenderez mieux.</string>
 	<string name="locale_title">Locale</string>
 	<string name="locale_summary">Controler SayMyName avec Locale</string>
 	<string name="tts_title">Paramétrage de TTS</string>
@@ -60,21 +65,17 @@
 	<string name="save">Sauvegarder</string>
 	<string name="dontsave">Ne pas sauvegarder</string>
 
-	<string name="market_description">*Seulement pour les téléphones Donut*
+	<string name="market_description">*Seulement pour les téléphones Donut*  		Vous voulez savoir qui vous appelle sans regarder votre téléphone? Cette 		application vous le diras.  		Cette application lit le nom de l\'appelant contenu dans vos contact et vous 	dis qui appelle.  		*Avec un Plug-in pour Locale!*  		Merci de me faire des commentaires :)</string>
+	<string name="market_promo">Vous voulez savoir qui vous appelle sans regarder votre téléphone? Cette application vous le dira.</string>
 
-		Vous voulez savoir qui vous appelle sans regarder votre téléphone? Cette
-		application vous le diras.
-
-		Cette application lit le nom de l'appelant contenu dans vos contact et vous
-		dis qui appelle.
-
-		*Avec un Plug-in pour Locale!*
-
-		Merci de me faire des commentaires :)</string>
-	<string name="market_promo">Vous voulez savoir qui bous appelle sans regarder
-		votre téléphone?</string>
-
-	<string name="dialog_title">Some words from the author...</string>
+	<string name="dialog_title">Quelques mots de l\'auteur...</string>
 	<string name="dialog_message">Thanks for installing SayMyName :) \n \n \n Before you get started: \n 1. Maybe you will get prompted to install TTS from the market \n 2. Then check the \'SayMyName\' box \n 3. Call yourself from another phone, it should say the name now \n 4. Enjoy and send me feedback :) \n \n Tom</string>
 	<string name="dialog_button">Okay...</string>
+	
+	<string name="preference_translate_title">Traduisez-moi</string>
+	<string name="preference_translate_summary">Vous n\'aimez pas le texte actuel? Changez le ici</string>
+	
+	<string name="preference_donate_title">Soutenez-moi :D</string>
+	<string name="preference_donate_summary">Si vous aimez ce que je fais, achetez s\'il vous plait SayMyName Donate</string>
+	<string name="preference_donate_toast">Merci beaucoup :)</string>
 </resources>
