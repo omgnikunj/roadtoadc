@@ -6,6 +6,9 @@
 == Let the user choose which audiostream to use ==
 some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
 
+== Don't read special characters ==
+ignore * , : etc
+
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
 
