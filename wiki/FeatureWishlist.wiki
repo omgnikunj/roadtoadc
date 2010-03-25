@@ -1,14 +1,13 @@
 #summary often requested features
 
 = Feature Wishlist =
+== Start ringtone if unknown ==
+
 == Let the user choose which audiostream to use ==
 some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
 
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
-
-== Contact Whitelist ==
-read out sms all the time for certain numbers
 
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
@@ -18,6 +17,11 @@ add a setting for changing lanugage and speech rate (already possible in TTS Set
 
 == Exclude what's between special characters ==
 Might it be possible to exclude what is between special characters so the announcement is "Joe Smith" when the contact listing reads "Joe [contractor] Smith" or "Joe [& Sally] Smith"?
+
+== improve Contact Chooser ==
+seperate ignored and announced contacts
+= Contact Whitelist =
+read out sms all the time for certain numbers
 
 == Start ringtone after speaking ==
 after finished speaking X times, start the default ringtone
