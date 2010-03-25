@@ -1,17 +1,26 @@
 #summary often requested features
 
 = Feature Wishlist =
+== Let the user choose which audiostream to use ==
+some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
+
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
+
+== Contact Whitelist ==
+read out sms all the time for certain numbers
 
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
 
-== Start ringtone after speaking ==
-after finished speaking X times, start the default ringtone
-
 == Change language and speech rate ==
 add a setting for changing lanugage and speech rate (already possible in TTS Settings)
+
+== Exclude what's between special characters ==
+Might it be possible to exclude what is between special characters so the announcement is "Joe Smith" when the contact listing reads "Joe [contractor] Smith" or "Joe [& Sally] Smith"?
+
+== Start ringtone after speaking ==
+after finished speaking X times, start the default ringtone
 
 == Improve Bluetooth support ==
 only speak when bluetooth is enabled and (try to) support more bluetooth headsets
@@ -22,13 +31,7 @@ If there is a connected Bluetooth device, speak. Otherwise don´t
 == Specify formatstring on group basis ==
 for family contacts say "my beloved XXX is calling", for coworkers say "XXX is calling from work"
 
-== Contact Whitelist ==
-read out sms all the time for certain numbers
-
 == Add own voice ==
 record your own voice and play it instead of TTS voice
-
-== Let the user choose which audiostream to use ==
-some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
 
 == Google Voice support ==
