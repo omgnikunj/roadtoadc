@@ -12,6 +12,9 @@ ignore * , : etc
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
 
+== Set correct pronounciation in app ==
+[http://code.google.com/p/roadtoadc/issues/detail?id=31 Issue 31]
+
 == Turn down volume of ringtone ==
 modify ringtone´s volume in order to hear SayMyName clearly
 
