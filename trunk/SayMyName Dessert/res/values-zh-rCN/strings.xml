@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">SayMyName Dessert</string>
+	
+	<string name="caller_unknown">未知</string>
+	
+	<string name="locale_text">更改SayMyName在这个地点 / 时间的行为</string>
+	<string name="locale_enabled">启用</string>
+	<string name="locale_disabled">禁用</string>
+	<string name="locale_saycaller_enable">启用 SayCaller</string>
+	<string name="locale_saysms_enable">启用 SaySMS</string>
+	<string name="locale_sayemail_enable">启用 SayEMail</string>
+
+	<string name="locale_help">帮助</string>
+	<string name="locale_save">保存</string>
+	<string name="locale_dontsave">不保存</string>
+
+	<string name="tts_check_toast">TTS 已安装！现在所有的功能应该都能正常运作了 :)</string>
+	
+	<string name="preference_saymyname_title">SayMyName</string>
+	<string name="preference_saymyname_summaryOn">SayMyName 启用中</string>
+	<string name="preference_saymyname_summaryOff">SayMyName 已禁用</string>
+	
+	<string name="preference_cutName_title">分割姓名(空格)</string>
+    <string name="preference_cutName_summaryOn">仅念姓名第一个空格前的部分</string>
+    <string name="preference_cutName_summaryOff">念出完整的姓名</string>
+        
+    <string name="preference_cutNameAfterSpecialCharacter_title">分割姓名(特殊符)</string>
+    <string name="preference_cutNameAfterSpecialCharacter_summaryOn">仅念姓名第一个特殊符前的部分</string>
+    <string name="preference_cutNameAfterSpecialCharacter_summaryOff">念出完整的姓名</string>
+        
+    <string name="preference_specialCharacters_title">特殊字符</string>
+    <string name="preference_specialCharacters_summary">我应该在下面哪个特殊符后分割姓名？默认 :/-(</string>
+	
+	<string name="preference_readUnknown_title">念"未知"</string>
+	<string name="preference_readUnknown_summaryOn">仅念些号码不在地址薄中的"未知"</string>
+	<string name="preference_readUnknown_summaryOff">念些什么信息都不在地址薄中的</string>
+	
+	<string name="preference_discreetMode_title">谨慎模式</string>
+	<string name="preference_discreetMode_summaryOn">仅在使用耳机时念名</string>
+	<string name="preference_discreetMode_summaryOff">当使用外置喇叭时也念名</string>
+	
+	<string name="preference_saycaller_title">SayCaller</string>
+	<string name="preference_saycaller_summaryOn">由我来广播来电</string>
+	<string name="preference_saycaller_summaryOff">不需要我来广播来电</string>
+	
+	<string name="preference_saycaller_settings_title">SayCaller 设置</string>
+	<string name="preference_saycaller_settings_summary">自定义它！</string>
+	
+	<string name="preference_callerRepeatSeconds_title">重复超时</string>
+	<string name="preference_callerRepeatSeconds_summary">设置念名字的超时</string>
+	
+	<string name="preference_callerRepeatTimes_title">重复念名字</string>
+	<string name="preference_callerRepeatTimes_summary">每次重复念名字之间应该相隔多久？</string>
+	
+	<string name="preference_callerFormat_title">格式化字符串</string>
+	<string name="preference_callerFormat_summary">自定义通知</string>
+	<string name="preference_callerFormat_dialog">% 为名字， &amp; 为类型 \n例如: % 要求在 &amp;</string>
+	
+	<string name="preference_saysms_title">SaySMS</string>
+	<string name="preference_saysms_summary">启用 SaySMS</string>
+	
+	<string name="preference_saysms_settings_title">SaySMS 设置</string>
+	<string name="preference_saysms_settings_summary">自定义它！</string>
+	
+	<string name="preference_smsReadDelay_title">念出延迟</string>
+	<string name="preference_smsReadDelay_summary">设置念名超时</string>
+	
+	<string name="preference_smsFormat_title">格式化字符串</string>
+	<string name="preference_smsFormat_summary">自定义通知</string>
+	<string name="preference_smsFormat_dialog">% 为名字， &amp; 为类型 \n例如: % 接收来自 &amp;</string>
+	
+	<string name="preference_smsRead_title">念短信</string>
+	<string name="preference_smsRead_summaryOn">念出短信内容</string>
+	<string name="preference_smsRead_summaryOff">不念出短信内容</string>
+	
+	<string name="preference_smsRepeatTimes_title">重复念短信</string>
+	<string name="preference_smsRepeatTimes_summary">每次重复念短信应该相隔多久？</string>
+	
+	<string name="preference_smsReadDiscreet_title">谨慎的念出短信内容</string>
+	<string name="preference_smsReadDiscreet_summaryOn">仅当为谨慎模式时才念出短信内容</string>
+	<string name="preference_smsReadDiscreet_summaryOff">不是谨慎模式也念出短信内容</string>
+	
+	<string name="preference_sayemail_title">SayEMail (K-9 邮箱)</string>
+	<string name="preference_sayemail_summary">启用 SayEMail</string>
+	<string name="preference_sayemail_settings_title">SayEMail 设置</string>
+	<string name="preference_sayemail_settings_summary">自定义它！</string>
+	<string name="preference_emailReadDelay_title">念主题的延迟</string>
+	<string name="preference_emailReadDelay_summary">设置念发送者和主题的延迟</string>
+	<string name="preference_emailFormat_title">格式化字符串</string>
+	<string name="preference_emailFormat_summary">自定义通知</string>
+	<string name="preference_emailFormat_dialog">% 为发送者</string>
+	<string name="preference_emailCutReFwd_title">分割 回复: 和 转发:</string>
+	<string name="preference_emailCutReFwd_summaryOn">分割 回复: 转发: 出</string>
+	<string name="preference_emailCutReFwd_summaryOff">准许 回复:, 转发: 单独</string>
+	
+	<string name="preference_emailReadSubject_title">念Email</string>
+	<string name="preference_emailReadSubject_summaryOn">念出Email主题</string>
+	<string name="preference_emailReadSubject_summaryOff">不要念出Email主题</string>
+	
+	<string name="preference_emailRepeatTimes_title">重复念出Email主题</string>
+	<string name="preference_emailRepeatTimes_summary">每次重复念Email主题之间应该相隔多久？</string>
+	
+	<string name="preference_emailReadSubjectDiscreet_title">谨慎的念出主题</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOn">仅当为谨慎模式时才念出主题</string>
+	<string name="preference_emailReadSubjectDiscreet_summaryOff">不是谨慎模式也念出主题</string>
+	
+	<string name="preference_emailHelp_title">帮助: 如何设置</string>
+	<string name="preference_emailHelp_summary">如何设置 K-9 邮箱和 SayMyName...</string>
+	<string name="preference_emailHelpDialog_title">如何设置 K-9 邮箱</string>
+	<string name="preference_emailHelpDialog_text">
+为什么搞的这么复杂？\n\n
+
+
+在Gmail的基本应用程序上并没有一个能广播新邮件信息的，但是经过上次升级后的K-9邮箱就可以做到了，而且我们可以捕捉到诸如此类的并用TTS来念出Email的发送者和主题。
+
+您有两种选择:
+
+1) 使用K-9邮件作为您的主要电子邮箱客户端:
+    - 下载，安装以及配置K-9邮箱
+    - 在GMail程序中禁用通知
+    - SayMyName将运行良好
+
+2) 依然使用GMail程序同时使用K-9邮箱作为代理:
+    - d下载，安装以及配置K-9邮箱
+    - 在K-9邮箱中禁用通知(它会广播关于新邮件的信息)
+    - SayMyName将运行良好
+
+当然您离开了GMail和K-9的通知也不会有什么大不了的问题。您可以简单的得到两个邮箱的每个邮件通知。
+
+注意: 您应该为您的K-9邮箱设置密码，原因是众所周知的。</string>
+	
+	<string name="preference_external_title">附加工具</string>
+	
+	<string name="preference_translate_title">帮忙翻译</string>
+	<string name="preference_translate_summary">不喜欢现在显示的字串？在这更改它们</string>
+	
+	<string name="preference_ringtone_title">无声铃声</string>
+	<string name="preference_ringtone_summary">设置铃声为无声的，这样你就可以清楚的听到我念出的名字了</string>
+	<string name="preference_ringtone_toast_finished">铃声现在是无声的了</string>
+	
+	<string name="preference_tts_title">TTS</string>
+	<string name="preference_tts_toast">导航至底部以语音合成</string>
+	
+	<string name="preference_ringdroid_title">Ringdroid</string>
+	<string name="preference_ringdroid_summary">用Ringdroid定制您的铃声</string>
+	
+	<string name="preference_locale_title">区域设置</string>
+	<string name="preference_locale_summary">使用区域设置来控制我</string>
+	
+	<string name="preference_contactChooser_title">联系人选择器</string>
+	<string name="preference_contactChooser_summary">不想让我读出指定联系人的名字？在这里选出他</string>
+	
+	<string name="preference_trouble_title">疑难解答</string>
+	<string name="preference_trouble_summary">有问题？请看看这个</string>
+	
+	<string name="preference_problem_title">联系我</string>
+	<string name="preference_problem_summary">疑难解答未能帮您解决问题？联系我 :)</string>
+	<string name="preference_problem_toast">请描述您您问题。感谢您的反馈 :)</string>
+	
+	<string name="preference_blog_title">博客</string>
+	<string name="preference_blog_summary">浏览我的博客了解更多信息</string>
+	
+	<string name="preference_donate_title">支持我 :D</string>
+	<string name="preference_donate_summary">如果您喜欢我所做的，请捐赠SayMyName</string>
+	<string name="preference_donate_toast">多谢了 :)</string>
+</resources>
