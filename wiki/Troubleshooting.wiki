@@ -1,9 +1,9 @@
 #summary fix often reported issues
 #labels Featured
-= "I want formatstring back" =
 
-Formatstring isn't available in the current version (SayMyName Dessert 3.1.5), but it's planned to return with the next update.
-In the mean time you can download the old version [http://roadtoadc.googlecode.com/files/SayMyName_Dessert_3.0.apk here].
+Please see if there's an update available at the Android Market before you report a problem.
+
+If there's no update or it doesn't fix your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
 
 = "It doesn´t speak" =
 
