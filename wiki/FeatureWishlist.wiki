@@ -1,8 +1,16 @@
 #summary often requested features
 
 = Feature Wishlist =
-= show user that he uses the wrong version =
+== show user that he uses the wrong version ==
 users with Android versions > 3 should get notified that they are using the wrong version and should install SayMyName Dessert
+
+== Spelling == 
+"is there a way to change the way it says a name? For instance, if that someone special is calling, can it say "Your sweetie is calling" or someone u don't like have it say "Moron"? Anyway, I think u get the question. For me inparticular, its miss pronouncing my daughters name, which is spelled weird."
+
+== Contact Chooser enhancement == 
+"I think that having an "ungrouped" group selection would be quite handy...I've added some contacts via the android system, and never added them to a group, now I don't remember who I added.
+
+Something else handy would be if the listing of all contacts showed what groups each one belonged to."
 
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
