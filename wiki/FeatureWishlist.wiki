@@ -18,6 +18,8 @@ silence SayMyName on pressed volume button
 
 == Start ringtone if unknown ==
 
+== Widget ==
+
 == Test formatstring ==
 Instantly hear your new formatstring while editing it
 
