@@ -7,6 +7,8 @@ silence SayMyName on pressed volume button
 
 == Discreet mode ==
 
+== activate saymyname on connected BT / headset ==
+
 == Spelling == 
 "is there a way to change the way it says a name? For instance, if that someone special is calling, can it say "Your sweetie is calling" or someone u don't like have it say "Moron"? Anyway, I think u get the question. For me inparticular, its miss pronouncing my daughters name, which is spelled weird."
 
