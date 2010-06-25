@@ -1,0 +1,23 @@
+#summary How to help and support SayMyName.
+#labels Featured
+If you want to help make SayMyName even better, consider doing some of these things:
+
+= Translate =
+Translate SayMyName into other languages and make the descriptions of the various settings in the app better.
+See [http://code.google.com/p/roadtoadc/wiki/TranslateMe this page.]
+
+= Donate =
+You can donate using the Android Market (buy "SayMyName Donate") or using PayPal.
+See [http://code.google.com/p/roadtoadc/wiki/Donate this page.]
+
+= Code =
+If you know how, you can add some of the wanted and missing features.
+See [http://code.google.com/p/roadtoadc/wiki/FeatureWishlist this page.]
+
+*Last but not least:* (it's the best thing you can do!)
+= Give me feedback =
+Send me a mail, or leave a comment with things you like and things you don't like.
+
+Thanks
+
+Tom
