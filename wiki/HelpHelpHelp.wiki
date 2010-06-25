@@ -1,0 +1,15 @@
+#summary Summary of all available wiki-sites for SayMyName features on this site
+#labels Featured
+
+= K9-Mail Help =
+[http://code.google.com/p/roadtoadc/wiki/K9MailHelp See this page.]
+
+= Locale-Plugin Help =
+[http://code.google.com/p/roadtoadc/wiki/LocalePluginHelp See this page.]
+
+
+*Not a feature, but also important: [http://code.google.com/p/roadtoadc/wiki/Troubleshooting this page.]*
+
+Thanks
+
+Tom
