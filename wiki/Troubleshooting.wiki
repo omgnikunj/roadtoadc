@@ -5,6 +5,8 @@ Please see if there's an update available at the Android Market before you repor
 
 If there's no update or it doesn't fix your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
 
+*Or maybe you use the wrong version? [http://code.google.com/p/roadtoadc/wiki/Download Please read this page.]
+
 = It only says "unknown" =
 
 Search the Android Market for "SayMyName Dessert", install it and uninstall old "SayMyName". It should work now.
