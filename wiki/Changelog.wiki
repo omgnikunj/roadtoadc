@@ -3,10 +3,10 @@
 
 = SayMyName Dessert =
 == v2.2 on 26. June, 2010==
-* reads nickname saved in addressbook
+ * reads nickname saved in addressbook
 
-* integrated ringtone
+ * integrated ringtone
 
-* [http://en.wikipedia.org/wiki/Transliteration transliterate]
+ * [http://en.wikipedia.org/wiki/Transliteration transliterate]
 
-* new UI
+ * new UI
