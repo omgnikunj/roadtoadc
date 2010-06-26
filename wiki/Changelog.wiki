@@ -1,4 +1,8 @@
 #summary What has changed in the latest versions?
 #labels Featured
 
-== ... ==
+= SayMyName Dessert =
+== v2.2 on 26. June, 2010==
+integrated ringtone
+[transliterate http://de.wikipedia.org/wiki/Transliteration]
+new UI
