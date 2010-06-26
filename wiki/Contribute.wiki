@@ -15,7 +15,7 @@ If you know how, you can add some of the wanted and missing features.
 See [http://code.google.com/p/roadtoadc/wiki/FeatureWishlist this page.]
 
 = Feedback =
-Send me a mail, leave a comment, or even better: [http://code.google.com/p/roadtoadc/issues/entry file a bug] with things you like and things you don't like.
+Rate SayMyName at the Android Market, send me a mail, leave a comment, or even better: [http://code.google.com/p/roadtoadc/issues/entry file a bug] with things you like and things you don't like.
 
 = Spread the word =
 Tell your friends about SayMyName and Android. Show them [http://code.google.com/p/roadtoadc/ how awesome] it is!
