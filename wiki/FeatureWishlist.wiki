@@ -1,5 +1,7 @@
 #summary often requested features
 
+*Suggest new features [http://www.google.com/moderator/#16/e=17eff here].*
+
 = Feature Wishlist =
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
