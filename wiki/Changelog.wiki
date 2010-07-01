@@ -2,7 +2,7 @@
 #labels Featured
 
 = SayMyName Dessert =
-== v2.2 on 26. June, 2010==
+== v2.2 ==
  * reads nickname saved in addressbook
 
  * integrated ringtone
@@ -10,3 +10,5 @@
  * [http://en.wikipedia.org/wiki/Transliteration transliterate]
 
  * new UI
+
+ * discreet mode is back
