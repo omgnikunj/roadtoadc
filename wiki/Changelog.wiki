@@ -2,7 +2,7 @@
 #labels Featured
 
 = SayMyName Dessert =
-== v2.2 ==
+== v2.2 on July 2, 2010 ==
  * reads nickname saved in addressbook
 
  * integrated ringtone
