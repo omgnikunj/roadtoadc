@@ -9,6 +9,14 @@ silence SayMyName on pressed volume button
 
 == activate saymyname on connected BT / headset ==
 
+== only read first name / last name / alias / ... ==
+
+== read names AFTER first white space ==
+"In my contact list I use a person's title (Mr., Miss, Mrs., etc). I'd like the option to start reading the name at the first white space so I don't have to hear "Mr. John Doe" and just hear "John Doe"." see issue 45.
+or:
+== exclude strings ==
+don't read "mrs.", "mr." ...
+
 == Spelling == 
 "is there a way to change the way it says a name? For instance, if that someone special is calling, can it say "Your sweetie is calling" or someone u don't like have it say "Moron"? Anyway, I think u get the question. For me inparticular, its miss pronouncing my daughters name, which is spelled weird."
 -> use nicknames in your addressbook
