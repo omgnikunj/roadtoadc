@@ -3,6 +3,8 @@
 *Suggest new features [http://www.google.com/moderator/#16/e=17eff here].*
 
 = Feature Wishlist =
+== individual sounds for sms, call and email ==
+
 == Silence when pressing volume buttons ==
 silence SayMyName on pressed volume button
 -> SEEMS TO BE IMPOSSIBLE
