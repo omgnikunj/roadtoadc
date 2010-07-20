@@ -2,6 +2,10 @@
 #labels Featured
 
 = SayMyName Dessert =
+== v2.2.4 on July 20, 2010 ==
+ * GMail support!
+ * widget
+
 == v2.2 on July 2, 2010 ==
  * reads nickname saved in addressbook
 
