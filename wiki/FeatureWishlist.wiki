@@ -32,8 +32,6 @@ don't read "mrs.", "mr." ...
 
 Something else handy would be if the listing of all contacts showed what groups each one belonged to."
 
-== Widget ==
-
 == Test formatstring ==
 Instantly hear your new formatstring while editing it
 
