@@ -2,6 +2,10 @@
 #labels Featured
 
 = SayMyName Dessert =
+== v2.2.5 on July 21, 2010 ==
+ * fixed GMail support!
+ * mute-screen
+
 == v2.2.4 on July 20, 2010 ==
  * GMail support!
  * widget
