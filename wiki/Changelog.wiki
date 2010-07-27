@@ -2,6 +2,10 @@
 #labels Featured
 
 = SayMyName Dessert =
+== v2.2.6 on July 27, 2010 ==
+ * fixed GMail support! (really! ;))
+ * changed formatstring behaviour - [http://code.google.com/p/roadtoadc/issues/detail?id=56 issue #56]
+
 == v2.2.5 on July 21, 2010 ==
  * fixed GMail support!
  * mute-screen
