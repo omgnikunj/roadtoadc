@@ -4,7 +4,7 @@
 = Download =
 There are two versions of SayMyName available. One for phones running Android 1.5 (called "Cupcake") and one for phones running a newer version (1.6 "Donut", 2.0, 2.0.1 and 2.1 "Eclair") of Android.
 
-If your phone runs Android 1.5, you can download SayMyName at the [http://www.androidzoom.com/android_applications/communication/saymyname_mxz.html Android Market], [https://slideme.org/application/saymyname-0 SlideMe] and at [http://roadtoadc.googlecode.com/files/SayMyName.apk here].
+If your phone runs Android 1.5, you can download SayMyName at the [http://www.appbrain.com/app/org.mailboxer.android?install Android Market], [https://slideme.org/application/saymyname-0 SlideMe] and at [http://roadtoadc.googlecode.com/files/SayMyName.apk here].
 
 Or scan this barcode with your phone:
 
@@ -13,7 +13,7 @@ http://lh3.ggpht.com/_ziYewd_4bAY/Sv6hnXnPpFI/AAAAAAAAAOk/skuU0fd6RiE/chart.png
 
 
 
-If your phone runs Android 1.6 or higher, you can download SayMyName at the [http://www.androidzoom.com/android_applications/communication/saymyname-dessert_cnr.html Android Market], [https://slideme.org/application/saymyname-dessert SlideMe] and at [http://roadtoadc.googlecode.com/files/SayMyName%20Dessert.apk here].
+If your phone runs Android 1.6 or higher, you can download SayMyName at the [http://www.appbrain.com/app/org.mailboxer.saymyname?install Android Market], [https://slideme.org/application/saymyname-dessert SlideMe] and at [http://roadtoadc.googlecode.com/files/SayMyName%20Dessert.apk here].
 
 Or scan this barcode with your phone:
 
