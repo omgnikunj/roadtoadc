@@ -1,6 +1,11 @@
 #summary fix often reported issues
 #labels Featured
 
+= it forces close / freezes / ... =
+
+[http://code.google.com/p/roadtoadc/wiki/ForceClose Please read this page.]
+
+
 Please see if there's an update available at the Android Market before you report a problem.
 
 If there's no update or it doesn't fix your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
