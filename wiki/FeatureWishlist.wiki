@@ -35,9 +35,6 @@ Something else handy would be if the listing of all contacts showed what groups 
 == Test formatstring ==
 Instantly hear your new formatstring while editing it
 
-== Let the user choose which audiostream to use ==
-some users need it announcing on media stream (so they can change the volume individual from ringtone´s volume), others need ringtone stream
-
 == Don't read special characters ==
 ignore * , : etc
 
