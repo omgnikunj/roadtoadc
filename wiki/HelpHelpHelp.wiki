@@ -1,5 +1,5 @@
 #summary Summary of all available wiki-sites for SayMyName features on this site
-#labels Featured
+#labels Deprecated
 
 = K9-Mail Help =
 [http://code.google.com/p/roadtoadc/wiki/K9MailHelp See this page.]
