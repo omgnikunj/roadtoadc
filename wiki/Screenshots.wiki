@@ -1,4 +1,5 @@
 #summary Some Screenshots of both versions
+#labels Deprecated
 
 = SayMyName =
 == for Cupcake / Android 1.5 ==
