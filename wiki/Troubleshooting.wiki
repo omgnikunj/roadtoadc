@@ -29,7 +29,9 @@ If not:
  * Test doesn't work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
 
-If there's no update and nothing of the steps above fixed your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
+
+
+If there's no update and none of the steps above fixed your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
 
 
 Thanks a lot for your feedback. I hope you enjoy SayMyName!
