@@ -3,7 +3,7 @@
 
 Please see if there's an update available at the Android Market before you report a problem.
 
-= it forces close / freezes / ... =
+= It forces close / freezes / ... =
 
 Please follow [http://code.google.com/p/roadtoadc/wiki/ForceClose these steps] and send me the log.
 
@@ -11,7 +11,7 @@ Please follow [http://code.google.com/p/roadtoadc/wiki/ForceClose these steps] a
 
 Send me a mail and tell me which phone you use, which version it runs, ...
 
-= "It doesn't speak at all" =
+= It doesn't speak at all =
 
 *Most problems will disappear after restarting your phone!*
 
