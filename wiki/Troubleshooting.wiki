@@ -15,15 +15,13 @@ Send me a mail and tell me which phone you use, which version it runs, ...
 
 *Most problems will disappear after restarting your phone!*
 
-Some suggestions what could fix the problem:
-- turn up your ringer's volume. Maybe it's just too quiet for you.
-- open SayMyName. Maybe you don't have TTS installed, or there are some files missing.
-- [URL="http://code.google.com/p/roadtoadc/wiki/ForceClose"]follow these steps[/URL] and send me the log.
-- restart your phone. Sometimes there's something completely wrong, until you restart your phone.
-
 If not:
  * turn up your ringer's volume. Maybe it's just too quiet for you.
  * open SayMyName. It will tell you if TTS isn't installed, or there are some files missing.
+
+ * restart your phone. Sometimes there's something completely wrong, until you restart your phone.
+
+ * [http://code.google.com/p/roadtoadc/wiki/ForceClose follow these steps] and send me the log.
 
  * go to "Speech settings" in SayMyName and try the TTS-Test there
  * If you installed [http://code.google.com/p/eyes-free/ TTS] for the first time, it downloads some voice-datas (only 2MB). Wait for this and try again / restart your phone.
