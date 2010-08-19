@@ -30,7 +30,7 @@ If not:
 
 <br/>
 If there's no update and none of the steps above fixed your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
-
+<br/>
 
 Thanks a lot for your feedback. I hope you enjoy SayMyName!
 
