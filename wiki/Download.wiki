@@ -1,5 +1,5 @@
 #summary find the correct version for you
-#labels Featured
+#labels Deprecated
 
 = Download =
 There are two versions of SayMyName available. One for phones running Android 1.5 (called "Cupcake") and one for phones running a newer version (1.6 "Donut", 2.0, 2.0.1 and 2.1 "Eclair") of Android.
