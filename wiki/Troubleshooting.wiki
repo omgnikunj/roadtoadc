@@ -1,36 +1,39 @@
 #summary fix often reported issues
 #labels Featured
 
-= it forces close / freezes / ... =
-
-[http://code.google.com/p/roadtoadc/wiki/ForceClose Please read this page.]
-
-
 Please see if there's an update available at the Android Market before you report a problem.
 
-If there's no update or it doesn't fix your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
+= it forces close / freezes / ... =
 
-*Or maybe you use the wrong version? [http://code.google.com/p/roadtoadc/wiki/Download Please read this page.]
+Please follow [http://code.google.com/p/roadtoadc/wiki/ForceClose these steps] and send me the log.
 
 = It only says "unknown" =
 
-Search the Android Market for "SayMyName Dessert", install it and uninstall old "SayMyName". It should work now.
-If you can't find "SayMyName Dessert" in Android Market, your phone is too old. You can send me a mail, maybe I can find the problem.
+Send me a mail and tell me which phone you use, which version it runs, ...
 
-= "It doesn´t speak" =
+= "It doesn't speak at all" =
 
 *Most problems will disappear after restarting your phone!*
 
+Some suggestions what could fix the problem:
+- turn up your ringer's volume. Maybe it's just too quiet for you.
+- open SayMyName. Maybe you don't have TTS installed, or there are some files missing.
+- [URL="http://code.google.com/p/roadtoadc/wiki/ForceClose"]follow these steps[/URL] and send me the log.
+- restart your phone. Sometimes there's something completely wrong, until you restart your phone.
+
 If not:
- * *Turn your phone´s volume up!*
- * Press "TTS" in my app and try the TTS-Test there
- * If you installed [http://code.google.com/p/eyes-free/ TTS] first time, it downloads some voice-datas (only 2MB). Wait for this and try again / restart your phone.
+ * turn up your ringer's volume. Maybe it's just too quiet for you.
+ * open SayMyName. It will tell you if TTS isn't installed, or there are some files missing.
 
- * Test doesn´t work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
- * *Or contact me and describe your problem.*
+ * go to "Speech settings" in SayMyName and try the TTS-Test there
+ * If you installed [http://code.google.com/p/eyes-free/ TTS] for the first time, it downloads some voice-datas (only 2MB). Wait for this and try again / restart your phone.
+
+ * Test doesn't work after a reboot? TTS seems to be not working. So please read: [http://code.google.com/p/eyes-free/wiki/TTSTroubleshooting Troubleshooting TTS]
 
 
-Thanks a lot for every feedback I get!
-I hope you enjoy SayMyName!
+If there's no update and nothing of the steps above fixed your problem, [http://code.google.com/p/roadtoadc/issues/entry file a bug] or send me a mail.
+
+
+Thanks a lot for your feedback. I hope you enjoy SayMyName!
 
 Tom
