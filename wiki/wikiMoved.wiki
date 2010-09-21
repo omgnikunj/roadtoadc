@@ -1,0 +1,10 @@
+#labels Deprecated
+== Wiki moved! ==
+
+Hello,
+
+At the moment I'm working on moving the Wiki from Google Code to my very own [http://tomtasche.at/ website]. Until then, you can find useful informations [http://groups.google.de/group/saymyname-group here]. If you can't find what you're looking for feel free to [www.google.com/recaptcha/mailhide/d?k=017JNMgdqXwmtGHMjJBgZOJQ==&c=1aPbrz2bUpN6BUwcnjKoJNdpYqiRPp2VNut0JeY-qKM= mail me].
+
+However, you can still access old Wikis [http://code.google.com/p/roadtoadc/w/list here].
+
+Tom
