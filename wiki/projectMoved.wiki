@@ -1,0 +1,10 @@
+#labels Deprecated
+== Project moved ==
+
+Hello,
+
+SayMyName moved on to [http://saymyname.tomtasche.at tomtasche.at]. Now you can find informations about it there. If you can't find what you're looking for feel free to [www.google.com/recaptcha/mailhide/d?k=017JNMgdqXwmtGHMjJBgZOJQ==&c=1aPbrz2bUpN6BUwcnjKoJNdpYqiRPp2VNut0JeY-qKM= mail me].
+
+However, we're still using Google's [http://code.google.com/p/roadtoadc/issues/list issue-tracker] until we find an alternative. Feel free to report issues there. :)
+
+Tom
