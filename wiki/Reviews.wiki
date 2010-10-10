@@ -4,6 +4,7 @@
 = Reviews =
 
 Read what others say about SayMyName:
+  * [http://androinica.com/2010/09/27/let-your-android-call-out-the-name-of-who%E2%80%99s-contacting-you-with-saymyname-app-reviews/ androinica (English)]
   * [http://www.xda-developers.com/android/let-your-device-tell-you-whos-calling-with-saymyname-dessert-for-android/ xda-developers (English)]
   * [http://www.cnet.de/blogs/mobile/android/41526935/android_app+saymyname+liest+anrufer_namen+vor.htm cnet.de (German / Deutsch)]
   * [http://www.techgospelaccordingtojohn.com/2010/09/speak-up.html Tech Gospel (English)]
