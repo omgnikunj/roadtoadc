@@ -1,5 +1,4 @@
 #summary What has changed in the latest versions?
-#labels Featured
 
 = SayMyName Dessert =
 == v2.7 on September 21, 2010 ==
