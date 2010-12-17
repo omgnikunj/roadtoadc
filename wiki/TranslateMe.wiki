@@ -2,6 +2,6 @@
 
 = Translate me =
 
-Send me a mail if you want to translate SayMyName.
+[Here http://tomtasche.at/p/SayMyName/translate].
 
 Thanks in advance! :)
