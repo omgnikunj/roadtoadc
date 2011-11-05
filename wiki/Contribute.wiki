@@ -1,5 +1,4 @@
 #summary How to help and support SayMyName.
-#labels Featured
 If you want to help make SayMyName even better, consider doing some of these things:
 
 = Translate =
