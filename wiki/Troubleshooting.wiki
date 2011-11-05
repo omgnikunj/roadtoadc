@@ -1,5 +1,4 @@
 #summary fix often reported issues
-#labels Featured
 
 Please see if there's an update available at the Android Market before you report a problem.
 
